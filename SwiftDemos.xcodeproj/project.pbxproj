@@ -18,6 +18,7 @@
 		55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8C171CBFBD47005F57B8 /* NibInstantiable.swift */; };
 		55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8C1C1CBFCD16005F57B8 /* Unimplemented.storyboard */; };
 		55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */; };
+		55E050181CC010AF00484C27 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55E050171CC010AF00484C27 /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		55BC8C171CBFBD47005F57B8 /* NibInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstantiable.swift; sourceTree = "<group>"; };
 		55BC8C1C1CBFCD16005F57B8 /* Unimplemented.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unimplemented.storyboard; sourceTree = "<group>"; };
 		55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnimplementedViewController.swift; sourceTree = "<group>"; };
+		55E050171CC010AF00484C27 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		55BC8BD41CBFBB2B005F57B8 = {
 			isa = PBXGroup;
 			children = (
+				55E050171CC010AF00484C27 /* Readme.md */,
 				55BC8BDF1CBFBB2B005F57B8 /* SwiftDemos */,
 				55BC8BF41CBFBB2C005F57B8 /* SwiftDemosTests */,
 				55BC8BFF1CBFBB2C005F57B8 /* SwiftDemosUITests */,
@@ -303,6 +306,7 @@
 			files = (
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
+				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
@@ -522,6 +526,7 @@
 				55BC8C071CBFBB2C005F57B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55BC8C081CBFBB2C005F57B8 /* Build configuration list for PBXNativeTarget "SwiftDemosTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +535,7 @@
 				55BC8C0A1CBFBB2C005F57B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55BC8C0B1CBFBB2C005F57B8 /* Build configuration list for PBXNativeTarget "SwiftDemosUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +544,7 @@
 				55BC8C0D1CBFBB2C005F57B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
