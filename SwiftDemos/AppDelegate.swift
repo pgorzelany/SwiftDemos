@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
-        window?.rootViewController = TOKViewController.instantiateFromStoryboard()
+        let navController = UINavigationController(rootViewController: TOKViewController.instantiateFromStoryboard())
+        window?.rootViewController = navController
         
         return true
     }
