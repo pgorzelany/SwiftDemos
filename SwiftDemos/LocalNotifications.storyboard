@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Local Notifications View Controller-->
+        <scene sceneID="5mq-UP-5Kd">
+            <objects>
+                <viewController storyboardIdentifier="LocalNotificationsViewController" id="Gw0-aM-ghL" customClass="LocalNotificationsViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xLE-TA-iUb"/>
+                        <viewControllerLayoutGuide type="bottom" id="1gu-mv-x0f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f0i-aJ-4Ks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sgI-sl-21c">
+                                <rect key="frame" x="-4" y="20" width="328" height="318"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notification Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-oZ-QDF">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="2mC-4f-W1L"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0u0-Af-Aeq">
+                                        <rect key="frame" x="0.0" y="56" width="328" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Gw0-aM-ghL" id="pha-ou-ffm"/>
+                                            <outlet property="delegate" destination="Gw0-aM-ghL" id="u2n-ms-pY3"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSr-R0-CrY">
+                                        <rect key="frame" x="0.0" y="288" width="328" height="30"/>
+                                        <state key="normal" title="Schedule"/>
+                                        <connections>
+                                            <action selector="scheduleButtonTouched:" destination="Gw0-aM-ghL" eventType="touchUpInside" id="OZS-ta-5EC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgI-sl-21c" firstAttribute="top" secondItem="xLE-TA-iUb" secondAttribute="bottom" id="fbx-o6-6zp"/>
+                            <constraint firstItem="1gu-mv-x0f" firstAttribute="top" secondItem="sgI-sl-21c" secondAttribute="bottom" id="iON-Oz-Y5M"/>
+                            <constraint firstItem="sgI-sl-21c" firstAttribute="leading" secondItem="f0i-aJ-4Ks" secondAttribute="leadingMargin" constant="-20" id="puD-N3-RdS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sgI-sl-21c" secondAttribute="trailing" constant="-20" id="w6D-9x-iAY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iON-Oz-Y5M"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="notificationTitleTextField" destination="TK3-oZ-QDF" id="HZu-Ym-Mwx"/>
+                        <outlet property="scheduleButton" destination="PSr-R0-CrY" id="gMo-Rr-A5L"/>
+                        <outlet property="timerPickerView" destination="0u0-Af-Aeq" id="FDM-uq-Udp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Q9-xn-rD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="345" y="330"/>
+        </scene>
+    </scenes>
+</document>

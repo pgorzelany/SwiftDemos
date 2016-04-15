@@ -37,7 +37,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     
     let tableViewModel = [
         TOKSection(hader: "Notifications", rows: [
-            TOKRow(title: "Local Notifications", controller: nil),
+            TOKRow(title: "Local Notifications", controller: LocalNotificationsViewController.instantiateFromStoryboard()),
             TOKRow(title: "Remote Notifications", controller: nil)
             ]
         ),
@@ -76,7 +76,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Table of Content"
+        self.navigationItem.title = "TOC"
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }

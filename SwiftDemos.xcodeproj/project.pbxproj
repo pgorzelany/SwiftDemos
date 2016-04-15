@@ -19,6 +19,8 @@
 		55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8C1C1CBFCD16005F57B8 /* Unimplemented.storyboard */; };
 		55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */; };
 		55E050181CC010AF00484C27 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55E050171CC010AF00484C27 /* Readme.md */; };
+		55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */; };
+		55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		55BC8C1C1CBFCD16005F57B8 /* Unimplemented.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unimplemented.storyboard; sourceTree = "<group>"; };
 		55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnimplementedViewController.swift; sourceTree = "<group>"; };
 		55E050171CC010AF00484C27 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocalNotifications.storyboard; sourceTree = "<group>"; };
+		55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 			children = (
 				55BC8C101CBFBBA8005F57B8 /* TOK.storyboard */,
 				55BC8C121CBFBBB6005F57B8 /* TOKViewController.swift */,
+				55E050191CC0112000484C27 /* Notifications */,
 				55BC8C1B1CBFCCFB005F57B8 /* Unimplemented */,
 			);
 			name = TOK;
@@ -170,6 +175,23 @@
 				55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */,
 			);
 			name = Unimplemented;
+			sourceTree = "<group>";
+		};
+		55E050191CC0112000484C27 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				55E0501A1CC0113A00484C27 /* LocalNotifications */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		55E0501A1CC0113A00484C27 /* LocalNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */,
+				55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */,
+			);
+			name = LocalNotifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +301,7 @@
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
+				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +332,7 @@
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
+				55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
