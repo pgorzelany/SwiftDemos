@@ -54,6 +54,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        
+        if let category = notification.category, identifier = identifier {
+            
+            if category == "like" {
+                
+                if identifier == "yes" {
+                    
+                    AlertUtils.showAlert(title: "NotificationButtonTouched", body: "The yes button was touched")
+                    
+                } else if identifier == "no" {
+                    
+                    AlertUtils.showAlert(title: "NotificationButtonTouched", body: "The no button was touched")
+                    
+                }
+                
+            }
+            
+        }
+        
+        completionHandler()
+        
+    }
+    
     // MARK: Custom Methods
     
     private func loadAppStructure() {

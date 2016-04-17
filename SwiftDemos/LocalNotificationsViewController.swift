@@ -52,7 +52,7 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
         notification.fireDate = NSDate().dateByAddingTimeInterval(self.notificationTime)
         notification.alertBody = self.notificationTitleTextField.text
         notification.alertTitle = "This is the alert title"
-        notification.alertAction = "Action!"
+        notification.category = "like" // Must be the same as the registered category
         if let badgeText = notificationBadgeNumberTextField.text,  badgeNumber = Int(badgeText) {
             notification.applicationIconBadgeNumber = badgeNumber
         }
@@ -66,9 +66,28 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
     
     private func registerForLocalNotifications() {
         
+        let action1 = UIMutableUserNotificationAction()
+        action1.identifier = "yes"
+        action1.title = "yes"
+        action1.authenticationRequired = false
+        action1.activationMode = .Foreground
+        action1.destructive = false
         
-        // TODO: Check what are categories
-        let notificationsSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        let action2 = UIMutableUserNotificationAction()
+        action2.identifier = "no"
+        action2.title = "no"
+        action2.authenticationRequired = false
+        action2.activationMode = .Foreground
+        action2.destructive = true
+        
+        let category = UIMutableUserNotificationCategory()
+        category.identifier = "like"
+        category.setActions([action1, action2], forContext: UIUserNotificationActionContext.Default)
+        
+        var categories = Set<UIMutableUserNotificationCategory>()
+        categories.insert(category)
+        
+        let notificationsSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: categories)
         
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationsSettings)
         
