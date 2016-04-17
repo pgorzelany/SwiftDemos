@@ -15,14 +15,14 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
     static let storyboardId = "LocalNotifications"
     
     // MARK: Outlets
-    
+    @IBOutlet weak var notificationBadgeNumberTextField: UITextField!
     @IBOutlet weak var notificationTitleTextField: UITextField!
     @IBOutlet weak var timerPickerView: UIPickerView!
     @IBOutlet weak var scheduleButton: UIButton!
     
     // MARK: Properties
     
-    let timePickerOption: [NSTimeInterval] = [10, 20, 30, 40, 50, 60]
+    let timePickerOption: [NSTimeInterval] = [5, 10, 20, 30, 40, 50, 60]
     
     /** The time ins seconds when the notification will fire */
     lazy var notificationTime: NSTimeInterval = {
@@ -50,9 +50,12 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
         
         let notification = UILocalNotification()
         notification.fireDate = NSDate().dateByAddingTimeInterval(self.notificationTime)
-        notification.alertBody = "This is the alert body"
+        notification.alertBody = self.notificationTitleTextField.text
         notification.alertTitle = "This is the alert title"
-        notification.applicationIconBadgeNumber = 1
+        notification.alertAction = "Action!"
+        if let badgeText = notificationBadgeNumberTextField.text,  badgeNumber = Int(badgeText) {
+            notification.applicationIconBadgeNumber = badgeNumber
+        }
         notification.soundName = UILocalNotificationDefaultSoundName
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
@@ -88,7 +91,7 @@ extension LocalNotificationsViewController: UIPickerViewDataSource, UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(Int(self.timePickerOption[row])) seconds"
+        return "in \(Int(self.timePickerOption[row])) seconds"
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

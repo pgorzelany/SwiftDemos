@@ -19,25 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sgI-sl-21c">
-                                <rect key="frame" x="-4" y="20" width="328" height="318"/>
+                                <rect key="frame" x="-4" y="20" width="328" height="354"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notification Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-oZ-QDF">
-                                        <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notification Body" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-oZ-QDF">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="2mC-4f-W1L"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2mC-4f-W1L"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Badge number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-Sb-A7t">
+                                        <rect key="frame" x="0.0" y="46" width="328" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0u0-Af-Aeq">
-                                        <rect key="frame" x="0.0" y="56" width="328" height="216"/>
+                                        <rect key="frame" x="0.0" y="92" width="328" height="216"/>
                                         <connections>
                                             <outlet property="dataSource" destination="Gw0-aM-ghL" id="pha-ou-ffm"/>
                                             <outlet property="delegate" destination="Gw0-aM-ghL" id="u2n-ms-pY3"/>
                                         </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSr-R0-CrY">
-                                        <rect key="frame" x="0.0" y="288" width="328" height="30"/>
+                                        <rect key="frame" x="0.0" y="324" width="328" height="30"/>
                                         <state key="normal" title="Schedule"/>
                                         <connections>
                                             <action selector="scheduleButtonTouched:" destination="Gw0-aM-ghL" eventType="touchUpInside" id="OZS-ta-5EC"/>
@@ -46,7 +56,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sgI-sl-21c" firstAttribute="top" secondItem="xLE-TA-iUb" secondAttribute="bottom" id="fbx-o6-6zp"/>
                             <constraint firstItem="1gu-mv-x0f" firstAttribute="top" secondItem="sgI-sl-21c" secondAttribute="bottom" id="iON-Oz-Y5M"/>
@@ -61,6 +71,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="notificationBadgeNumberTextField" destination="bKh-Sb-A7t" id="BMQ-3m-iYY"/>
                         <outlet property="notificationTitleTextField" destination="TK3-oZ-QDF" id="HZu-Ym-Mwx"/>
                         <outlet property="scheduleButton" destination="PSr-R0-CrY" id="gMo-Rr-A5L"/>
                         <outlet property="timerPickerView" destination="0u0-Af-Aeq" id="FDM-uq-Udp"/>

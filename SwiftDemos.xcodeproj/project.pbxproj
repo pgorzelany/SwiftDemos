@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */; };
+		551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */; };
+		551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A11CC4107800AB0E22 /* AlertUtils.swift */; };
+		551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */; };
+		551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */; };
+		551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */; };
 		55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */; };
 		55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */; };
 		55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8BE91CBFBB2C005F57B8 /* LaunchScreen.storyboard */; };
@@ -41,6 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationHandler.swift; sourceTree = "<group>"; };
+		551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLocalNotificationHandler.swift; sourceTree = "<group>"; };
+		551A05A11CC4107800AB0E22 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
+		551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoAlertView.xib; sourceTree = "<group>"; };
+		551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAlertView.swift; sourceTree = "<group>"; };
+		551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		55BC8BDD1CBFBB2B005F57B8 /* SwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +100,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551A05A01CC4106600AB0E22 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				551A05A11CC4107800AB0E22 /* AlertUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		551A05A31CC4108200AB0E22 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */,
+				551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		551A05A81CC4141700AB0E22 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		55BC8BD41CBFBB2B005F57B8 = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +151,10 @@
 			children = (
 				55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */,
 				55BC8C0E1CBFBB4A005F57B8 /* Support */,
+				551A05A81CC4141700AB0E22 /* Extensions */,
 				55BC8C141CBFBBE7005F57B8 /* Protocols */,
+				551A05A31CC4108200AB0E22 /* Views */,
+				551A05A01CC4106600AB0E22 /* Utils */,
 				55BC8C0F1CBFBB8C005F57B8 /* TOK */,
 			);
 			path = SwiftDemos;
@@ -190,6 +230,8 @@
 			children = (
 				55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */,
 				55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */,
+				551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */,
+				551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */,
 			);
 			name = LocalNotifications;
 			sourceTree = "<group>";
@@ -300,6 +342,7 @@
 			files = (
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
+				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
@@ -327,13 +370,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */,
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
+				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
+				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
+				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
 				55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
+				551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
