@@ -13,6 +13,11 @@
 		551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */; };
 		551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */; };
 		551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */; };
+		557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */; };
+		557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17C41CC6A7C500A25E98 /* ViewDraggingViewController.swift */; };
+		557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17C71CC6ABD100A25E98 /* DraggableView.swift */; };
+		557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */; };
+		557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */; };
 		55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */; };
 		55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */; };
 		55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8BE91CBFBB2C005F57B8 /* LaunchScreen.storyboard */; };
@@ -53,6 +58,11 @@
 		551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoAlertView.xib; sourceTree = "<group>"; };
 		551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAlertView.swift; sourceTree = "<group>"; };
 		551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewDragging.storyboard; sourceTree = "<group>"; };
+		557E17C41CC6A7C500A25E98 /* ViewDraggingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDraggingViewController.swift; sourceTree = "<group>"; };
+		557E17C71CC6ABD100A25E98 /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizersViewController.swift; sourceTree = "<group>"; };
+		557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GestureRecognizers.storyboard; sourceTree = "<group>"; };
 		55BC8BDD1CBFBB2B005F57B8 /* SwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +135,33 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		557E17C11CC6A74600A25E98 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				557E17C61CC6ABAF00A25E98 /* ViewDragging */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		557E17C61CC6ABAF00A25E98 /* ViewDragging */ = {
+			isa = PBXGroup;
+			children = (
+				557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */,
+				557E17C41CC6A7C500A25E98 /* ViewDraggingViewController.swift */,
+				557E17C71CC6ABD100A25E98 /* DraggableView.swift */,
+			);
+			name = ViewDragging;
+			sourceTree = "<group>";
+		};
+		557E17C91CC6B7C900A25E98 /* GestureRecognizers */ = {
+			isa = PBXGroup;
+			children = (
+				557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */,
+				557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */,
+			);
+			name = GestureRecognizers;
+			sourceTree = "<group>";
+		};
 		55BC8BD41CBFBB2B005F57B8 = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +231,8 @@
 				55BC8C101CBFBBA8005F57B8 /* TOK.storyboard */,
 				55BC8C121CBFBBB6005F57B8 /* TOKViewController.swift */,
 				55E050191CC0112000484C27 /* Notifications */,
+				557E17C91CC6B7C900A25E98 /* GestureRecognizers */,
+				557E17C11CC6A74600A25E98 /* Animations */,
 				55BC8C1B1CBFCCFB005F57B8 /* Unimplemented */,
 			);
 			name = TOK;
@@ -345,6 +384,8 @@
 				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
+				557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */,
+				557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */,
+				557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */,
 				551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */,
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
@@ -380,6 +423,7 @@
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
 				55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */,
+				557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
 				551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */,
 			);
