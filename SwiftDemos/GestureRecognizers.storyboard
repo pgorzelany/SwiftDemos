@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Gesture Recognizers View Controller-->
@@ -16,9 +17,47 @@
                     <view key="view" contentMode="scaleToFill" id="pBO-fU-Tjd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try some gestures in the view" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxm-Qs-EOS">
+                                <rect key="frame" x="24" y="20" width="272" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrX-nW-Slm">
+                                <rect key="frame" x="24" y="451" width="272" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Rz9-X9-8UN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEw-dL-dax">
+                                <rect key="frame" x="-4" y="49" width="328" height="394"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="fEw-dL-dax" firstAttribute="leading" secondItem="pBO-fU-Tjd" secondAttribute="leadingMargin" constant="-20" id="CI0-1O-wl0"/>
+                            <constraint firstItem="Cxm-Qs-EOS" firstAttribute="top" secondItem="89l-UJ-URe" secondAttribute="bottom" id="GIp-iz-BbL"/>
+                            <constraint firstItem="QrX-nW-Slm" firstAttribute="top" secondItem="fEw-dL-dax" secondAttribute="bottom" constant="8" id="INQ-yq-LS9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cxm-Qs-EOS" secondAttribute="trailing" constant="8" id="JXj-7R-GrP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QrX-nW-Slm" secondAttribute="trailing" constant="8" id="NH8-RL-NjS"/>
+                            <constraint firstItem="Cxm-Qs-EOS" firstAttribute="leading" secondItem="pBO-fU-Tjd" secondAttribute="leadingMargin" constant="8" id="Tbx-aR-TG1"/>
+                            <constraint firstItem="fEw-dL-dax" firstAttribute="top" secondItem="Cxm-Qs-EOS" secondAttribute="bottom" constant="8" id="bcP-4S-ms8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fEw-dL-dax" secondAttribute="trailing" constant="-20" id="kMH-jK-Azh"/>
+                            <constraint firstItem="xvQ-oH-N9E" firstAttribute="top" secondItem="QrX-nW-Slm" secondAttribute="bottom" constant="8" id="lTx-Ho-YFd"/>
+                            <constraint firstItem="QrX-nW-Slm" firstAttribute="leading" secondItem="pBO-fU-Tjd" secondAttribute="leadingMargin" constant="8" id="oXh-4f-pOA"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="recognizerView" destination="fEw-dL-dax" id="ZAZ-eX-pvh"/>
+                        <outlet property="resultLabel" destination="QrX-nW-Slm" id="6bW-Pg-IGe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKV-b2-2MX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

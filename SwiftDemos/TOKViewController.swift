@@ -42,7 +42,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]
         ),
         TOKSection(hader: "Gesture Recognizers", rows: [
-            TOKRow(title: "Gesture Recognizers", controller: nil)
+            TOKRow(title: "Gesture Recognizers", controller: GestureRecognizersViewController.instantiateFromStoryboard())
             ]
         ),
         TOKSection(hader: "View Animations", rows: [
