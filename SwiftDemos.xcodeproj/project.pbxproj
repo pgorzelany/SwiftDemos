@@ -18,6 +18,9 @@
 		557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17C71CC6ABD100A25E98 /* DraggableView.swift */; };
 		557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */; };
 		557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */; };
+		55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A5C1191CD00AD800297406 /* BasicMap.storyboard */; };
+		55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */; };
+		55A5C11F1CD00C0300297406 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A5C11E1CD00C0300297406 /* MapKit.framework */; };
 		55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */; };
 		55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */; };
 		55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8BE91CBFBB2C005F57B8 /* LaunchScreen.storyboard */; };
@@ -63,6 +66,9 @@
 		557E17C71CC6ABD100A25E98 /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizersViewController.swift; sourceTree = "<group>"; };
 		557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GestureRecognizers.storyboard; sourceTree = "<group>"; };
+		55A5C1191CD00AD800297406 /* BasicMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicMap.storyboard; sourceTree = "<group>"; };
+		55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMapViewController.swift; sourceTree = "<group>"; };
+		55A5C11E1CD00C0300297406 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		55BC8BDD1CBFBB2B005F57B8 /* SwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BC8BE01CBFBB2B005F57B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A5C11F1CD00C0300297406 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,9 +169,27 @@
 			name = GestureRecognizers;
 			sourceTree = "<group>";
 		};
+		55A5C1181CD00A8B00297406 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				55A5C11B1CD00AE300297406 /* BasicMap */,
+			);
+			name = MapKit;
+			sourceTree = "<group>";
+		};
+		55A5C11B1CD00AE300297406 /* BasicMap */ = {
+			isa = PBXGroup;
+			children = (
+				55A5C1191CD00AD800297406 /* BasicMap.storyboard */,
+				55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */,
+			);
+			name = BasicMap;
+			sourceTree = "<group>";
+		};
 		55BC8BD41CBFBB2B005F57B8 = {
 			isa = PBXGroup;
 			children = (
+				55A5C11E1CD00C0300297406 /* MapKit.framework */,
 				55E050171CC010AF00484C27 /* Readme.md */,
 				55BC8BDF1CBFBB2B005F57B8 /* SwiftDemos */,
 				55BC8BF41CBFBB2C005F57B8 /* SwiftDemosTests */,
@@ -233,6 +258,7 @@
 				55E050191CC0112000484C27 /* Notifications */,
 				557E17C91CC6B7C900A25E98 /* GestureRecognizers */,
 				557E17C11CC6A74600A25E98 /* Animations */,
+				55A5C1181CD00A8B00297406 /* MapKit */,
 				55BC8C1B1CBFCCFB005F57B8 /* Unimplemented */,
 			);
 			name = TOK;
@@ -381,6 +407,7 @@
 			files = (
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
+				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
 				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
@@ -417,6 +444,7 @@
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
+				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,

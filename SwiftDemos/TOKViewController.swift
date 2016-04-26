@@ -61,7 +61,9 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         TOKSection(hader: "UIKit Dynamics", rows: [
             ]
         ),
-        TOKSection(hader: "Mapkit", rows: []),
+        TOKSection(hader: "Mapkit", rows: [
+            TOKRow(title: "Basic Map", controller: BasicMapViewController.instantiateFromStoryboard())
+            ]),
         TOKSection(hader: "Core Motion", rows: []),
         TOKSection(hader: "AV Foundation", rows: []),
         TOKSection(hader: "SpriteKit", rows: [
