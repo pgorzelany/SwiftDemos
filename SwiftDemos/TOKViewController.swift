@@ -48,10 +48,12 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         TOKSection(hader: "View Animations", rows: [
             TOKRow(title: "View Dragging", controller: ViewDraggingViewController.instantiateFromStoryboard()),
             TOKRow(title: "Drawing", controller: nil),
-            TOKRow(title: "Animating Constraints", controller: nil),
-            TOKRow(title: "Affine Transforms", controller: nil),
+            TOKRow(title: "Animating Constraints", controller: nil)
             ]
         ),
+        TOKSection(hader: "Core Graphics", rows: [
+            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.instantiateFromStoryboard())
+            ]),
         TOKSection(hader: "Core Animation", rows: [
             TOKRow(title: "Position", controller: nil),
             TOKRow(title: "Path", controller: nil),

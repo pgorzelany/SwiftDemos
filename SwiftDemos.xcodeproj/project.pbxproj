@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */; };
+		2A90925C1CD3A5710037A0B8 /* AffineTransform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */; };
 		551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */; };
 		551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */; };
 		551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A11CC4107800AB0E22 /* AlertUtils.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffineTransformViewController.swift; sourceTree = "<group>"; };
+		2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AffineTransform.storyboard; sourceTree = "<group>"; };
 		551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A05A11CC4107800AB0E22 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
@@ -117,6 +121,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A9092561CD3A52D0037A0B8 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				2A9092581CD3A54A0037A0B8 /* AffineTransform */,
+			);
+			name = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		2A9092581CD3A54A0037A0B8 /* AffineTransform */ = {
+			isa = PBXGroup;
+			children = (
+				2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */,
+				2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */,
+			);
+			name = AffineTransform;
+			sourceTree = "<group>";
+		};
 		551A05A01CC4106600AB0E22 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +280,7 @@
 				557E17C91CC6B7C900A25E98 /* GestureRecognizers */,
 				557E17C11CC6A74600A25E98 /* Animations */,
 				55A5C1181CD00A8B00297406 /* MapKit */,
+				2A9092561CD3A52D0037A0B8 /* CoreGraphics */,
 				55BC8C1B1CBFCCFB005F57B8 /* Unimplemented */,
 			);
 			name = TOK;
@@ -405,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A90925C1CD3A5710037A0B8 /* AffineTransform.storyboard in Resources */,
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
 				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
@@ -438,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
 				557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */,
 				557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */,
 				551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */,
