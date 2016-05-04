@@ -64,7 +64,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]
         ),
         TOKSection(hader: "Mapkit", rows: [
-            TOKRow(title: "Basic Map", controller: BasicMapViewController.instantiateFromStoryboard())
+            TOKRow(title: "Basic Map", controller: BasicMapViewController.instantiateFromStoryboard()),
+            TOKRow(title: "Geocoding", controller: GeocodingViewController.instantiateFromStoryboard())
             ]),
         TOKSection(hader: "Core Motion", rows: []),
         TOKSection(hader: "AV Foundation", rows: []),

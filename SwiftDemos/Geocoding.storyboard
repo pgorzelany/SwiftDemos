@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Geocoding View Controller-->
+        <scene sceneID="GoW-hU-Moh">
+            <objects>
+                <viewController storyboardIdentifier="GeocodingViewController" id="sMA-6j-MFM" customClass="GeocodingViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1eG-06-ySv"/>
+                        <viewControllerLayoutGuide type="bottom" id="dzv-oa-Gim"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TtP-ta-uZS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guz-38-XBy" userLabel="footerContainer">
+                                <rect key="frame" x="-4" y="405" width="328" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag the map or input an address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-0h-ccz">
+                                        <rect key="frame" x="8" y="8" width="312" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lms-fz-Cst">
+                                        <rect key="frame" x="8" y="33" width="312" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Lms-fz-Cst" firstAttribute="top" secondItem="c6T-0h-ccz" secondAttribute="bottom" constant="8" id="0wA-JJ-0JK"/>
+                                    <constraint firstItem="c6T-0h-ccz" firstAttribute="top" secondItem="guz-38-XBy" secondAttribute="top" constant="8" id="QII-Gq-Azd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lms-fz-Cst" secondAttribute="trailing" constant="8" id="iRp-Mm-HOp"/>
+                                    <constraint firstItem="Lms-fz-Cst" firstAttribute="leading" secondItem="guz-38-XBy" secondAttribute="leading" constant="8" id="pOF-kM-Z8e"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lms-fz-Cst" secondAttribute="bottom" constant="12" id="qex-H9-zY5"/>
+                                    <constraint firstAttribute="trailing" secondItem="c6T-0h-ccz" secondAttribute="trailing" constant="8" id="rXA-aC-IrC"/>
+                                    <constraint firstItem="c6T-0h-ccz" firstAttribute="leading" secondItem="guz-38-XBy" secondAttribute="leading" constant="8" id="wr3-Nr-9qh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F91-Ds-8N9" userLabel="mapContainer">
+                                <rect key="frame" x="-4" y="20" width="328" height="385"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jaa-D1-chp">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="385"/>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Jaa-D1-chp" secondAttribute="trailing" id="0gj-pa-1lz"/>
+                                    <constraint firstItem="Jaa-D1-chp" firstAttribute="top" secondItem="F91-Ds-8N9" secondAttribute="top" id="D7j-nt-5Im"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jaa-D1-chp" secondAttribute="bottom" id="fbT-pu-xJN"/>
+                                    <constraint firstItem="Jaa-D1-chp" firstAttribute="leading" secondItem="F91-Ds-8N9" secondAttribute="leading" id="son-b1-lYa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F91-Ds-8N9" firstAttribute="leading" secondItem="TtP-ta-uZS" secondAttribute="leadingMargin" constant="-20" id="2LC-4f-ffH"/>
+                            <constraint firstItem="dzv-oa-Gim" firstAttribute="top" secondItem="guz-38-XBy" secondAttribute="bottom" id="5FC-uD-3ku"/>
+                            <constraint firstItem="guz-38-XBy" firstAttribute="leading" secondItem="TtP-ta-uZS" secondAttribute="leadingMargin" constant="-20" id="BeS-g5-lhO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="guz-38-XBy" secondAttribute="trailing" constant="-20" id="VI0-MS-Z3C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F91-Ds-8N9" secondAttribute="trailing" constant="-20" id="Z4z-o1-kYQ"/>
+                            <constraint firstItem="guz-38-XBy" firstAttribute="top" secondItem="F91-Ds-8N9" secondAttribute="bottom" id="klU-jD-jic"/>
+                            <constraint firstItem="F91-Ds-8N9" firstAttribute="top" secondItem="1eG-06-ySv" secondAttribute="bottom" id="pl1-4D-fBd"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="Lms-fz-Cst" id="Skq-zg-F0t"/>
+                        <outlet property="mapView" destination="Jaa-D1-chp" id="UfI-l0-LlH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvp-jq-eZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="399"/>
+        </scene>
+    </scenes>
+</document>

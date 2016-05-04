@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Basic Map View Controller-->
@@ -18,20 +19,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8kw-Hc-aD0">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="432"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EnZ-9O-Wsb">
+                                <rect key="frame" x="-4" y="452" width="328" height="29"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satelite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlValueChanged:" destination="lWo-8O-Hjn" eventType="valueChanged" id="HfK-5d-F4h"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8kw-Hc-aD0" firstAttribute="leading" secondItem="luc-MQ-fry" secondAttribute="leading" id="2FW-ZQ-Kgs"/>
                             <constraint firstItem="8kw-Hc-aD0" firstAttribute="bottom" secondItem="KU7-AO-SDa" secondAttribute="top" id="AJ4-Kf-bSF"/>
                             <constraint firstItem="8kw-Hc-aD0" firstAttribute="top" secondItem="V83-E9-PCf" secondAttribute="bottom" id="LPf-wr-tFp"/>
+                            <constraint firstItem="EnZ-9O-Wsb" firstAttribute="top" secondItem="8kw-Hc-aD0" secondAttribute="bottom" id="NZs-X2-oMU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EnZ-9O-Wsb" secondAttribute="trailing" constant="-20" id="j6Y-ca-47N"/>
+                            <constraint firstItem="EnZ-9O-Wsb" firstAttribute="leading" secondItem="luc-MQ-fry" secondAttribute="leadingMargin" constant="-20" id="rYT-oy-EeE"/>
+                            <constraint firstItem="KU7-AO-SDa" firstAttribute="top" secondItem="EnZ-9O-Wsb" secondAttribute="bottom" id="ulE-JV-L6n"/>
                             <constraint firstAttribute="trailing" secondItem="8kw-Hc-aD0" secondAttribute="trailing" id="vWz-2q-KSN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AJ4-Kf-bSF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="8kw-Hc-aD0" id="T45-nw-0j5"/>
+                        <outlet property="segmentControl" destination="EnZ-9O-Wsb" id="uaS-g7-4AN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljn-tD-1KU" userLabel="First Responder" sceneMemberID="firstResponder"/>

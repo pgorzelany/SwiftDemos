@@ -9,6 +9,20 @@
 import UIKit
 import MapKit
 
+extension MKMapType: CustomStringConvertible {
+    
+    public var description: String {
+        
+        switch self {
+        case .Hybrid: return "Hybrid"
+        case .HybridFlyover: return "HybridFlyover"
+        case .Satellite: return "Satellite"
+        case .SatelliteFlyover: return "SatelliteFlyover"
+        case .Standard: return "Standard"
+        }
+    }
+}
+
 class BasicMapViewController: UIViewController, StoryboardInstantiable {
 
     // MARK: StoryboardInstantiable
@@ -18,8 +32,11 @@ class BasicMapViewController: UIViewController, StoryboardInstantiable {
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     // MARK: Properties
+    
+    let mapTypes: [MKMapType] = [.Standard, .Satellite, .Hybrid]
     
     // MARK: Initializers
     
@@ -30,10 +47,16 @@ class BasicMapViewController: UIViewController, StoryboardInstantiable {
         
         self.navigationItem.title = "Basic Map"
         
+        self.configureSegmentControl()
         self.configureMapView()
     }
     
     // MARK: Actions
+    
+    @IBAction func segmentControlValueChanged(sender: UISegmentedControl) {
+        
+        self.mapView.mapType = mapTypes[sender.selectedSegmentIndex]
+    }
     
     // MARK: Support
     
@@ -47,6 +70,18 @@ class BasicMapViewController: UIViewController, StoryboardInstantiable {
     // MARK: Data
     
     // MARK: Appearance
+    
+    private func configureSegmentControl() {
+        
+        self.segmentControl.removeAllSegments()
+        
+        for (index, type) in mapTypes.enumerate() {
+            
+            self.segmentControl.insertSegmentWithTitle(type.description, atIndex: index, animated: false)
+        }
+        
+        self.segmentControl.selectedSegmentIndex = 0
+    }
 
 }
 
