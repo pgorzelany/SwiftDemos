@@ -46,6 +46,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]
         ),
         TOKSection(hader: "View Animations", rows: [
+            TOKRow(title: "View Controller Custom Transitions", controller: MasterTransitionViewController.instantiateFromStoryboard()),
             TOKRow(title: "View Dragging", controller: ViewDraggingViewController.instantiateFromStoryboard()),
             TOKRow(title: "Drawing", controller: nil),
             TOKRow(title: "Animating Constraints", controller: nil)
