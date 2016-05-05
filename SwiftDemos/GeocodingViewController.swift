@@ -41,6 +41,7 @@ class GeocodingViewController: UIViewController, StoryboardInstantiable {
     private func configureController() {
         
         addressTextField.delegate = self
+        self.mapView.delegate = self
         
     }
     
@@ -49,8 +50,25 @@ class GeocodingViewController: UIViewController, StoryboardInstantiable {
 
 }
 
+// MARK: UITextFieldDelegate
 extension GeocodingViewController: UITextFieldDelegate {
     
     
+    
+}
+
+// MARK: MKMapViewDelegate
+extension GeocodingViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        
+        print(#function)
+    }
+    
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        print(#function)
+        
+    }
     
 }
