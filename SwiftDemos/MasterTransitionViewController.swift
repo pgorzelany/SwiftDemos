@@ -57,6 +57,7 @@ extension MasterTransitionViewController: UIViewControllerTransitioningDelegate 
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         let animator = SlideAnimator()
+        animator.presenting = false
         return animator
     }
     
