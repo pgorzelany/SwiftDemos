@@ -6,14 +6,6 @@
 //  Copyright © 2016 Piotr Gorzelany. All rights reserved.
 //
 
-//
-//  LocationUtils.swift
-//  Hypeit
-//
-//  Created by PiotrGorzelanyMac on 11/02/16.
-//  Copyright © 2016 Rst-It. All rights reserved.
-//
-
 import Foundation
 import CoreLocation
 import RxSwift
@@ -41,19 +33,6 @@ class LocationManager: NSObject {
         
     }
     
-    struct Route {
-        
-        /** Estimated distance in meters between origin and destination */
-        let estimatedDistance: Double
-        
-        /** Estimated travel time in seconds between origin and destination */
-        let estimatedTime: Double
-        
-        /** The path from the origin to destination */
-        let path: GMSPath
-        
-    }
-    
     // MARK: Shared instance
     
     static let sharedInstance = LocationManager()
@@ -77,9 +56,6 @@ class LocationManager: NSObject {
     /** User last known location or nil if location could not be obtained. */
     let currentLocation = Variable<CLLocation?>(nil)
     
-    /** User last known address location or nil if address could not be obtained */
-    let currentAddress = Variable<GMSAddress?>(nil)
-    
     private let authorizationStatus = Variable<CLAuthorizationStatus>(CLLocationManager.authorizationStatus())
     
     // MARK: Initializers
@@ -99,7 +75,7 @@ class LocationManager: NSObject {
             .bindNext { [unowned self](authorizationStatus) -> Void in
                 
                 guard CLLocationManager.locationServicesEnabled() else {
-                    self.state.value = .Error(ElGrocerError.locationServicesDisabledError())
+                    //                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
                     return
                 }
                 
@@ -109,52 +85,14 @@ class LocationManager: NSObject {
                 case .NotDetermined:
                     self.locationManager.requestWhenInUseAuthorization()
                 case .Restricted:
-                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
+//                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
+                    break
                 case .Denied:
-                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
+//                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
+                    break
                 }
                 
             }.addDisposableTo(disposeBag)
-        
-        
-        currentLocation.asObservable().bindNext { (location) in
-            
-            guard let location = location else {return}
-            
-            let coordinate = location.coordinate
-            
-            GMSGeocoder().reverseGeocodeCoordinate(coordinate) { (geocodingResponse, error) -> Void in
-                
-                guard let geocodingResponse = geocodingResponse else {return}
-                guard let result = geocodingResponse.firstResult() else {return}
-                self.currentAddress.value = result
-                
-            }
-            
-            }.addDisposableTo(disposeBag)
-        
-    }
-    
-    /** Uses Google Maps reverse geocoding to get an address from a location on map */
-    func getAddressForLocation(location: CLLocation, successHandler: (address: GMSAddress) -> Void, errorHandler: (error: NSError?) -> Void) {
-        
-        GMSGeocoder().reverseGeocodeCoordinate(location.coordinate) { (geocodingResponse, error) -> Void in
-            
-            guard let geocodingResponse = geocodingResponse else {
-                if let error = error {
-                    errorHandler(error: error)
-                }
-                return
-            }
-            
-            guard let result = geocodingResponse.firstResult() else {
-                errorHandler(error: nil)
-                return
-            }
-            
-            successHandler(address: result)
-            
-        }
         
     }
     
