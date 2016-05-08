@@ -36,6 +36,9 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     // MARK: Properties
     
     let tableViewModel = [
+        TOKSection(hader: "UICollectionView", rows: [
+            TOKRow(title: "Basic collection view", controller: BasicCollectionViewController.instantiateFromStoryboard())
+            ]),
         TOKSection(hader: "Notifications", rows: [
             TOKRow(title: "Local Notifications", controller: LocalNotificationsViewController.instantiateFromStoryboard()),
             TOKRow(title: "Remote Notifications", controller: nil)

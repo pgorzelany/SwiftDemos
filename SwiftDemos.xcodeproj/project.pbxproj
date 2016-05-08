@@ -45,6 +45,10 @@
 		55E050181CC010AF00484C27 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55E050171CC010AF00484C27 /* Readme.md */; };
 		55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */; };
 		55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */; };
+		55EA21CF1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55EA21CE1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard */; };
+		55EA21D11CDFCB56004A0AD0 /* BasicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA21D01CDFCB56004A0AD0 /* BasicCollectionViewController.swift */; };
+		55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA21D31CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift */; };
+		55EA21D61CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA21D51CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift */; };
 		6C834E57B112A21D28646894 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555CAFCB119A126CAB76A15C /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +116,10 @@
 		55E050171CC010AF00484C27 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocalNotifications.storyboard; sourceTree = "<group>"; };
 		55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsViewController.swift; sourceTree = "<group>"; };
+		55EA21CE1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicCollectionViewController.storyboard; sourceTree = "<group>"; };
+		55EA21D01CDFCB56004A0AD0 /* BasicCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewController.swift; sourceTree = "<group>"; };
+		55EA21D31CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewCell.swift; sourceTree = "<group>"; };
+		55EA21D51CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCollectionHeaderView.swift; sourceTree = "<group>"; };
 		EEE22582BAC64E64E60F17F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,6 +348,7 @@
 			children = (
 				55BC8C101CBFBBA8005F57B8 /* TOK.storyboard */,
 				55BC8C121CBFBBB6005F57B8 /* TOKViewController.swift */,
+				55EA21CD1CDFCB1C004A0AD0 /* UICollectionView */,
 				55E050191CC0112000484C27 /* Notifications */,
 				557E17C91CC6B7C900A25E98 /* GestureRecognizers */,
 				557E17C11CC6A74600A25E98 /* Animations */,
@@ -385,6 +394,25 @@
 				551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */,
 			);
 			name = LocalNotifications;
+			sourceTree = "<group>";
+		};
+		55EA21CD1CDFCB1C004A0AD0 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				55EA21D21CDFCBE7004A0AD0 /* BasicCollectionView */,
+			);
+			name = UICollectionView;
+			sourceTree = "<group>";
+		};
+		55EA21D21CDFCBE7004A0AD0 /* BasicCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				55EA21CE1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard */,
+				55EA21D01CDFCB56004A0AD0 /* BasicCollectionViewController.swift */,
+				55EA21D31CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift */,
+				55EA21D51CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift */,
+			);
+			name = BasicCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +524,7 @@
 			files = (
 				2A90925C1CD3A5710037A0B8 /* AffineTransform.storyboard in Resources */,
 				2A77F67D1CDA4217006BECF6 /* Geocoding.storyboard in Resources */,
+				55EA21CF1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard in Resources */,
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
 				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
@@ -580,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
+				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
 				557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */,
 				2AC701781CDB62100007FF7E /* DetailTransitionViewController.swift in Sources */,
 				557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */,
@@ -597,7 +627,9 @@
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
 				55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */,
+				55EA21D61CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift in Sources */,
 				557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */,
+				55EA21D11CDFCB56004A0AD0 /* BasicCollectionViewController.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
 				2AC7017A1CDB63670007FF7E /* SlideAnimator.swift in Sources */,
 				551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */,
