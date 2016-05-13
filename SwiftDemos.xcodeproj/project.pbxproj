@@ -23,11 +23,16 @@
 		551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */; };
 		551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */; };
 		551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */; };
+		5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */; };
+		5548BD141CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */; };
 		557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */; };
 		557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17C41CC6A7C500A25E98 /* ViewDraggingViewController.swift */; };
 		557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17C71CC6ABD100A25E98 /* DraggableView.swift */; };
 		557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */; };
 		557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */; };
+		5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */; };
+		5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */; };
+		558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */; };
 		55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A5C1191CD00AD800297406 /* BasicMap.storyboard */; };
 		55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */; };
 		55A5C11F1CD00C0300297406 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A5C11E1CD00C0300297406 /* MapKit.framework */; };
@@ -87,12 +92,17 @@
 		551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoAlertView.xib; sourceTree = "<group>"; };
 		551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAlertView.swift; sourceTree = "<group>"; };
 		551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomCollectionViewLayout.storyboard; sourceTree = "<group>"; };
+		5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayoutViewController.swift; sourceTree = "<group>"; };
 		555CAFCB119A126CAB76A15C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewDragging.storyboard; sourceTree = "<group>"; };
 		557E17C41CC6A7C500A25E98 /* ViewDraggingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDraggingViewController.swift; sourceTree = "<group>"; };
 		557E17C71CC6ABD100A25E98 /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizersViewController.swift; sourceTree = "<group>"; };
 		557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GestureRecognizers.storyboard; sourceTree = "<group>"; };
+		5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
+		5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		55A5C1191CD00AD800297406 /* BasicMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicMap.storyboard; sourceTree = "<group>"; };
 		55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMapViewController.swift; sourceTree = "<group>"; };
 		55A5C11E1CD00C0300297406 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -230,6 +240,17 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		5548BD101CE480D000F4EA89 /* CustomCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */,
+				5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */,
+				558336811CE4FCEC000AAC80 /* CustomLayout */,
+				5583367E1CE4FC6D000AAC80 /* CustomCollectionViewCell */,
+			);
+			name = CustomCollectionViewLayout;
+			sourceTree = "<group>";
+		};
 		557E17C11CC6A74600A25E98 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +277,23 @@
 				557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */,
 			);
 			name = GestureRecognizers;
+			sourceTree = "<group>";
+		};
+		5583367E1CE4FC6D000AAC80 /* CustomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */,
+				5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */,
+			);
+			name = CustomCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		558336811CE4FCEC000AAC80 /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */,
+			);
+			name = CustomLayout;
 			sourceTree = "<group>";
 		};
 		55A5C1181CD00A8B00297406 /* MapKit */ = {
@@ -400,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				55EA21D21CDFCBE7004A0AD0 /* BasicCollectionView */,
+				5548BD101CE480D000F4EA89 /* CustomCollectionViewLayout */,
 			);
 			name = UICollectionView;
 			sourceTree = "<group>";
@@ -534,8 +573,10 @@
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
 				557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */,
+				5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */,
 				557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
+				558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +651,9 @@
 			files = (
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
 				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
+				5548BD141CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift in Sources */,
 				557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */,
+				5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */,
 				2AC701781CDB62100007FF7E /* DetailTransitionViewController.swift in Sources */,
 				557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */,
 				551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */,
@@ -621,6 +664,7 @@
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
+				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,
