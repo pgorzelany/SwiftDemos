@@ -12,4 +12,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    
+    @IBAction func buttonTouched(sender: UIButton) {
+        
+        print("Cell button touched")
+    }
+    
+    
 }
