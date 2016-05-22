@@ -25,6 +25,8 @@
 		551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */; };
 		5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */; };
 		5548BD141CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */; };
+		556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 556B22421CF2467200C54FAF /* DoorMenu.storyboard */; };
+		556B22451CF2469200C54FAF /* DoorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B22441CF2469200C54FAF /* DoorMenuViewController.swift */; };
 		5571C99C1CEA56AD001EA3EB /* TransformNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571C99B1CEA56AD001EA3EB /* TransformNavigationController.storyboard */; };
 		5571C99E1CEA56C3001EA3EB /* TransformNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571C99D1CEA56C3001EA3EB /* TransformNavigationController.swift */; };
 		557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */; };
@@ -99,6 +101,8 @@
 		5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomCollectionViewLayout.storyboard; sourceTree = "<group>"; };
 		5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayoutViewController.swift; sourceTree = "<group>"; };
 		555CAFCB119A126CAB76A15C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		556B22421CF2467200C54FAF /* DoorMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DoorMenu.storyboard; sourceTree = "<group>"; };
+		556B22441CF2469200C54FAF /* DoorMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorMenuViewController.swift; sourceTree = "<group>"; };
 		5571C99B1CEA56AD001EA3EB /* TransformNavigationController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TransformNavigationController.storyboard; sourceTree = "<group>"; };
 		5571C99D1CEA56C3001EA3EB /* TransformNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformNavigationController.swift; sourceTree = "<group>"; };
 		557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewDragging.storyboard; sourceTree = "<group>"; };
@@ -260,6 +264,15 @@
 			name = CustomCollectionViewLayout;
 			sourceTree = "<group>";
 		};
+		556B22411CF2465D00C54FAF /* DoorMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				556B22421CF2467200C54FAF /* DoorMenu.storyboard */,
+				556B22441CF2469200C54FAF /* DoorMenuViewController.swift */,
+			);
+			name = DoorMenuController;
+			sourceTree = "<group>";
+		};
 		5571C99A1CEA5671001EA3EB /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +285,7 @@
 		557E17C11CC6A74600A25E98 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				556B22411CF2465D00C54FAF /* DoorMenuController */,
 				2AC701721CDB61B10007FF7E /* CustomTransitions */,
 				557E17C61CC6ABAF00A25E98 /* ViewDragging */,
 			);
@@ -598,6 +612,7 @@
 				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
 				2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */,
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
+				556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */,
 				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
 				2A77F6851CDA44F9006BECF6 /* Podfile in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
@@ -707,6 +722,7 @@
 				55EA21D11CDFCB56004A0AD0 /* BasicCollectionViewController.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
 				2AC7017A1CDB63670007FF7E /* SlideAnimator.swift in Sources */,
+				556B22451CF2469200C54FAF /* DoorMenuViewController.swift in Sources */,
 				551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */,
 				5571C99E1CEA56C3001EA3EB /* TransformNavigationController.swift in Sources */,
 			);
