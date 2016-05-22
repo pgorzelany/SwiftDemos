@@ -36,6 +36,9 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     // MARK: Properties
     
     let tableViewModel = [
+        TOKSection(hader: "UIViews", rows: [
+            TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.instantiateFromStoryboard())
+            ]),
         TOKSection(hader: "UICollectionView", rows: [
             TOKRow(title: "Basic CollectionView", controller: BasicCollectionViewController.instantiateFromStoryboard()),
             TOKRow(title: "Custom CollectionView Layout", controller: CustomCollectionViewLayoutViewController.instantiateFromStoryboard())
@@ -57,7 +60,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]
         ),
         TOKSection(hader: "Core Graphics", rows: [
-            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.instantiateFromStoryboard())
+            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.instantiateFromStoryboard()),
+            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.instantiateFromStoryboard())
             ]),
         TOKSection(hader: "Core Animation", rows: [
             TOKRow(title: "Position", controller: nil),
