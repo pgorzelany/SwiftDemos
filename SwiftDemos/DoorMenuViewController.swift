@@ -40,7 +40,7 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     }
     
     /** The maximum angle (in degrees) the door menu can open */
-    private let menuTilt: CGFloat = 30
+    private let menuTilt: CGFloat = 45
     
     /** Content translation at the beggining of the pan gesture */
     private var initialContentTranslation: CGFloat = 0
@@ -104,7 +104,6 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
         
         let translation = recognizer.translationInView(self.view)
-        print(translation)
         
         switch recognizer.state {
             
@@ -135,11 +134,20 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
         
         // 3d transforms
         
-        let relativeAngleTranslation: CGFloat = self.menuTilt * relativeTranslation
+        print("Content bounds width: \(self.contentContainerView.bounds.size.width)")
+        print("Content frame width: \(self.contentContainerView.frame.size.width)")
+        
+        let relative3dAngleTranslation: CGFloat = -(self.menuTilt * relativeTranslation)
+        let contentContainerViewWidthAfterTranslation = self.contentContainerView.bounds.size.width * cos(Angle.degreesToRadians(degrees: relative3dAngleTranslation))
+        var relative3dXTranslation: CGFloat =  self.contentContainerView.bounds.size.width - contentContainerViewWidthAfterTranslation
+        relative3dXTranslation = x > 0 ? -relative3dXTranslation : relative3dXTranslation
+        
+        print("Relative x translation: \(relative3dXTranslation)")
         
         var transform = CATransform3DIdentity;
-        transform.m34 = 1.0 / -700;
-        transform = CATransform3DRotate(transform, -relativeAngleTranslation * CGFloat(M_PI / 180.0), 0, 1, 0.0);
+        transform.m34 = 1.0 / -1500;
+        transform = CATransform3DRotate(transform, Angle.degreesToRadians(degrees: relative3dAngleTranslation), 0, 1, 0.0);
+        transform = CATransform3DTranslate(transform, relative3dXTranslation, 0, 0)
         
         if animated {
             

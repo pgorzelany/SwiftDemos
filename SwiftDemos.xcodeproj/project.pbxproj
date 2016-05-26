@@ -37,6 +37,7 @@
 		5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */; };
 		5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */; };
 		558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */; };
+		558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EC6881CF79A2400B6FD1C /* Angle.swift */; };
 		55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A5C1191CD00AD800297406 /* BasicMap.storyboard */; };
 		55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */; };
 		55A5C11F1CD00C0300297406 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A5C11E1CD00C0300297406 /* MapKit.framework */; };
@@ -113,6 +114,7 @@
 		5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		558EC6881CF79A2400B6FD1C /* Angle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		55A5C1191CD00AD800297406 /* BasicMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicMap.storyboard; sourceTree = "<group>"; };
 		55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMapViewController.swift; sourceTree = "<group>"; };
 		55A5C11E1CD00C0300297406 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -269,6 +271,7 @@
 			children = (
 				556B22421CF2467200C54FAF /* DoorMenu.storyboard */,
 				556B22441CF2469200C54FAF /* DoorMenuViewController.swift */,
+				558EC6881CF79A2400B6FD1C /* Angle.swift */,
 			);
 			name = DoorMenuController;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
+				558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */,
 				2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
