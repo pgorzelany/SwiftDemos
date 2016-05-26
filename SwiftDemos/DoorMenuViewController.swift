@@ -72,7 +72,7 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
         
         self.title = "Door Menu"
         self.configureController()
-        
+        self.addShadowToContentView()
         
     }
     
@@ -232,9 +232,14 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
         self.toggleMenu(.Right)
     }
     
-    
-    
-    // MARK: Data
-    
     // MARK: Appearance
+    
+    private func addShadowToContentView() {
+
+        self.contentContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+        self.contentContainerView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.contentContainerView.layer.shadowOpacity = 0.8
+        self.contentContainerView.layer.masksToBounds = false
+        
+    }
 }
