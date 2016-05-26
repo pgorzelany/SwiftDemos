@@ -115,6 +115,10 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
             
             self.translateContentView(inXDimension: translation.x + self.initialContentTranslation)
             
+        case .Ended:
+            
+            self.handlePanGestureEnd()
+            
         default:
             
             break
@@ -164,6 +168,23 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
             
         }
 
+    }
+    
+    private func handlePanGestureEnd() {
+        
+        if abs(self.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 3.0 {
+            
+            // Almost opened
+            
+            self.contentViewCenterConstraint.constant > 0 ? self.showMenu(.Left) : self.showMenu(.Right)
+            
+            
+        } else {
+            
+            self.hideMenu()
+            
+        }
+        
     }
     
     private func showMenu(side: Side) {
