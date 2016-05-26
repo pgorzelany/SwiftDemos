@@ -13,6 +13,15 @@ private enum Side {
     case Left, Right
     
 }
+    
+protocol DoorMenuDelegate {
+    
+    func doorMenuDelegateWillShowLeftMenu(menu: DoorMenuViewController)
+    func doorMenuDelegateWillShowRightMenu(menu: DoorMenuViewController)
+    func doorMenuDelegateWillHideLeftMenu(menu: DoorMenuViewController)
+    func doorMenuDelegateWillHideRightMenu(menu: DoorMenuViewController)
+    
+}
 
 class DoorMenuViewController: UIViewController, StoryboardInstantiable {
 
