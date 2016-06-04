@@ -17,23 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V12-HB-rbl" userLabel="leftMenu">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V12-HB-rbl" userLabel="leftMenu">
                                 <rect key="frame" x="-240" y="20" width="240" height="460"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example-left-menu" translatesAutoresizingMaskIntoConstraints="NO" id="9vY-64-DVY">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="460"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="9vY-64-DVY" firstAttribute="top" secondItem="V12-HB-rbl" secondAttribute="top" id="3Bj-cq-RSH"/>
+                                    <constraint firstItem="9vY-64-DVY" firstAttribute="leading" secondItem="V12-HB-rbl" secondAttribute="leading" id="G6c-4V-RxW"/>
+                                    <constraint firstAttribute="trailing" secondItem="9vY-64-DVY" secondAttribute="trailing" id="cIs-vl-gpB"/>
                                     <constraint firstAttribute="width" constant="240" id="hjs-86-DEc"/>
+                                    <constraint firstAttribute="bottom" secondItem="9vY-64-DVY" secondAttribute="bottom" id="xsG-u5-j5K"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exe-qO-6N9" userLabel="rightMenu">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exe-qO-6N9" userLabel="rightMenu">
                                 <rect key="frame" x="320" y="20" width="240" height="460"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example-right-menu" translatesAutoresizingMaskIntoConstraints="NO" id="aul-LQ-wZh">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="460"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.53333333329999999" green="0.84705882349999995" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aul-LQ-wZh" secondAttribute="trailing" id="0hP-EA-7hW"/>
+                                    <constraint firstItem="aul-LQ-wZh" firstAttribute="top" secondItem="Exe-qO-6N9" secondAttribute="top" id="KK5-yw-wQs"/>
+                                    <constraint firstAttribute="bottom" secondItem="aul-LQ-wZh" secondAttribute="bottom" id="QvH-iI-da7"/>
+                                    <constraint firstItem="aul-LQ-wZh" firstAttribute="leading" secondItem="Exe-qO-6N9" secondAttribute="leading" id="cde-KI-6o6"/>
                                     <constraint firstAttribute="width" constant="240" id="wbw-4v-9LD"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ref-bB-4TW" userLabel="contentView">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ref-bB-4TW" userLabel="contentView">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example-content" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-h2-8rF">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nL-0u-6Kl">
                                         <rect key="frame" x="8" y="8" width="30" height="30"/>
                                         <state key="normal" title="Left"/>
@@ -53,8 +74,12 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="VKx-Hg-koH" secondAttribute="trailing" constant="8" id="MRh-tO-UTJ"/>
                                     <constraint firstItem="7nL-0u-6Kl" firstAttribute="leading" secondItem="ref-bB-4TW" secondAttribute="leading" constant="8" id="ScL-S5-fxr"/>
+                                    <constraint firstItem="Qhf-h2-8rF" firstAttribute="leading" secondItem="ref-bB-4TW" secondAttribute="leading" id="Z57-5l-QJ0"/>
                                     <constraint firstItem="VKx-Hg-koH" firstAttribute="top" secondItem="ref-bB-4TW" secondAttribute="top" constant="8" id="ZgL-yv-2sR"/>
+                                    <constraint firstItem="Qhf-h2-8rF" firstAttribute="top" secondItem="ref-bB-4TW" secondAttribute="top" id="qoo-8f-lWY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qhf-h2-8rF" secondAttribute="bottom" id="wCa-Yp-khJ"/>
                                     <constraint firstItem="7nL-0u-6Kl" firstAttribute="top" secondItem="ref-bB-4TW" secondAttribute="top" constant="8" id="xAm-Bf-CjX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qhf-h2-8rF" secondAttribute="trailing" id="yED-3j-1rz"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -87,4 +112,9 @@
             <point key="canvasLocation" x="181" y="268"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="example-content" width="484" height="861"/>
+        <image name="example-left-menu" width="484" height="861"/>
+        <image name="example-right-menu" width="484" height="861"/>
+    </resources>
 </document>

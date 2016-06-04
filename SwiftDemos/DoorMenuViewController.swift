@@ -42,7 +42,7 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     // MARK: Properties
     
     /** The width of the menu container as a percentage of the screen */
-    var menuWidth: CGFloat = 0.8
+    var menuWidth: CGFloat = 0.75
     
     private var maxAbsoluteContentTranslation: CGFloat {
         return UIScreen.mainScreen().bounds.width * self.menuWidth
