@@ -6,5 +6,13 @@ use_frameworks!
 
 inhibit_all_warnings!
 
-pod 'RxSwift', '~>2.1.0'
-pod 'RxCocoa','~>2.1.0'
+pod 'RxSwift', '~>2.4.0'
+pod 'RxCocoa','~>2.4.0'
+
+target 'SwiftDemos' do
+
+end
+
+target 'SwiftDemosTests' do
+
+end
