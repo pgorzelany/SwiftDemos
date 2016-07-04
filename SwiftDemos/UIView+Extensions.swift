@@ -19,4 +19,14 @@ extension UIView {
         
     }
     
+    func addSubview(subview: UIView, centerInView: UIView) {
+        
+        self.addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addConstraint(NSLayoutConstraint(item: centerInView, attribute: .CenterX, relatedBy: .Equal, toItem: subview, attribute: .CenterX, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: centerInView, attribute: .CenterY, relatedBy: .Equal, toItem: subview, attribute: .CenterY, multiplier: 1, constant: 0))
+        
+    }
+    
 }

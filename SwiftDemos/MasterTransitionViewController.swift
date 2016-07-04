@@ -16,9 +16,12 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Outlets
     
+    @IBOutlet weak var fillTransitionButton: SubmitButton!
+    
     
     // MARK: Properties
     
+    var fillButtonState = SubmitButton.State.Normal
     
     // MARK: Lifecycle
     
@@ -37,12 +40,36 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
         detailController.transitioningDelegate = self
         self.presentViewController(detailController, animated: true, completion: nil)
     }
+
+    @IBAction func fillTransitionButtonTouched(sender: SubmitButton) {
+        
+        let currentState = self.fillButtonState
+        
+        switch currentState {
+            
+        case .Active:
+            self.fillButtonState = .Normal
+            sender.animateToState(.Normal, completion: { 
+                
+                print("Animated to normal state")
+            })
+            
+        case .Normal:
+            self.fillButtonState = .Active
+            sender.animateToState(.Active, completion: { 
+                
+                print("Animated to active state")
+            })
+        }
+
+    }
     
     
     // MARK: Helpers
     
     
     // MARK: Appearance
+    
 
 }
 
