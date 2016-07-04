@@ -29,4 +29,10 @@ extension UIView {
         
     }
     
+    func setRoundedCorners() {
+        
+        self.clipsToBounds = true
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
+    }
+    
 }

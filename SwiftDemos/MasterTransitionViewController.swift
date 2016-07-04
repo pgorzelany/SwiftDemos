@@ -31,6 +31,12 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.fillTransitionButton.setRoundedCorners()
+    }
+    
     
     // MARK: Actions
     
