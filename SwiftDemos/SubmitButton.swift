@@ -16,7 +16,8 @@ class SubmitButton: UIButton {
     
     // MARK: Properties
     
-    var titleColorForNormalState = UIColor.blackColor()
+    var originalTitleColor: UIColor?
+    
     var activityIndicator = UIActivityIndicatorView()
     var animationDuration = 0.5
     
@@ -38,6 +39,7 @@ class SubmitButton: UIButton {
         switch state {
         case .Active:
             
+            self.originalTitleColor = self.currentTitleColor
             self.setTitleColor(UIColor.clearColor(), forState: UIControlState.Normal)
             
             UIView.animateWithDuration(self.animationDuration, animations: { 
@@ -62,7 +64,7 @@ class SubmitButton: UIButton {
                 
             }, completion: { (finished) in
                 
-                self.setTitleColor(self.titleColorForNormalState, forState: UIControlState.Normal)
+                self.setTitleColor(self.originalTitleColor, forState: UIControlState.Normal)
                 completion?()
             })
         }
