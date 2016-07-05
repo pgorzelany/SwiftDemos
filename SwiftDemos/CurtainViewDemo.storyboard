@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Curtain View Controller-->
+        <scene sceneID="a1t-nK-6Rr">
+            <objects>
+                <viewController storyboardIdentifier="CurtainViewController" id="vha-Ra-Mmw" customClass="CurtainViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FGg-ja-rIu"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ch-Wo-cOr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dfh-u6-7Zl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-Pl-86Y" customClass="CurtainView" customModule="SwiftDemos" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="20" width="328" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mPt-Pl-86Y" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leadingMargin" constant="-20" id="5RZ-RZ-t0F"/>
+                            <constraint firstItem="mPt-Pl-86Y" firstAttribute="top" secondItem="FGg-ja-rIu" secondAttribute="bottom" id="Xe4-mt-PaG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mPt-Pl-86Y" secondAttribute="trailing" constant="-20" id="bcS-CD-zD9"/>
+                            <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="mPt-Pl-86Y" secondAttribute="bottom" id="u63-Ms-7We"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="curtainView" destination="mPt-Pl-86Y" id="oLz-pG-hVO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y09-5g-hLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="403" y="368"/>
+        </scene>
+    </scenes>
+</document>
