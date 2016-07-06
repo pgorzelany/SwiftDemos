@@ -17,11 +17,7 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Outlets
     
-//    @IBOutlet weak var curtainView: CurtainView!
-//    @IBOutlet weak var portholeView: PortholeView!
-    @IBOutlet weak var bottomVideoView: GPUImageView!
-    @IBOutlet weak var topVideoView: GPUImageView!
-    
+    @IBOutlet weak var swipableFilterView: GPUImageSwipableFilterView!
     
     // MARK: Properties
     
@@ -32,50 +28,19 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.confgureController()
+        self.configureController()
         
     }
     
     
     // MARK: Actions
-    
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
-        
-        let translationX: CGFloat = recognizer.translationInView(self.view).x
-        
-        let location = recognizer.locationInView(self.topVideoView)
-        self.topVideoView.cutTransparentHoleWithRect(CGRect(x: 0, y: 0, width: translationX, height: self.topVideoView.bounds.size.height))
-    }
+
     
     // MARK: Helpers
     
-    private func confgureController() {
-
-        self.addGestureRecognizers()
-        self.configureCamera()
-    }
-    
-    private func addGestureRecognizers() {
-
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
-        self.view.addGestureRecognizer(panRecognizer)
-    }
-    
-    private func configureCamera() {
+    private func configureController() {
         
-        self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.Back)
-        self.videoCamera.outputImageOrientation = UIInterfaceOrientation.Portrait
         
-        // configure top video view
-        self.videoCamera.addTarget(self.topVideoView)
-        
-        // configure bottom video view
-        
-        let filter = GPUImageSepiaFilter()
-        self.videoCamera.addTarget(filter)
-        filter.addTarget(self.bottomVideoView)
-        
-        self.videoCamera.startCameraCapture()
     }
     
     // MARK: Appearance

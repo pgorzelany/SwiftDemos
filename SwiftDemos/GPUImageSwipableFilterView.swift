@@ -57,13 +57,17 @@ class GPUImageSwipableFilterView: GPUImageView {
         
         let topRightCorner = CGPoint(x: self.bounds.width - abs(xTranslation), y: 0)
         let holeOrigin = xTranslation > 0 ? self.bounds.origin : topRightCorner
-        let holeRect = CGRect(origin: holeOrigin, size: CGSize(width: self.bounds.width, height: self.bounds.height))
+        let holeRect = CGRect(origin: holeOrigin, size: CGSize(width: abs(xTranslation), height: self.bounds.height))
         
         switch recognizer.state {
             
         case .Began:
             
-            break
+            if xTranslation > 0 {
+                delegate?.gpuImageSwipableFilterViewPreviousFilter(self)
+            } else {
+                delegate?.gpuImageSwipableFilterViewNextFilter(self)
+            }
             
         case .Changed:
             
@@ -71,7 +75,7 @@ class GPUImageSwipableFilterView: GPUImageView {
             
         case .Ended:
             
-            self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
+            self.handleGestureEnd()
             
         default: break
             
@@ -88,6 +92,8 @@ class GPUImageSwipableFilterView: GPUImageView {
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.addGestureRecognizer(panRecognizer)
+        
+        self.configureCamera()
     }
     
     private func configureCamera() {
@@ -97,7 +103,23 @@ class GPUImageSwipableFilterView: GPUImageView {
         
         self.videoCamera.addTarget(self.topGPUImageView)
         
+        let filter = GPUImageSepiaFilter()
+        self.videoCamera.addTarget(filter)
+        filter.addTarget(self.bottomGPUImageView)
+        
         self.videoCamera.startCameraCapture()
+    }
+    
+    private func handleGestureEnd() {
+    
+        self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
+        self.switchViews()
+    }
+    
+    private func switchViews() {
+        
+        (self.topGPUImageView, self.bottomGPUImageView) = (self.bottomGPUImageView, self.topGPUImageView)
+        self.exchangeSubviewAtIndex(1, withSubviewAtIndex: 0)
     }
 
 }
