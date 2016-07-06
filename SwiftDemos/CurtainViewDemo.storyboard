@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="example-content" translatesAutoresizingMaskIntoConstraints="NO" id="oFd-81-6M3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example-content" translatesAutoresizingMaskIntoConstraints="NO" id="oFd-81-6M3">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="480"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Qt-pV-Ruc" customClass="GPUImageView">
+                                <rect key="frame" x="-4" y="20" width="328" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-Pl-86Y" customClass="GPUImageView">
                                 <rect key="frame" x="-4" y="20" width="328" height="460"/>
                                 <color key="backgroundColor" red="0.71245177329999998" green="0.82558413249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,18 +33,23 @@
                         <color key="backgroundColor" red="0.61159374899999996" green="1" blue="0.60906056720000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mPt-Pl-86Y" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leadingMargin" constant="-20" id="5RZ-RZ-t0F"/>
+                            <constraint firstItem="6Qt-pV-Ruc" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leadingMargin" constant="-20" id="79a-sU-O50"/>
+                            <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="6Qt-pV-Ruc" secondAttribute="bottom" id="Ap6-3f-5st"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oFd-81-6M3" secondAttribute="trailing" constant="-20" id="Evd-qF-wR1"/>
                             <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="oFd-81-6M3" secondAttribute="bottom" id="LNB-k2-6Hx"/>
                             <constraint firstItem="oFd-81-6M3" firstAttribute="top" secondItem="Dfh-u6-7Zl" secondAttribute="topMargin" id="SmG-dI-aDs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Qt-pV-Ruc" secondAttribute="trailing" constant="-20" id="UjF-WY-HPp"/>
                             <constraint firstItem="mPt-Pl-86Y" firstAttribute="top" secondItem="FGg-ja-rIu" secondAttribute="bottom" id="Xe4-mt-PaG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mPt-Pl-86Y" secondAttribute="trailing" constant="-20" id="bcS-CD-zD9"/>
+                            <constraint firstItem="6Qt-pV-Ruc" firstAttribute="top" secondItem="FGg-ja-rIu" secondAttribute="bottom" id="nHy-2P-flm"/>
                             <constraint firstItem="oFd-81-6M3" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leadingMargin" constant="-20" id="sg8-pQ-AOw"/>
                             <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="mPt-Pl-86Y" secondAttribute="bottom" id="u63-Ms-7We"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="portholeView" destination="mPt-Pl-86Y" id="Apn-UB-tVG"/>
+                        <outlet property="bottomVideoView" destination="6Qt-pV-Ruc" id="WU3-eh-Io9"/>
+                        <outlet property="topVideoView" destination="mPt-Pl-86Y" id="Gyh-TF-S9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y09-5g-hLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

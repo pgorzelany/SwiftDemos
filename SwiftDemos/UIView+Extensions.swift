@@ -36,7 +36,7 @@ extension UIView {
     }
     
     /** Makes a transparent hole in the view */
-    func cutHoleWithRect(rect: CGRect) {
+    func cutTransparentHoleWithRect(rect: CGRect) {
         
         let maskLayer = CAShapeLayer()
         let path = UIBezierPath(rect: self.bounds)

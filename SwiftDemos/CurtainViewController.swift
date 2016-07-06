@@ -19,7 +19,8 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
 //    @IBOutlet weak var curtainView: CurtainView!
 //    @IBOutlet weak var portholeView: PortholeView!
-    @IBOutlet weak var portholeView: GPUImageView!
+    @IBOutlet weak var bottomVideoView: GPUImageView!
+    @IBOutlet weak var topVideoView: GPUImageView!
     
     
     // MARK: Properties
@@ -40,8 +41,8 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
         
-        let location = recognizer.locationInView(self.portholeView)
-        self.portholeView.cutHoleWithRect(CGRect(x: location.x, y: location.y, width: 200, height: 200))
+        let location = recognizer.locationInView(self.topVideoView)
+        self.topVideoView.cutTransparentHoleWithRect(CGRect(x: location.x, y: location.y, width: 200, height: 200))
     }
     
     // MARK: Helpers
@@ -63,7 +64,15 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
         self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.Back)
         self.videoCamera.outputImageOrientation = UIInterfaceOrientation.Portrait
         
-        self.videoCamera.addTarget(self.portholeView)
+        // configure top video view
+        self.videoCamera.addTarget(self.topVideoView)
+        
+        // configure bottom video view
+        
+        let filter = GPUImageSepiaFilter()
+        self.videoCamera.addTarget(filter)
+        filter.addTarget(self.bottomVideoView)
+        
         self.videoCamera.startCameraCapture()
     }
     
