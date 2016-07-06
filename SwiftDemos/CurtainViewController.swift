@@ -23,6 +23,10 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     var videoCamera: GPUImageVideoCamera!
     
+    var curentFilterIndex = 0
+    
+    let filters = [GPUImageSepiaFilter(), GPUImageColorInvertFilter(), GPUImageMonochromeFilter()]
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -51,7 +55,11 @@ extension CurtainViewController: GPUImageSwipableFilterViewDelegate {
     
     func gpuImageSwipableFilterViewNextFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter {
         
-        return GPUImageSepiaFilter()
+        let filterIndex = (self.curentFilterIndex) % (self.filters.count)
+        self.curentFilterIndex = self.curentFilterIndex + 1
+        
+        return self.filters[filterIndex]
+        
     }
     
     func gpuImageSwipableFilterViewPreviousFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter {
