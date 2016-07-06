@@ -41,8 +41,10 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
         
+        let translationX: CGFloat = recognizer.translationInView(self.view).x
+        
         let location = recognizer.locationInView(self.topVideoView)
-        self.topVideoView.cutTransparentHoleWithRect(CGRect(x: location.x, y: location.y, width: 200, height: 200))
+        self.topVideoView.cutTransparentHoleWithRect(CGRect(x: 0, y: 0, width: translationX, height: self.topVideoView.bounds.size.height))
     }
     
     // MARK: Helpers
@@ -78,23 +80,4 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Appearance
 
-}
-
-extension CurtainViewController: CurtainViewDelegate {
-    
-    func curtainViewInitialView(view: CurtainView) -> UIView {
-        
-        let imageView = UIImageView(image: UIImage(named: "example-content"))
-        return imageView
-    }
-    
-    func curtainView(view: CurtainView, viewAfterView: UIView) -> UIView? {
-        return nil
-    }
-    
-    func curtainView(view: CurtainView, viewBeforeView: UIView) -> UIView? {
-        return nil
-    }
-    
-    
 }

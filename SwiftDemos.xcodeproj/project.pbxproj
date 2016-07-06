@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A7390641D2BEB2A00474554 /* CurtainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7390631D2BEB2A00474554 /* CurtainView.swift */; };
 		2A7390671D2BEFB100474554 /* CurtainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7390661D2BEFB100474554 /* CurtainViewController.swift */; };
 		2A7390691D2BEFC600474554 /* CurtainViewDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */; };
-		2A73906B1D2C010400474554 /* PortholeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73906A1D2C010400474554 /* PortholeView.swift */; };
+		2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */; };
 		2A77F67D1CDA4217006BECF6 /* Geocoding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A77F67C1CDA4217006BECF6 /* Geocoding.storyboard */; };
 		2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F67E1CDA4224006BECF6 /* GeocodingViewController.swift */; };
 		2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */; };
@@ -89,10 +88,9 @@
 
 /* Begin PBXFileReference section */
 		18524E9F15CAB140F086ED76 /* Pods_SwiftDemosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A7390631D2BEB2A00474554 /* CurtainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurtainView.swift; sourceTree = "<group>"; };
 		2A7390661D2BEFB100474554 /* CurtainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurtainViewController.swift; sourceTree = "<group>"; };
 		2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurtainViewDemo.storyboard; sourceTree = "<group>"; };
-		2A73906A1D2C010400474554 /* PortholeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortholeView.swift; sourceTree = "<group>"; };
+		2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageSwipableFilterView.swift; sourceTree = "<group>"; };
 		2A77F67C1CDA4217006BECF6 /* Geocoding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geocoding.storyboard; sourceTree = "<group>"; };
 		2A77F67E1CDA4224006BECF6 /* GeocodingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingViewController.swift; sourceTree = "<group>"; };
 		2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
@@ -262,8 +260,7 @@
 				551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */,
 				551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */,
 				5541E58C1D2AAF4700447C6F /* SubmitButton.swift */,
-				2A7390631D2BEB2A00474554 /* CurtainView.swift */,
-				2A73906A1D2C010400474554 /* PortholeView.swift */,
+				2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -792,16 +789,15 @@
 				2AC701761CDB61F00007FF7E /* MasterTransitionViewController.swift in Sources */,
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
+				2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */,
 				2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
-				2A7390641D2BEB2A00474554 /* CurtainView.swift in Sources */,
 				2A7390671D2BEFB100474554 /* CurtainViewController.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
-				2A73906B1D2C010400474554 /* PortholeView.swift in Sources */,
 				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
