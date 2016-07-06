@@ -17,7 +17,8 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Outlets
     
-    @IBOutlet weak var swipableFilterView: GPUImageSwipableFilterView!
+    @IBOutlet weak var swipableFilterViewContainer: UIView!
+    var swipableFilterView: GPUImageSwipableFilterView!
     
     // MARK: Properties
     
@@ -25,7 +26,7 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     var curentFilterIndex = 0
     
-    let filters = [GPUImageSepiaFilter(), GPUImageColorInvertFilter(), GPUImageMonochromeFilter()]
+    let filters = [GPUImageFilter(), GPUImageSepiaFilter(), GPUImageColorInvertFilter(), GPUImageMonochromeFilter()]
     
     // MARK: Lifecycle
     
@@ -44,27 +45,11 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     private func configureController() {
         
-        self.swipableFilterView.delegate = self
+        self.swipableFilterView = GPUImageSwipableFilterView(filters: self.filters)
+        self.swipableFilterViewContainer.addSubviewFullscreen(self.swipableFilterView)
     }
     
     // MARK: Appearance
 
 }
 
-extension CurtainViewController: GPUImageSwipableFilterViewDelegate {
-    
-    func gpuImageSwipableFilterViewNextFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter {
-        
-        let filterIndex = (self.curentFilterIndex) % (self.filters.count)
-        self.curentFilterIndex = self.curentFilterIndex + 1
-        
-        return self.filters[filterIndex]
-        
-    }
-    
-    func gpuImageSwipableFilterViewPreviousFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter {
-        
-        return GPUImageHazeFilter()
-    }
-    
-}

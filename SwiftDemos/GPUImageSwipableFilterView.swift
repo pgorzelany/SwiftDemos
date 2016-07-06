@@ -9,19 +9,9 @@
 import UIKit
 import GPUImage
 
-protocol GPUImageSwipableFilterViewDelegate: class {
-    
-    func gpuImageSwipableFilterViewNextFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter
-    
-    func gpuImageSwipableFilterViewPreviousFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter
-    
-}
-
 class GPUImageSwipableFilterView: GPUImageView {
 
     // MARK: Properties
-    
-    weak var delegate: GPUImageSwipableFilterViewDelegate?
     
     var topGPUImageView: GPUImageView {
         return self.subviews.last! as! GPUImageView
@@ -30,6 +20,8 @@ class GPUImageSwipableFilterView: GPUImageView {
         return self.subviews.first! as! GPUImageView
     }
     
+    var filters = [GPUImageFilter]()
+    var currentFilterIndex = 0
     var currentFilter = GPUImageFilter()
     var bottomFilter = GPUImageFilter()
     
@@ -40,6 +32,15 @@ class GPUImageSwipableFilterView: GPUImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+    }
+    
+    convenience init(filters: [GPUImageFilter]) {
+        self.init(frame: CGRectZero)
+        
+        self.filters = filters
+        if let firstFilter = filters.first {
+            self.currentFilter = firstFilter
+        }
         self.configureView()
     }
     
@@ -70,23 +71,44 @@ class GPUImageSwipableFilterView: GPUImageView {
             
         case .Began:
             
+            print("Gesture Begin")
+            
             if xTranslation > 0 {
-                self.bottomFilter = delegate?.gpuImageSwipableFilterViewPreviousFilter(self) ?? GPUImageFilter()
+                
+                guard self.currentFilterIndex > 0 else {
+                    recognizer.cancel()
+                    return
+                }
+                self.currentFilterIndex -= 1
+                self.bottomFilter = self.filters[self.currentFilterIndex]
+                
             } else {
-                self.bottomFilter = delegate?.gpuImageSwipableFilterViewNextFilter(self) ?? GPUImageFilter()
+                
+                guard self.currentFilterIndex < self.filters.count - 1 else {
+                    recognizer.cancel()
+                    return
+                }
+                self.currentFilterIndex += 1
+                self.bottomFilter = self.filters[self.currentFilterIndex]
             }
             
             self.updateFilterTargets()
             
         case .Changed:
             
+            print("Gesture changed")
+            
             self.topGPUImageView.cutTransparentHoleWithRect(holeRect)
             
         case .Ended:
             
+            print("Gesture ended")
+            
             self.handleGestureEnd()
             
-        default: break
+        default:
+            
+            print("Gesture default")
             
         }
         

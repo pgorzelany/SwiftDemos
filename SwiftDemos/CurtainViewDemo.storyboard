@@ -21,26 +21,26 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example-content" translatesAutoresizingMaskIntoConstraints="NO" id="oFd-81-6M3">
                                 <rect key="frame" x="-4" y="0.0" width="328" height="480"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vrc-O2-HEg" customClass="GPUImageSwipableFilterView" customModule="SwiftDemos" customModuleProvider="target">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="480"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIw-I9-pMB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.61159374899999996" green="1" blue="0.60906056720000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Vrc-O2-HEg" firstAttribute="top" secondItem="Dfh-u6-7Zl" secondAttribute="topMargin" id="2OT-ih-olv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vrc-O2-HEg" secondAttribute="trailing" constant="-20" id="8sr-Bi-4rD"/>
-                            <constraint firstItem="Vrc-O2-HEg" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leadingMargin" constant="-20" id="ENj-Ru-HvX"/>
+                            <constraint firstItem="HIw-I9-pMB" firstAttribute="top" secondItem="Dfh-u6-7Zl" secondAttribute="top" id="9de-V4-hb6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oFd-81-6M3" secondAttribute="trailing" constant="-20" id="Evd-qF-wR1"/>
                             <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="oFd-81-6M3" secondAttribute="bottom" id="LNB-k2-6Hx"/>
+                            <constraint firstItem="HIw-I9-pMB" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leading" id="NAb-2q-CQ7"/>
                             <constraint firstItem="oFd-81-6M3" firstAttribute="top" secondItem="Dfh-u6-7Zl" secondAttribute="topMargin" id="SmG-dI-aDs"/>
+                            <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="HIw-I9-pMB" secondAttribute="bottom" id="rK7-AE-1ql"/>
                             <constraint firstItem="oFd-81-6M3" firstAttribute="leading" secondItem="Dfh-u6-7Zl" secondAttribute="leadingMargin" constant="-20" id="sg8-pQ-AOw"/>
-                            <constraint firstItem="2ch-Wo-cOr" firstAttribute="top" secondItem="Vrc-O2-HEg" secondAttribute="bottom" id="ssk-rl-xvK"/>
+                            <constraint firstAttribute="trailing" secondItem="HIw-I9-pMB" secondAttribute="trailing" id="w2A-sq-YlT"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="swipableFilterView" destination="Vrc-O2-HEg" id="dAe-6P-s8d"/>
+                        <outlet property="swipableFilterViewContainer" destination="HIw-I9-pMB" id="HWu-Ih-tzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y09-5g-hLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
