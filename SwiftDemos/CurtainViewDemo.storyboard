@@ -23,33 +23,7 @@
                             </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-Pl-86Y" customClass="PortholeView" customModule="SwiftDemos" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="20" width="328" height="460"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SP7-oD-WpI">
-                                        <rect key="frame" x="114" y="180" width="100" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="ay7-45-VQ4"/>
-                                            <constraint firstAttribute="height" constant="100" id="eV0-CG-6Dv"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" red="0.71245177329999998" green="0.82558413249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="SP7-oD-WpI" secondAttribute="bottom" constant="50" id="3fG-WR-Bsl"/>
-                                    <constraint firstItem="SP7-oD-WpI" firstAttribute="centerX" secondItem="mPt-Pl-86Y" secondAttribute="centerX" id="6jV-WP-XPb"/>
-                                    <constraint firstAttribute="trailing" secondItem="SP7-oD-WpI" secondAttribute="trailing" constant="50" id="McC-5a-io5"/>
-                                    <constraint firstItem="SP7-oD-WpI" firstAttribute="top" secondItem="mPt-Pl-86Y" secondAttribute="top" constant="50" id="by2-i4-Nr0"/>
-                                    <constraint firstItem="SP7-oD-WpI" firstAttribute="leading" secondItem="mPt-Pl-86Y" secondAttribute="leading" constant="50" id="env-4C-50L"/>
-                                    <constraint firstItem="SP7-oD-WpI" firstAttribute="centerY" secondItem="mPt-Pl-86Y" secondAttribute="centerY" id="iYs-xP-Uws"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3fG-WR-Bsl"/>
-                                        <exclude reference="McC-5a-io5"/>
-                                        <exclude reference="by2-i4-Nr0"/>
-                                        <exclude reference="env-4C-50L"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.61159374899999996" green="1" blue="0.60906056720000001" alpha="1" colorSpace="calibratedRGB"/>

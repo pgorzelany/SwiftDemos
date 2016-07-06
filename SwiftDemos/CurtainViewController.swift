@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GPUImage
 
 class CurtainViewController: UIViewController, StoryboardInstantiable {
 
@@ -21,6 +22,7 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
+    var videoCamera: GPUImageVideoCamera!
     
     // MARK: Lifecycle
     
@@ -44,12 +46,25 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     private func confgureController() {
 
         self.addGestureRecognizers()
+        self.configureCamera()
     }
     
     private func addGestureRecognizers() {
 
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.view.addGestureRecognizer(panRecognizer)
+    }
+    
+    private func configureCamera() {
+        
+        self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.Back)
+        self.videoCamera.outputImageOrientation = UIInterfaceOrientation.Portrait
+        
+//        let gpuImageView = GPUImageView()
+//        self.portholeView.addSubviewFullscreen(self.portholeView)
+        
+        self.videoCamera.addTarget(self.portholeView)
+        self.videoCamera.startCameraCapture()
     }
     
     // MARK: Appearance
