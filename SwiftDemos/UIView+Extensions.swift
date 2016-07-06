@@ -35,4 +35,16 @@ extension UIView {
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
     }
     
+    /** Makes a transparent hole in the view */
+    func cutHoleWithRect(rect: CGRect) {
+        
+        let maskLayer = CAShapeLayer()
+        let path = UIBezierPath(rect: self.bounds)
+        path.appendPath(UIBezierPath(rect: rect))
+        maskLayer.path = path.CGPath
+        maskLayer.fillColor = UIColor.blackColor().CGColor
+        maskLayer.fillRule = kCAFillRuleEvenOdd
+        self.layer.mask = maskLayer
+    }
+    
 }

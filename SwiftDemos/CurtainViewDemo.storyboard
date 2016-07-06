@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="example-content" translatesAutoresizingMaskIntoConstraints="NO" id="oFd-81-6M3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-Pl-86Y" customClass="PortholeView" customModule="SwiftDemos" customModuleProvider="target">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-Pl-86Y" customClass="GPUImageView">
                                 <rect key="frame" x="-4" y="20" width="328" height="460"/>
                                 <color key="backgroundColor" red="0.71245177329999998" green="0.82558413249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -40,7 +40,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="portholeView" destination="mPt-Pl-86Y" id="izX-ll-ZoH"/>
+                        <outlet property="portholeView" destination="mPt-Pl-86Y" id="Apn-UB-tVG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y09-5g-hLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
