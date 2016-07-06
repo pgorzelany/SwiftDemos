@@ -30,6 +30,9 @@ class GPUImageSwipableFilterView: GPUImageView {
         return self.subviews.first! as! GPUImageView
     }
     
+    var currentFilter = GPUImageFilter()
+    var bottomFilter = GPUImageFilter()
+    
     var videoCamera: GPUImageVideoCamera!
     
     // MARK: Lifecycle
@@ -68,11 +71,12 @@ class GPUImageSwipableFilterView: GPUImageView {
         case .Began:
             
             if xTranslation > 0 {
-                delegate?.gpuImageSwipableFilterViewPreviousFilter(self)
+                self.bottomFilter = delegate?.gpuImageSwipableFilterViewPreviousFilter(self) ?? GPUImageFilter()
             } else {
-                delegate?.gpuImageSwipableFilterViewNextFilter(self)
+                self.bottomFilter = delegate?.gpuImageSwipableFilterViewNextFilter(self) ?? GPUImageFilter()
             }
             
+            self.updateFilterTargets()
             
         case .Changed:
             
@@ -106,18 +110,29 @@ class GPUImageSwipableFilterView: GPUImageView {
         self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.Back)
         self.videoCamera.outputImageOrientation = UIInterfaceOrientation.Portrait
         
-        self.videoCamera.addTarget(self.topGPUImageView)
-        
-        let filter = GPUImageSepiaFilter()
-        self.videoCamera.addTarget(filter)
-        filter.addTarget(bottomGPUImageView)
+        self.updateFilterTargets()
         
         self.videoCamera.startCameraCapture()
+    }
+    
+    private func updateFilterTargets() {
+        
+        self.videoCamera.removeAllTargets()
+        self.currentFilter.removeAllTargets()
+        self.bottomFilter.removeAllTargets()
+        
+        self.videoCamera.addTarget(self.currentFilter)
+        self.currentFilter.addTarget(self.topGPUImageView)
+        
+        self.videoCamera.addTarget(self.bottomFilter)
+        
+        self.bottomFilter.addTarget(bottomGPUImageView)
     }
     
     private func handleGestureEnd() {
     
         self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
+        self.currentFilter = self.bottomFilter
         self.switchViews()
     }
     
