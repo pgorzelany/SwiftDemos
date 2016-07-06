@@ -23,8 +23,12 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     weak var delegate: GPUImageSwipableFilterViewDelegate?
     
-    var topGPUImageView = GPUImageView()
-    var bottomGPUImageView = GPUImageView()
+    var topGPUImageView: GPUImageView {
+        return self.subviews.last! as! GPUImageView
+    }
+    var bottomGPUImageView: GPUImageView {
+        return self.subviews.first! as! GPUImageView
+    }
     
     var videoCamera: GPUImageVideoCamera!
     
@@ -69,6 +73,7 @@ class GPUImageSwipableFilterView: GPUImageView {
                 delegate?.gpuImageSwipableFilterViewNextFilter(self)
             }
             
+            
         case .Changed:
             
             self.topGPUImageView.cutTransparentHoleWithRect(holeRect)
@@ -87,8 +92,8 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     private func configureView() {
         
-        self.addSubviewFullscreen(self.bottomGPUImageView)
-        self.addSubviewFullscreen(self.topGPUImageView)
+        self.addSubviewFullscreen(GPUImageView())
+        self.addSubviewFullscreen(GPUImageView())
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.addGestureRecognizer(panRecognizer)
@@ -105,7 +110,7 @@ class GPUImageSwipableFilterView: GPUImageView {
         
         let filter = GPUImageSepiaFilter()
         self.videoCamera.addTarget(filter)
-        filter.addTarget(self.bottomGPUImageView)
+        filter.addTarget(bottomGPUImageView)
         
         self.videoCamera.startCameraCapture()
     }
@@ -117,8 +122,7 @@ class GPUImageSwipableFilterView: GPUImageView {
     }
     
     private func switchViews() {
-        
-        (self.topGPUImageView, self.bottomGPUImageView) = (self.bottomGPUImageView, self.topGPUImageView)
+
         self.exchangeSubviewAtIndex(1, withSubviewAtIndex: 0)
     }
 

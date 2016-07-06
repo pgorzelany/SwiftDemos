@@ -40,9 +40,23 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     private func configureController() {
         
-        
+        self.swipableFilterView.delegate = self
     }
     
     // MARK: Appearance
 
+}
+
+extension CurtainViewController: GPUImageSwipableFilterViewDelegate {
+    
+    func gpuImageSwipableFilterViewNextFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter {
+        
+        return GPUImageSepiaFilter()
+    }
+    
+    func gpuImageSwipableFilterViewPreviousFilter(view: GPUImageSwipableFilterView) -> GPUImageFilter {
+        
+        return GPUImageHazeFilter()
+    }
+    
 }
