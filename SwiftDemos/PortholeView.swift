@@ -10,32 +10,30 @@ import UIKit
 
 class PortholeView: UIView {
     
-    @IBInspectable var innerCornerRadius: CGFloat = 10.0
-    @IBInspectable var inset: CGFloat = 20.0
-    @IBInspectable var fillColor: UIColor = UIColor.grayColor()
-    @IBInspectable var strokeWidth: CGFloat = 5.0
-    @IBInspectable var strokeColor: UIColor = UIColor.blackColor()
+    var _backgroundColor : UIColor?
+    override var backgroundColor : UIColor? {
+        get {return _backgroundColor}
+        set {_backgroundColor = newValue}
+    }
+    
+    var holeOrigin: CGPoint = CGPoint(x: 0,y: 0) {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
     
     override func drawRect(rect: CGRect) {
-        // Prep constants
-        let roundRectWidth = rect.width - (2 * inset)
-        let roundRectHeight = rect.height - (2 * inset)
+//        super.drawRect(rect)
         
-        // Use EvenOdd rule to subtract portalRect from outerFill
-        // (See http://stackoverflow.com/questions/14141081/uiview-drawrect-draw-the-inverted-pixels-make-a-hole-a-window-negative-space)
-        let outterFill = UIBezierPath(rect: rect)
-        let portalRect = CGRectMake(
-            rect.origin.x + inset,
-            rect.origin.y + inset,
-            roundRectWidth,
-            roundRectHeight)
-        fillColor.setFill()
-        let portal = UIBezierPath(roundedRect: portalRect, cornerRadius: innerCornerRadius)
-        outterFill.appendPath(portal)
-        outterFill.usesEvenOddFillRule = true
-        outterFill.fill()
-        strokeColor.setStroke()
-        portal.lineWidth = strokeWidth
-        portal.stroke()
+        self._backgroundColor?.setFill()
+        UIRectFill(rect)
+        
+        
+        let portholeRect = CGRect(x: holeOrigin.x, y: holeOrigin.y, width: 100, height: 100)
+        let intersection = CGRectIntersection(portholeRect, rect)
+        
+        UIColor.clearColor().setFill()
+        
+        UIRectFill(intersection)
     }
 }

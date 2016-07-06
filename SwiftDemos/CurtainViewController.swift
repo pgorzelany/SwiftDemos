@@ -16,7 +16,8 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Outlets
     
-    @IBOutlet weak var curtainView: CurtainView!
+//    @IBOutlet weak var curtainView: CurtainView!
+    @IBOutlet weak var portholeView: PortholeView!
     
     // MARK: Properties
     
@@ -32,12 +33,23 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
+    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+        
+        let location = recognizer.locationInView(self.portholeView)
+        self.portholeView.holeOrigin = location
+    }
     
     // MARK: Helpers
     
     private func confgureController() {
-        
-        self.curtainView.delegate = self
+
+        self.addGestureRecognizers()
+    }
+    
+    private func addGestureRecognizers() {
+
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
+        self.view.addGestureRecognizer(panRecognizer)
     }
     
     // MARK: Appearance
