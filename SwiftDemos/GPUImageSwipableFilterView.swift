@@ -21,7 +21,9 @@ class GPUImageSwipableFilterView: GPUImageView {
     }
     
     var filters = [GPUImageFilter]()
-    var currentFilterIndex = 0
+    var currentFilterIndex: Int {
+        return self.filters.indexOf(self.currentFilter)!
+    }
     var currentFilter = GPUImageFilter()
     var bottomFilter = GPUImageFilter()
     
@@ -79,8 +81,8 @@ class GPUImageSwipableFilterView: GPUImageView {
                     recognizer.cancel()
                     return
                 }
-                self.currentFilterIndex -= 1
-                self.bottomFilter = self.filters[self.currentFilterIndex]
+
+                self.bottomFilter = self.filters[self.currentFilterIndex - 1]
                 
             } else {
                 
@@ -88,8 +90,7 @@ class GPUImageSwipableFilterView: GPUImageView {
                     recognizer.cancel()
                     return
                 }
-                self.currentFilterIndex += 1
-                self.bottomFilter = self.filters[self.currentFilterIndex]
+                self.bottomFilter = self.filters[self.currentFilterIndex + 1]
             }
             
             self.updateFilterTargets()
@@ -104,11 +105,15 @@ class GPUImageSwipableFilterView: GPUImageView {
             
             print("Gesture ended")
             
-            self.handleGestureEnd()
+            if abs(xTranslation) > self.bounds.width / 2.0 {
+                self.commitFilterChange()
+            } else {
+                self.rollbackFilterChange()
+            }
             
         default:
             
-            print("Gesture default")
+            self.rollbackFilterChange()
             
         }
         
@@ -151,11 +156,16 @@ class GPUImageSwipableFilterView: GPUImageView {
         self.bottomFilter.addTarget(bottomGPUImageView)
     }
     
-    private func handleGestureEnd() {
-    
+    private func commitFilterChange() {
+        
         self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
         self.currentFilter = self.bottomFilter
         self.switchViews()
+    }
+    
+    private func rollbackFilterChange() {
+        
+        self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
     }
     
     private func switchViews() {
