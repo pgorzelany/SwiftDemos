@@ -18,7 +18,7 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     // MARK: Outlets
     
     @IBOutlet weak var swipableFilterViewContainer: UIView!
-    var swipableFilterView: GPUImageSwipableFilterView!
+    var swipableFilterView: GPUImageSwipableVideoFilterView!
     
     // MARK: Properties
     
@@ -37,6 +37,12 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.swipableFilterView.startPlayback()
+    }
+    
     
     // MARK: Actions
 
@@ -45,7 +51,9 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     private func configureController() {
         
-        self.swipableFilterView = GPUImageSwipableFilterView(filters: self.filters)
+        // self.swipableFilterView = GPUImageSwipableFilterView(filters: self.filters)
+        let videoUrl = NSBundle.mainBundle().URLForResource("sample-video", withExtension: "mov")!
+        self.swipableFilterView = GPUImageSwipableVideoFilterView(videoSourceUrl: videoUrl, filters: self.filters)
         self.swipableFilterViewContainer.addSubviewFullscreen(self.swipableFilterView)
     }
     

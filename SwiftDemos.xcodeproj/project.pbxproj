@@ -11,6 +11,8 @@
 		2A7390691D2BEFC600474554 /* CurtainViewDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */; };
 		2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */; };
 		2A7390701D2D497900474554 /* UIGestureRecgonizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73906F1D2D497900474554 /* UIGestureRecgonizer+Extensions.swift */; };
+		2A7390781D2E847300474554 /* GPUImageSwipableVideoFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */; };
+		2A73907A1D2E866700474554 /* sample-video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2A7390791D2E866700474554 /* sample-video.mov */; };
 		2A77F67D1CDA4217006BECF6 /* Geocoding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A77F67C1CDA4217006BECF6 /* Geocoding.storyboard */; };
 		2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F67E1CDA4224006BECF6 /* GeocodingViewController.swift */; };
 		2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */; };
@@ -93,6 +95,8 @@
 		2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurtainViewDemo.storyboard; sourceTree = "<group>"; };
 		2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageSwipableFilterView.swift; sourceTree = "<group>"; };
 		2A73906F1D2D497900474554 /* UIGestureRecgonizer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecgonizer+Extensions.swift"; sourceTree = "<group>"; };
+		2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageSwipableVideoFilterView.swift; sourceTree = "<group>"; };
+		2A7390791D2E866700474554 /* sample-video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "sample-video.mov"; sourceTree = "<group>"; };
 		2A77F67C1CDA4217006BECF6 /* Geocoding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geocoding.storyboard; sourceTree = "<group>"; };
 		2A77F67E1CDA4224006BECF6 /* GeocodingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingViewController.swift; sourceTree = "<group>"; };
 		2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				551A05A61CC410AD00AB0E22 /* DemoAlertView.swift */,
 				5541E58C1D2AAF4700447C6F /* SubmitButton.swift */,
 				2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */,
+				2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 		55BC8C0E1CBFBB4A005F57B8 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				2A7390791D2E866700474554 /* sample-video.mov */,
 				55BC8BE91CBFBB2C005F57B8 /* LaunchScreen.storyboard */,
 				55BC8BE71CBFBB2C005F57B8 /* Assets.xcassets */,
 				55BC8BEC1CBFBB2C005F57B8 /* Info.plist */,
@@ -654,6 +660,7 @@
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
 				556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */,
 				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
+				2A73907A1D2E866700474554 /* sample-video.mov in Resources */,
 				2A77F6851CDA44F9006BECF6 /* Podfile in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
@@ -807,6 +814,7 @@
 				55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */,
 				55EA21D61CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift in Sources */,
 				55F6428E1CEC8152004B49DC /* ProgrammaticScrollViewController.swift in Sources */,
+				2A7390781D2E847300474554 /* GPUImageSwipableVideoFilterView.swift in Sources */,
 				2A7390701D2D497900474554 /* UIGestureRecgonizer+Extensions.swift in Sources */,
 				557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */,
 				55EA21D11CDFCB56004A0AD0 /* BasicCollectionViewController.swift in Sources */,
