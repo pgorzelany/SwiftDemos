@@ -11,7 +11,7 @@ import UIKit
 protocol ColorSliderViewDelegate: class {
     
     
-    func colorSliderView(view: ColorSliderView, didSelectColor color: UIColor)
+    func colorSliderView(view: ColorSliderView, didSelectColor color: UIColor, atLocation location: CGPoint)
 }
 
 class ColorSliderView: UIView {
@@ -76,7 +76,7 @@ class ColorSliderView: UIView {
         let location = recognizer.locationInView(self)
         if let color = self.colorForLocation(location) {
             self.sliderLocation = location
-            delegate?.colorSliderView(self, didSelectColor: color)
+            delegate?.colorSliderView(self, didSelectColor: color, atLocation: location)
         }
     }
     
@@ -85,7 +85,7 @@ class ColorSliderView: UIView {
         let location = recognizer.locationInView(self)
         if let color = self.colorForLocation(location) {
             self.sliderLocation = location
-            delegate?.colorSliderView(self, didSelectColor: color)
+            delegate?.colorSliderView(self, didSelectColor: color, atLocation: location)
         }
     }
     

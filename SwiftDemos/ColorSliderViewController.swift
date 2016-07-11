@@ -17,9 +17,10 @@ class ColorSliderViewController: UIViewController, StoryboardInstantiable {
     // MARK: Outlets
     
     @IBOutlet weak var colorSliderView: ColorSliderView!
+    @IBOutlet weak var colorPointerViewHorizontalConstraints: NSLayoutConstraint!
+    
     
     // MARK: Properties
-    
     
     // MARK: Lifecycle
     
@@ -48,7 +49,6 @@ class ColorSliderViewController: UIViewController, StoryboardInstantiable {
         self.colorSliderView.delegate = self
     }
     
-    
     // MARK: Appearance
     
     
@@ -56,8 +56,9 @@ class ColorSliderViewController: UIViewController, StoryboardInstantiable {
 
 extension ColorSliderViewController: ColorSliderViewDelegate {
     
-    func colorSliderView(view: ColorSliderView, didSelectColor color: UIColor) {
+    func colorSliderView(view: ColorSliderView, didSelectColor color: UIColor, atLocation location: CGPoint) {
         
         self.view.backgroundColor = color
+        self.colorPointerViewHorizontalConstraints.constant = location.x
     }
 }
