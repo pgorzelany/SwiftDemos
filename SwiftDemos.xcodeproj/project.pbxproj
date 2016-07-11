@@ -19,6 +19,9 @@
 		2A77F6851CDA44F9006BECF6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2A77F6841CDA44F9006BECF6 /* Podfile */; };
 		2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */; };
 		2A90925C1CD3A5710037A0B8 /* AffineTransform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */; };
+		2A98D4851D339849007C7CE9 /* ColorSliderDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A98D4841D339849007C7CE9 /* ColorSliderDemo.storyboard */; };
+		2A98D4871D339856007C7CE9 /* ColorSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98D4861D339856007C7CE9 /* ColorSliderViewController.swift */; };
+		2A98D48D1D339EB8007C7CE9 /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98D48C1D339EB8007C7CE9 /* ColorSliderView.swift */; };
 		2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC701731CDB61CA0007FF7E /* ControllerTransitions.storyboard */; };
 		2AC701761CDB61F00007FF7E /* MasterTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC701751CDB61F00007FF7E /* MasterTransitionViewController.swift */; };
 		2AC701781CDB62100007FF7E /* DetailTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC701771CDB62100007FF7E /* DetailTransitionViewController.swift */; };
@@ -103,6 +106,9 @@
 		2A77F6841CDA44F9006BECF6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffineTransformViewController.swift; sourceTree = "<group>"; };
 		2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AffineTransform.storyboard; sourceTree = "<group>"; };
+		2A98D4841D339849007C7CE9 /* ColorSliderDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorSliderDemo.storyboard; sourceTree = "<group>"; };
+		2A98D4861D339856007C7CE9 /* ColorSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSliderViewController.swift; sourceTree = "<group>"; };
+		2A98D48C1D339EB8007C7CE9 /* ColorSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		2AC701731CDB61CA0007FF7E /* ControllerTransitions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ControllerTransitions.storyboard; sourceTree = "<group>"; };
 		2AC701751CDB61F00007FF7E /* MasterTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTransitionViewController.swift; sourceTree = "<group>"; };
 		2AC701771CDB62100007FF7E /* DetailTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransitionViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +244,16 @@
 				2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */,
 			);
 			name = AffineTransform;
+			sourceTree = "<group>";
+		};
+		2A98D4831D33982F007C7CE9 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				2A98D4841D339849007C7CE9 /* ColorSliderDemo.storyboard */,
+				2A98D4861D339856007C7CE9 /* ColorSliderViewController.swift */,
+				2A98D48C1D339EB8007C7CE9 /* ColorSliderView.swift */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 		2AC701721CDB61B10007FF7E /* CustomTransitions */ = {
@@ -450,6 +466,7 @@
 				55BC8C101CBFBBA8005F57B8 /* TOK.storyboard */,
 				55BC8C121CBFBBB6005F57B8 /* TOKViewController.swift */,
 				55F6428A1CEC8117004B49DC /* UIViews */,
+				2A98D4831D33982F007C7CE9 /* CustomViews */,
 				55EA21CD1CDFCB1C004A0AD0 /* UICollectionView */,
 				55E050191CC0112000484C27 /* Notifications */,
 				557E17C91CC6B7C900A25E98 /* GestureRecognizers */,
@@ -667,6 +684,7 @@
 				557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */,
 				5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */,
 				557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */,
+				2A98D4851D339849007C7CE9 /* ColorSliderDemo.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
 				558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */,
 				2A7390691D2BEFC600474554 /* CurtainViewDemo.storyboard in Resources */,
@@ -788,9 +806,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
+				2A98D4871D339856007C7CE9 /* ColorSliderViewController.swift in Sources */,
 				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
 				5548BD141CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift in Sources */,
 				557E17C81CC6ABD100A25E98 /* DraggableView.swift in Sources */,
+				2A98D48D1D339EB8007C7CE9 /* ColorSliderView.swift in Sources */,
 				5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */,
 				2AC701781CDB62100007FF7E /* DetailTransitionViewController.swift in Sources */,
 				557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */,

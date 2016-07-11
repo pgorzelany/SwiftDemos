@@ -39,6 +39,9 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         TOKSection(hader: "UIViews", rows: [
             TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.instantiateFromStoryboard())
             ]),
+        TOKSection(hader: "Custom UIViews", rows: [
+            TOKRow(title: "Color slider", controller: ColorSliderViewController.instantiateFromStoryboard())
+            ]),
         TOKSection(hader: "UICollectionView", rows: [
             TOKRow(title: "Basic CollectionView", controller: BasicCollectionViewController.instantiateFromStoryboard()),
             TOKRow(title: "Custom CollectionView Layout", controller: CustomCollectionViewLayoutViewController.instantiateFromStoryboard())

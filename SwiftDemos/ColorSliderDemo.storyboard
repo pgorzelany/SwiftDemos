@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Color Slider View Controller-->
+        <scene sceneID="Yd4-3h-mGi">
+            <objects>
+                <viewController storyboardIdentifier="ColorSliderViewController" id="Rv5-m0-24J" customClass="ColorSliderViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cte-gb-716"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q9U-k2-3zW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wjo-lS-buW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trK-ff-bzF" customClass="ColorSliderView" customModule="SwiftDemos" customModuleProvider="target">
+                                <rect key="frame" x="16" y="28" width="288" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2d3-z9-Ph4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="trK-ff-bzF" firstAttribute="top" secondItem="cte-gb-716" secondAttribute="bottom" constant="8" id="dha-um-Sge"/>
+                            <constraint firstItem="trK-ff-bzF" firstAttribute="leading" secondItem="wjo-lS-buW" secondAttribute="leading" constant="16" id="hW6-gU-2n5"/>
+                            <constraint firstAttribute="trailing" secondItem="trK-ff-bzF" secondAttribute="trailing" constant="16" id="vSe-Te-kzn"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="colorSliderView" destination="trK-ff-bzF" id="dX9-EZ-uOK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lvh-90-tJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="480" y="288"/>
+        </scene>
+    </scenes>
+</document>
