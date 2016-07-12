@@ -21,6 +21,15 @@ class ManipulableView: UIView {
     var pinchRecognizer: UIPinchGestureRecognizer!
     var rotationRecognizer: UIRotationGestureRecognizer!
     
+    /** The center offset when panning the view */
+    var centerOffset = CGPointZero
+    
+    /** The initial transform value when initiating view scaling */
+    var initialScaleTransform = CGAffineTransformIdentity
+    
+    /** The initial transform value when initiating view rotation */
+    var initialRotationTransform = CGAffineTransformIdentity
+    
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
@@ -45,6 +54,18 @@ class ManipulableView: UIView {
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
         print(#function)
         
+        let location = recognizer.locationInView(self.superview)
+        
+        switch recognizer.state {
+            
+        case .Began:
+            self.centerOffset = location - self.center
+            
+        case .Changed:
+            self.center = location - centerOffset
+            
+        default: break
+        }
     }
     
     func pinchGestureRecognized(recognizer: UIPinchGestureRecognizer) {
@@ -52,12 +73,35 @@ class ManipulableView: UIView {
         
         print("Recognizer scale: \(recognizer.scale)")
         guard recognizer.scale >= 0.5 && recognizer.scale <= 2.0 else {return}
-        self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale)
+        
+        switch recognizer.state {
+            
+        case .Began:
+            self.initialScaleTransform = self.transform
+            self.transform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+            
+        case .Changed:
+            self.transform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+            
+        default: break
+        }
     }
     
     func rotationGestureRecognized(recognizer: UIRotationGestureRecognizer) {
         print(#function)
         
+        
+        switch recognizer.state {
+            
+        case .Began:
+            self.initialRotationTransform = self.transform
+            self.transform = CGAffineTransformRotate(self.initialRotationTransform, recognizer.rotation)
+            
+        case .Changed:
+            self.transform = CGAffineTransformRotate(self.initialRotationTransform, recognizer.rotation)
+            
+        default: break
+        }
     }
     
     // MARK: Helpers
@@ -96,6 +140,6 @@ extension ManipulableView: UIGestureRecognizerDelegate {
             return true
         }
         
-        return false
+        return true
     }
 }
