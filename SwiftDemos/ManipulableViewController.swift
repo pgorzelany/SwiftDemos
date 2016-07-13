@@ -46,7 +46,7 @@ class ManipulableViewController: UIViewController, StoryboardInstantiable {
     
     private func addManipulableView() {
         
-        let manipulableView = ManipulableView(frame: CGRect(origin: self.view.center, size: CGSize(width: 200, height: 200)))
+        let manipulableView = StickerView(frame: CGRect(origin: self.view.center, size: CGSize(width: 200, height: 200)))
         let color = colors[currentColorIndex % colors.count]
         self.currentColorIndex += 1
         manipulableView.backgroundColor = color

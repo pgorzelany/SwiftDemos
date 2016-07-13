@@ -25,6 +25,7 @@
 		2A98D4981D33E52D007C7CE9 /* ManipulableViewDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A98D4971D33E52D007C7CE9 /* ManipulableViewDemo.storyboard */; };
 		2A98D49A1D33E53E007C7CE9 /* ManipulableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98D4991D33E53E007C7CE9 /* ManipulableViewController.swift */; };
 		2A98D49C1D33E54C007C7CE9 /* ManipulableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98D49B1D33E54C007C7CE9 /* ManipulableView.swift */; };
+		2A98D4A51D3641A8007C7CE9 /* StickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98D4A41D3641A8007C7CE9 /* StickerView.swift */; };
 		2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC701731CDB61CA0007FF7E /* ControllerTransitions.storyboard */; };
 		2AC701761CDB61F00007FF7E /* MasterTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC701751CDB61F00007FF7E /* MasterTransitionViewController.swift */; };
 		2AC701781CDB62100007FF7E /* DetailTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC701771CDB62100007FF7E /* DetailTransitionViewController.swift */; };
@@ -116,6 +117,7 @@
 		2A98D4971D33E52D007C7CE9 /* ManipulableViewDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManipulableViewDemo.storyboard; sourceTree = "<group>"; };
 		2A98D4991D33E53E007C7CE9 /* ManipulableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManipulableViewController.swift; sourceTree = "<group>"; };
 		2A98D49B1D33E54C007C7CE9 /* ManipulableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManipulableView.swift; sourceTree = "<group>"; };
+		2A98D4A41D3641A8007C7CE9 /* StickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerView.swift; sourceTree = "<group>"; };
 		2AC701731CDB61CA0007FF7E /* ControllerTransitions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ControllerTransitions.storyboard; sourceTree = "<group>"; };
 		2AC701751CDB61F00007FF7E /* MasterTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTransitionViewController.swift; sourceTree = "<group>"; };
 		2AC701771CDB62100007FF7E /* DetailTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransitionViewController.swift; sourceTree = "<group>"; };
@@ -269,7 +271,7 @@
 			children = (
 				2A98D4971D33E52D007C7CE9 /* ManipulableViewDemo.storyboard */,
 				2A98D4991D33E53E007C7CE9 /* ManipulableViewController.swift */,
-				2A98D49B1D33E54C007C7CE9 /* ManipulableView.swift */,
+				2A98D4A41D3641A8007C7CE9 /* StickerView.swift */,
 			);
 			name = ManipulableView;
 			sourceTree = "<group>";
@@ -302,6 +304,7 @@
 				5541E58C1D2AAF4700447C6F /* SubmitButton.swift */,
 				2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */,
 				2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */,
+				2A98D49B1D33E54C007C7CE9 /* ManipulableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
+				2A98D4A51D3641A8007C7CE9 /* StickerView.swift in Sources */,
 				2A98D4871D339856007C7CE9 /* ColorSliderViewController.swift in Sources */,
 				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
 				2A98D49A1D33E53E007C7CE9 /* ManipulableViewController.swift in Sources */,
