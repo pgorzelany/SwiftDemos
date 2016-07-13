@@ -21,8 +21,8 @@ class ManipulableView: UIView {
     var pinchRecognizer: UIPinchGestureRecognizer!
     var rotationRecognizer: UIRotationGestureRecognizer!
     
-    /** The center offset when panning the view */
-    var centerOffset = CGPointZero
+    /** The initial transform value when initiating view panning */
+    var initialTranslationTransform = CGAffineTransformIdentity
     
     /** The initial transform value when initiating view scaling */
     var initialScaleTransform = CGAffineTransformIdentity
@@ -57,16 +57,18 @@ class ManipulableView: UIView {
     
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
         print(#function)
-        
-        let location = recognizer.locationInView(self.superview)
+
+        let translation = recognizer.translationInView(self)
         
         switch recognizer.state {
             
         case .Began:
-            self.centerOffset = location - self.center
+
+            self.initialTranslationTransform = self.transform
             
         case .Changed:
-            self.center = location - centerOffset
+
+            self.transform = CGAffineTransformTranslate(self.initialTranslationTransform, translation.x, translation.y)
             
         default: break
         }

@@ -47,7 +47,7 @@ class StickerView: ManipulableView {
         let buttonImage = UIImage(named: "icon-close-red")!
         self.removeButton.setImage(buttonImage, forState: UIControlState.Normal)
         self.removeButton.addTarget(self, action: #selector(removeButtonTouched), forControlEvents: UIControlEvents.TouchUpInside)
-        self.removeButton.hidden = true
+//        self.removeButton.hidden = true
         
         self.removeButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.removeButton)
