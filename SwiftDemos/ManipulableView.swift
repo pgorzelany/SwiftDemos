@@ -30,6 +30,10 @@ class ManipulableView: UIView {
     /** The initial transform value when initiating view rotation */
     var initialRotationTransform = CGAffineTransformIdentity
     
+    var minScaleFactor: CGFloat = 0.5
+    
+    var maxScaleFactor: CGFloat = 2.0
+    
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
@@ -71,17 +75,18 @@ class ManipulableView: UIView {
     func pinchGestureRecognized(recognizer: UIPinchGestureRecognizer) {
         print(#function)
         
-        print("Recognizer scale: \(recognizer.scale)")
-        guard recognizer.scale >= 0.5 && recognizer.scale <= 2.0 else {return}
-        
         switch recognizer.state {
             
         case .Began:
             self.initialScaleTransform = self.transform
-            self.transform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
             
         case .Changed:
-            self.transform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+            
+            let newScaleTransform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+            let newScale = self.scaleFromTransform(newScaleTransform)
+            if newScale >= self.minScaleFactor && newScale <= self.maxScaleFactor {
+                self.transform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+            }
             
         default: break
         }
@@ -95,7 +100,6 @@ class ManipulableView: UIView {
             
         case .Began:
             self.initialRotationTransform = self.transform
-            self.transform = CGAffineTransformRotate(self.initialRotationTransform, recognizer.rotation)
             
         case .Changed:
             self.transform = CGAffineTransformRotate(self.initialRotationTransform, recognizer.rotation)
@@ -118,13 +122,18 @@ class ManipulableView: UIView {
         self.panRecognizer.maximumNumberOfTouches = 1
         self.pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureRecognized))
         self.rotationRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureRecognized))
-        self.rotationRecognizer.delegate = self
-        self.pinchRecognizer.delegate = self
+//        self.rotationRecognizer.delegate = self
+//        self.pinchRecognizer.delegate = self
         
         self.addGestureRecognizer(tapRecognizer)
         self.addGestureRecognizer(panRecognizer)
         self.addGestureRecognizer(pinchRecognizer)
         self.addGestureRecognizer(rotationRecognizer)
+    }
+    
+    private func scaleFromTransform(transform: CGAffineTransform) -> CGFloat {
+        
+        return CGFloat(sqrt(Double(transform.a * transform.a + transform.c * transform.c)))
     }
     
     // MARK: Appearance
@@ -140,6 +149,6 @@ extension ManipulableView: UIGestureRecognizerDelegate {
             return true
         }
         
-        return true
+        return false
     }
 }
