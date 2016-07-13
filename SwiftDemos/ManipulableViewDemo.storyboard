@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Manipulable View Controller-->
@@ -16,7 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="DwX-au-ApU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76h-3G-GPJ">
+                                <rect key="frame" x="124" y="430" width="73" height="30"/>
+                                <state key="normal" title="Add shape"/>
+                                <connections>
+                                    <action selector="addShapeButtonTouched:" destination="9ii-De-29a" eventType="touchUpInside" id="Wyd-Oq-Em0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add shapes and manipulate them with touch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOA-Z8-JBf">
+                                <rect key="frame" x="16" y="28" width="288" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lOA-Z8-JBf" firstAttribute="top" secondItem="BTh-UV-FR6" secondAttribute="bottom" constant="8" id="7bU-dJ-SvO"/>
+                            <constraint firstItem="lOA-Z8-JBf" firstAttribute="leading" secondItem="DwX-au-ApU" secondAttribute="leadingMargin" id="Buv-FF-G7V"/>
+                            <constraint firstItem="iXf-5a-MMI" firstAttribute="top" secondItem="76h-3G-GPJ" secondAttribute="bottom" constant="20" id="dVZ-59-a59"/>
+                            <constraint firstItem="76h-3G-GPJ" firstAttribute="centerX" secondItem="DwX-au-ApU" secondAttribute="centerX" id="lcG-Tq-FSB"/>
+                            <constraint firstItem="lOA-Z8-JBf" firstAttribute="trailing" secondItem="DwX-au-ApU" secondAttribute="trailingMargin" id="mn8-K7-eD0"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>

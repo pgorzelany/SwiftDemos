@@ -19,6 +19,8 @@ class ManipulableViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
+    let colors = [UIColor.blackColor(), UIColor.greenColor(), UIColor.greenColor(), UIColor.blueColor()]
+    var currentColorIndex = 0
     
     // MARK: Lifecycle
     
@@ -31,13 +33,23 @@ class ManipulableViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
+    @IBAction func addShapeButtonTouched(sender: UIButton) {
+        
+        self.addManipulableView()
+    }
     
     // MARK: Helpers
     
     func configureController() {
         
+    }
+    
+    private func addManipulableView() {
+        
         let manipulableView = ManipulableView(frame: CGRect(origin: self.view.center, size: CGSize(width: 200, height: 200)))
-        manipulableView.backgroundColor = UIColor.redColor()
+        let color = colors[currentColorIndex % colors.count]
+        self.currentColorIndex += 1
+        manipulableView.backgroundColor = color
         self.view.addSubview(manipulableView)
     }
     
