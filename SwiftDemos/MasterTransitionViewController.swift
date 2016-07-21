@@ -23,6 +23,9 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     
     var fillButtonState = SubmitButton.State.Normal
     
+    let slideAnimator = SlideAnimator()
+    let fillAnimator = FillAnimator(startingFrame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -43,7 +46,7 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     @IBAction func presentButtonTouched(sender: UIButton) {
         
         let detailController = DetailTransitionViewController.instantiateFromStoryboard()
-        detailController.transitioningDelegate = self
+        detailController.transitioningDelegate = self.slideAnimator
         self.presentViewController(detailController, animated: true, completion: nil)
     }
 
@@ -57,7 +60,7 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
             self.fillButtonState = .Normal
             sender.animateToState(.Normal, completion: { 
                 
-                print("Animated to normal state")
+                print("Animated to state normal")
             })
             
         case .Normal:
@@ -65,6 +68,16 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
             sender.animateToState(.Active, completion: { 
                 
                 print("Animated to active state")
+                sender.animateFillScreen({ 
+                    
+                    print("Animated fill screen")
+                    let detailController = DetailTransitionViewController.instantiateFromStoryboard()
+                    self.presentViewController(detailController, animated: false, completion: { 
+                        
+                        sender.resetToInitialState()
+                    })
+                })
+                
             })
         }
 
@@ -77,21 +90,4 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     // MARK: Appearance
     
 
-}
-
-extension MasterTransitionViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        let animator = SlideAnimator()
-        return animator
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        let animator = SlideAnimator()
-        animator.presenting = false
-        return animator
-    }
-    
 }

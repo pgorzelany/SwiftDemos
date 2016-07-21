@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SubmitButton: UIButton {
     
@@ -63,7 +64,7 @@ class SubmitButton: UIButton {
                 completion?()
             })
             
-            self.layer.addAnimation(self.shrinkAnimation, forKey: "bounds")
+            self.layer.addAnimation(self.shrinkAnimation, forKey: "shrink")
             
             CATransaction.commit()
             
@@ -72,8 +73,35 @@ class SubmitButton: UIButton {
             self.layer.removeAllAnimations()
             self.activityIndicator.removeFromSuperview()
             self.setTitleColor(self.originalTitleColor, forState: .Normal)
+            completion?()
         }
+        
+        
     }
 
+    func animateFillScreen(completion: (() -> Void)?) {
 
+        let scale = (UIScreen.mainScreen().bounds.size.height / self.bounds.size.height) * 2
+        
+        CATransaction.begin()
+        
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.fromValue = 1
+        animation.toValue = scale
+        animation.duration = self.animationDuration
+        
+        CATransaction.setCompletionBlock { 
+            
+            completion?()
+        }
+        
+        self.layer.addAnimation(animation, forKey: "fill")
+        
+        CATransaction.commit()
+    }
+    
+    func resetToInitialState() {
+        
+        self.animateToState(.Normal, completion: nil)
+    }
 }
