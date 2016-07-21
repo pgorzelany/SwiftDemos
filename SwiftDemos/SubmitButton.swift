@@ -21,6 +21,14 @@ class SubmitButton: UIButton {
     var activityIndicator = UIActivityIndicatorView()
     var animationDuration = 0.5
     
+    lazy var shrinkAnimation: CABasicAnimation = {
+        let animation = CABasicAnimation(keyPath: "bounds.size.width")
+        animation.fromValue = self.bounds.size.width
+        animation.toValue = self.bounds.size.height
+        animation.duration = self.animationDuration
+        return animation
+    }()
+    
     // MARK: Lifecycle
 
     override init(frame: CGRect) {
@@ -42,31 +50,28 @@ class SubmitButton: UIButton {
             self.originalTitleColor = self.currentTitleColor
             self.setTitleColor(UIColor.clearColor(), forState: UIControlState.Normal)
             
-            UIView.animateWithDuration(self.animationDuration, animations: { 
-                
-                let scale = self.frame.size.height / self.frame.size.width
-                self.transform = CGAffineTransformMakeScale(scale, 1)
-                
-            }, completion: { (finished) in
+            CATransaction.begin()
+            
+            self.shrinkAnimation.fillMode = kCAFillModeForwards
+            self.shrinkAnimation.removedOnCompletion = false
+            self.shrinkAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            
+            CATransaction.setCompletionBlock({ 
                 
                 self.activityIndicator.startAnimating()
                 self.superview?.addSubview(self.activityIndicator, centerInView: self)
                 completion?()
             })
             
+            self.layer.addAnimation(self.shrinkAnimation, forKey: "bounds")
+            
+            CATransaction.commit()
+            
         case .Normal:
-            
+
+            self.layer.removeAllAnimations()
             self.activityIndicator.removeFromSuperview()
-            
-            UIView.animateWithDuration(self.animationDuration, animations: { 
-                
-                self.transform = CGAffineTransformIdentity
-                
-            }, completion: { (finished) in
-                
-                self.setTitleColor(self.originalTitleColor, forState: UIControlState.Normal)
-                completion?()
-            })
+            self.setTitleColor(self.originalTitleColor, forState: .Normal)
         }
     }
 
