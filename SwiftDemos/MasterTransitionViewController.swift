@@ -24,7 +24,7 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     var fillButtonState = SubmitButton.State.Normal
     
     let slideAnimator = SlideAnimator()
-    let fillAnimator = FillAnimator(startingFrame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    let fadeAnimator = FadeInAnimator()
     
     // MARK: Lifecycle
     
@@ -72,10 +72,8 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
                     
                     print("Animated fill screen")
                     let detailController = DetailTransitionViewController.instantiateFromStoryboard()
-                    self.presentViewController(detailController, animated: false, completion: { 
-                        
-                        sender.resetToInitialState()
-                    })
+//                    detailController.transitioningDelegate = self.fadeAnimator
+                    self.presentViewController(detailController, animated: false, completion: nil)
                 })
                 
             })

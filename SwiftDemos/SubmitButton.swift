@@ -22,14 +22,6 @@ class SubmitButton: UIButton {
     var activityIndicator = UIActivityIndicatorView()
     var animationDuration = 0.5
     
-    lazy var shrinkAnimation: CABasicAnimation = {
-        let animation = CABasicAnimation(keyPath: "bounds.size.width")
-        animation.fromValue = self.bounds.size.width
-        animation.toValue = self.bounds.size.height
-        animation.duration = self.animationDuration
-        return animation
-    }()
-    
     // MARK: Lifecycle
 
     override init(frame: CGRect) {
@@ -53,9 +45,13 @@ class SubmitButton: UIButton {
             
             CATransaction.begin()
             
-            self.shrinkAnimation.fillMode = kCAFillModeForwards
-            self.shrinkAnimation.removedOnCompletion = false
-            self.shrinkAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            let animation = CABasicAnimation(keyPath: "bounds.size.width")
+            animation.fromValue = self.bounds.size.width
+            animation.toValue = self.bounds.size.height
+            animation.duration = self.animationDuration
+            animation.fillMode = kCAFillModeForwards
+            animation.removedOnCompletion = false
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             
             CATransaction.setCompletionBlock({ 
                 
@@ -64,7 +60,7 @@ class SubmitButton: UIButton {
                 completion?()
             })
             
-            self.layer.addAnimation(self.shrinkAnimation, forKey: "shrink")
+            self.layer.addAnimation(animation, forKey: "shrink")
             
             CATransaction.commit()
             

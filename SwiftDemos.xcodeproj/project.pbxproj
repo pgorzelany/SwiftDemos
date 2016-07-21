@@ -33,6 +33,7 @@
 		377719298CE0E2B1374CEF26 /* Pods_SwiftDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18524E9F15CAB140F086ED76 /* Pods_SwiftDemosTests.framework */; };
 		3B05C4DAFC8B4A2BED5CC4B6 /* Pods_SwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DD3A04837C6AA0FDCB497A /* Pods_SwiftDemos.framework */; };
 		5501813C1D357DA200F5C18C /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5501813B1D357DA200F5C18C /* CGPoint+Extensions.swift */; };
+		5511733A1D4111F60032C75E /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551173391D4111F60032C75E /* FadeInAnimator.swift */; };
 		551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */; };
 		551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */; };
 		551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A11CC4107800AB0E22 /* AlertUtils.swift */; };
@@ -126,6 +127,7 @@
 		37CD6B2155721542F07132C0 /* Pods-SwiftDemosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemosTests/Pods-SwiftDemosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D33E7F8FCAE4301BEC3BED2 /* Pods-SwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		5501813B1D357DA200F5C18C /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		551173391D4111F60032C75E /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A05A11CC4107800AB0E22 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				2AC701751CDB61F00007FF7E /* MasterTransitionViewController.swift */,
 				2AC701771CDB62100007FF7E /* DetailTransitionViewController.swift */,
 				2AC701791CDB63670007FF7E /* SlideAnimator.swift */,
+				551173391D4111F60032C75E /* FadeInAnimator.swift */,
 			);
 			name = CustomTransitions;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				557E17C51CC6A7C500A25E98 /* ViewDraggingViewController.swift in Sources */,
 				2A98D49C1D33E54C007C7CE9 /* ManipulableView.swift in Sources */,
 				551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */,
+				5511733A1D4111F60032C75E /* FadeInAnimator.swift in Sources */,
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
 				2AC701761CDB61F00007FF7E /* MasterTransitionViewController.swift in Sources */,
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
