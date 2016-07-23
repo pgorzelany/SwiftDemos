@@ -14,6 +14,8 @@ protocol StoryboardInstantiable {
     
     static var storyboardControllerId: String {get}
     
+    static func instantiateFromStoryboard() -> UIViewController
+    
 }
 
 
@@ -23,10 +25,10 @@ extension StoryboardInstantiable where Self: UIViewController {
         return String(Self)
     }
     
-    static func instantiateFromStoryboard() -> Self {
+    static func instantiateFromStoryboard() -> UIViewController {
         
         let storyboard = UIStoryboard(name: Self.storyboardId, bundle: nil)
-        return storyboard.instantiateViewControllerWithIdentifier(Self.storyboardControllerId) as! Self
+        return storyboard.instantiateViewControllerWithIdentifier(Self.storyboardControllerId)
         
     }
     

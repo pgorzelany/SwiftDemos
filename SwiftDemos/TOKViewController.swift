@@ -19,7 +19,7 @@ struct TOKSection {
 struct TOKRow {
     
     let title: String
-    let controller: UIViewController?
+    let controller: StoryboardInstantiable.Type?
     
 }
 
@@ -37,37 +37,37 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     
     let tableViewModel = [
         TOKSection(hader: "UIViews", rows: [
-            TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.instantiateFromStoryboard())
+            TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.self)
             ]),
         TOKSection(hader: "Custom UIViews", rows: [
-            TOKRow(title: "Color slider", controller: ColorSliderViewController.instantiateFromStoryboard())
+            TOKRow(title: "Color slider", controller: ColorSliderViewController.self)
             ]),
         TOKSection(hader: "UICollectionView", rows: [
-            TOKRow(title: "Basic CollectionView", controller: BasicCollectionViewController.instantiateFromStoryboard()),
-            TOKRow(title: "Custom CollectionView Layout", controller: CustomCollectionViewLayoutViewController.instantiateFromStoryboard())
+            TOKRow(title: "Basic CollectionView", controller: BasicCollectionViewController.self),
+            TOKRow(title: "Custom CollectionView Layout", controller: CustomCollectionViewLayoutViewController.self)
             ]),
         TOKSection(hader: "Notifications", rows: [
-            TOKRow(title: "Local Notifications", controller: LocalNotificationsViewController.instantiateFromStoryboard()),
+            TOKRow(title: "Local Notifications", controller: LocalNotificationsViewController.self),
             TOKRow(title: "Remote Notifications", controller: nil)
             ]
         ),
         TOKSection(hader: "Gesture Recognizers", rows: [
-            TOKRow(title: "Gesture Recognizers", controller: GestureRecognizersViewController.instantiateFromStoryboard()),
-            TOKRow(title: "Manipulable View", controller: ManipulableViewController.instantiateFromStoryboard())
+            TOKRow(title: "Gesture Recognizers", controller: GestureRecognizersViewController.self),
+            TOKRow(title: "Manipulable View", controller: ManipulableViewController.self)
             ]
         ),
         TOKSection(hader: "View Animations", rows: [
-            TOKRow(title: "View Controller Custom Transitions", controller: MasterTransitionViewController.instantiateFromStoryboard()),
-            TOKRow(title: "View Dragging", controller: ViewDraggingViewController.instantiateFromStoryboard()),
+            TOKRow(title: "View Controller Custom Transitions", controller: MasterTransitionViewController.self),
+            TOKRow(title: "View Dragging", controller: ViewDraggingViewController.self),
             TOKRow(title: "Drawing", controller: nil),
             TOKRow(title: "Animating Constraints", controller: nil),
-            TOKRow(title: "Door Menu", controller: DoorMenuViewController.instantiateFromStoryboard()),
-            TOKRow(title: "Curtain View", controller: CurtainViewController.instantiateFromStoryboard())
+            TOKRow(title: "Door Menu", controller: DoorMenuViewController.self),
+            TOKRow(title: "Curtain View", controller: CurtainViewController.self)
             ]
         ),
         TOKSection(hader: "Core Graphics", rows: [
-            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.instantiateFromStoryboard()),
-            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.instantiateFromStoryboard())
+            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.self),
+            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self)
             ]),
         TOKSection(hader: "Core Animation", rows: [
             TOKRow(title: "Position", controller: nil),
@@ -79,8 +79,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]
         ),
         TOKSection(hader: "Mapkit", rows: [
-            TOKRow(title: "Basic Map", controller: BasicMapViewController.instantiateFromStoryboard()),
-            TOKRow(title: "Geocoding", controller: GeocodingViewController.instantiateFromStoryboard())
+            TOKRow(title: "Basic Map", controller: BasicMapViewController.self),
+            TOKRow(title: "Geocoding", controller: GeocodingViewController.self)
             ]),
         TOKSection(hader: "Core Motion", rows: []),
         TOKSection(hader: "AV Foundation", rows: []),
@@ -158,7 +158,7 @@ extension TOKViewController: UITableViewDataSource, UITableViewDelegate {
         
         let row = self.tableViewModel[indexPath.section].rows[indexPath.row]
         
-        let controller = row.controller ?? UnimplementedViewController.instantiateFromStoryboard()
+        let controller = row.controller!.instantiateFromStoryboard() ?? UnimplementedViewController.instantiateFromStoryboard()
         
         self.navigationController?.pushViewController(controller, animated: true)
         
