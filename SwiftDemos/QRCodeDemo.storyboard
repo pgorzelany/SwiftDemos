@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Code View Controller-->
+        <scene sceneID="RyW-y8-fq9">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeViewController" id="33G-Xo-9XQ" customClass="QRCodeViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8SJ-wQ-YjB"/>
+                        <viewControllerLayoutGuide type="bottom" id="nrW-LD-68U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n4K-qA-E6S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point at QR code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZz-eJ-gQL">
+                                <rect key="frame" x="95.5" y="20" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smd-rD-M7t" userLabel="cameraContainer">
+                                <rect key="frame" x="0.0" y="49" width="320" height="431"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qZz-eJ-gQL" firstAttribute="top" secondItem="8SJ-wQ-YjB" secondAttribute="bottom" id="3Ac-xa-RxG"/>
+                            <constraint firstItem="smd-rD-M7t" firstAttribute="top" secondItem="qZz-eJ-gQL" secondAttribute="bottom" constant="8" id="5dL-za-nww"/>
+                            <constraint firstAttribute="trailing" secondItem="smd-rD-M7t" secondAttribute="trailing" id="9az-CU-vcG"/>
+                            <constraint firstItem="smd-rD-M7t" firstAttribute="leading" secondItem="n4K-qA-E6S" secondAttribute="leading" id="BxA-fm-BYe"/>
+                            <constraint firstItem="nrW-LD-68U" firstAttribute="top" secondItem="smd-rD-M7t" secondAttribute="bottom" id="IdL-3O-KL7"/>
+                            <constraint firstItem="qZz-eJ-gQL" firstAttribute="centerX" secondItem="n4K-qA-E6S" secondAttribute="centerX" id="cwj-aj-hUi"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="cameraContainerView" destination="smd-rD-M7t" id="Kzp-3Y-6ZX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AC7-nv-Zt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174" y="251"/>
+        </scene>
+    </scenes>
+</document>

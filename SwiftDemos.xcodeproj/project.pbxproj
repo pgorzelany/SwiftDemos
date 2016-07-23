@@ -79,6 +79,8 @@
 		55EA21D61CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA21D51CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift */; };
 		55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F6428B1CEC8132004B49DC /* ProgrammaticScrollView.storyboard */; };
 		55F6428E1CEC8152004B49DC /* ProgrammaticScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6428D1CEC8152004B49DC /* ProgrammaticScrollViewController.swift */; };
+		55FAC4721D43BC90000BE58B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FAC4711D43BC90000BE58B /* QRCodeViewController.swift */; };
+		55FAC4741D43BC9B000BE58B /* QRCodeDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FAC4731D43BC9B000BE58B /* QRCodeDemo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +182,8 @@
 		55EA21D51CDFCCD6004A0AD0 /* BasicCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCollectionHeaderView.swift; sourceTree = "<group>"; };
 		55F6428B1CEC8132004B49DC /* ProgrammaticScrollView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProgrammaticScrollView.storyboard; sourceTree = "<group>"; };
 		55F6428D1CEC8152004B49DC /* ProgrammaticScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammaticScrollViewController.swift; sourceTree = "<group>"; };
+		55FAC4711D43BC90000BE58B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		55FAC4731D43BC9B000BE58B /* QRCodeDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeDemo.storyboard; sourceTree = "<group>"; };
 		B2DD3A04837C6AA0FDCB497A /* Pods_SwiftDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59C4D4329C096381D7D1EC8 /* Pods-SwiftDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemosTests/Pods-SwiftDemosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -572,10 +576,28 @@
 		55FAC46E1D43B9D5000BE58B /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				55FAC4701D43BC7D000BE58B /* QRCodeDemo */,
+				55FAC46F1D43BC6E000BE58B /* SwipableVideoFilters */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		55FAC46F1D43BC6E000BE58B /* SwipableVideoFilters */ = {
+			isa = PBXGroup;
+			children = (
 				2A7390661D2BEFB100474554 /* SwipableVideoFiltersViewController.swift */,
 				2A7390681D2BEFC600474554 /* SwipableVideoFiltersDemo.storyboard */,
 			);
-			name = Camera;
+			name = SwipableVideoFilters;
+			sourceTree = "<group>";
+		};
+		55FAC4701D43BC7D000BE58B /* QRCodeDemo */ = {
+			isa = PBXGroup;
+			children = (
+				55FAC4711D43BC90000BE58B /* QRCodeViewController.swift */,
+				55FAC4731D43BC9B000BE58B /* QRCodeDemo.storyboard */,
+			);
+			name = QRCodeDemo;
 			sourceTree = "<group>";
 		};
 		86B6D2648C57694EE7DEAB12 /* Pods */ = {
@@ -715,6 +737,7 @@
 				2A73907A1D2E866700474554 /* sample-video.mov in Resources */,
 				2A77F6851CDA44F9006BECF6 /* Podfile in Resources */,
 				55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */,
+				55FAC4741D43BC9B000BE58B /* QRCodeDemo.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
 				557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */,
 				5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */,
@@ -864,6 +887,7 @@
 				2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
+				55FAC4721D43BC90000BE58B /* QRCodeViewController.swift in Sources */,
 				2A7390671D2BEFB100474554 /* SwipableVideoFiltersViewController.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
