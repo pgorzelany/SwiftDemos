@@ -9,16 +9,16 @@
 import UIKit
 import GPUImage
 
-class CurtainViewController: UIViewController, StoryboardInstantiable {
+class SwipableVideoFilterViewController: UIViewController, StoryboardInstantiable {
 
     // MARK: StoryboardInstantiable
     
-    static let storyboardId = "CurtainViewDemo"
+    static let storyboardId = "SwipableVideoFiltersDemo"
     
     // MARK: Outlets
     
     @IBOutlet weak var swipableFilterViewContainer: UIView!
-    var swipableFilterView: GPUImageSwipableVideoFilterView!
+    var swipableFilterView: GPUImageSwipableFilterView!
     
     // MARK: Properties
     
@@ -40,7 +40,7 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.swipableFilterView.startPlayback()
+//        self.swipableFilterView.
     }
     
     
@@ -51,9 +51,9 @@ class CurtainViewController: UIViewController, StoryboardInstantiable {
     
     private func configureController() {
         
-        // self.swipableFilterView = GPUImageSwipableFilterView(filters: self.filters)
-        let videoUrl = NSBundle.mainBundle().URLForResource("sample-video", withExtension: "mov")!
-        self.swipableFilterView = GPUImageSwipableVideoFilterView(videoSourceUrl: videoUrl, filters: self.filters)
+         self.swipableFilterView = GPUImageSwipableFilterView(filters: self.filters)
+//        let videoUrl = NSBundle.mainBundle().URLForResource("sample-video", withExtension: "mov")!
+//        self.swipableFilterView = GPUImageSwipableVideoFilterView(videoSourceUrl: videoUrl, filters: self.filters)
         self.swipableFilterViewContainer.addSubviewFullscreen(self.swipableFilterView)
     }
     

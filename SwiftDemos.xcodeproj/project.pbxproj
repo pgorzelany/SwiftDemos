@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A7390671D2BEFB100474554 /* CurtainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7390661D2BEFB100474554 /* CurtainViewController.swift */; };
-		2A7390691D2BEFC600474554 /* CurtainViewDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */; };
+		2A7390671D2BEFB100474554 /* SwipableVideoFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7390661D2BEFB100474554 /* SwipableVideoFiltersViewController.swift */; };
+		2A7390691D2BEFC600474554 /* SwipableVideoFiltersDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7390681D2BEFC600474554 /* SwipableVideoFiltersDemo.storyboard */; };
 		2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */; };
 		2A7390701D2D497900474554 /* UIGestureRecgonizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A73906F1D2D497900474554 /* UIGestureRecgonizer+Extensions.swift */; };
 		2A7390781D2E847300474554 /* GPUImageSwipableVideoFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */; };
@@ -100,8 +100,8 @@
 
 /* Begin PBXFileReference section */
 		18524E9F15CAB140F086ED76 /* Pods_SwiftDemosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A7390661D2BEFB100474554 /* CurtainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurtainViewController.swift; sourceTree = "<group>"; };
-		2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurtainViewDemo.storyboard; sourceTree = "<group>"; };
+		2A7390661D2BEFB100474554 /* SwipableVideoFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipableVideoFiltersViewController.swift; sourceTree = "<group>"; };
+		2A7390681D2BEFC600474554 /* SwipableVideoFiltersDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SwipableVideoFiltersDemo.storyboard; sourceTree = "<group>"; };
 		2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageSwipableFilterView.swift; sourceTree = "<group>"; };
 		2A73906F1D2D497900474554 /* UIGestureRecgonizer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecgonizer+Extensions.swift"; sourceTree = "<group>"; };
 		2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageSwipableVideoFilterView.swift; sourceTree = "<group>"; };
@@ -225,8 +225,6 @@
 		2A7390651D2BEF9F00474554 /* CurtainView */ = {
 			isa = PBXGroup;
 			children = (
-				2A7390661D2BEFB100474554 /* CurtainViewController.swift */,
-				2A7390681D2BEFC600474554 /* CurtainViewDemo.storyboard */,
 			);
 			name = CurtainView;
 			sourceTree = "<group>";
@@ -499,6 +497,7 @@
 				557E17C11CC6A74600A25E98 /* Animations */,
 				55A5C1181CD00A8B00297406 /* MapKit */,
 				2A9092561CD3A52D0037A0B8 /* CoreGraphics */,
+				55FAC46E1D43B9D5000BE58B /* Camera */,
 				55BC8C1B1CBFCCFB005F57B8 /* Unimplemented */,
 			);
 			name = TOK;
@@ -568,6 +567,15 @@
 				55F6428D1CEC8152004B49DC /* ProgrammaticScrollViewController.swift */,
 			);
 			name = UIViews;
+			sourceTree = "<group>";
+		};
+		55FAC46E1D43B9D5000BE58B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2A7390661D2BEFB100474554 /* SwipableVideoFiltersViewController.swift */,
+				2A7390681D2BEFC600474554 /* SwipableVideoFiltersDemo.storyboard */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 		86B6D2648C57694EE7DEAB12 /* Pods */ = {
@@ -655,7 +663,7 @@
 				TargetAttributes = {
 					55BC8BDC1CBFBB2B005F57B8 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 3F23SFH9E6;
+						DevelopmentTeam = 7NN2553D5U;
 					};
 					55BC8BF01CBFBB2C005F57B8 = {
 						CreatedOnToolsVersion = 7.3;
@@ -714,7 +722,7 @@
 				2A98D4851D339849007C7CE9 /* ColorSliderDemo.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
 				558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */,
-				2A7390691D2BEFC600474554 /* CurtainViewDemo.storyboard in Resources */,
+				2A7390691D2BEFC600474554 /* SwipableVideoFiltersDemo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,7 +864,7 @@
 				2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
-				2A7390671D2BEFB100474554 /* CurtainViewController.swift in Sources */,
+				2A7390671D2BEFB100474554 /* SwipableVideoFiltersViewController.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,

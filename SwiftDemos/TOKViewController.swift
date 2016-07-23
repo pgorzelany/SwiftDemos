@@ -61,8 +61,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             TOKRow(title: "View Dragging", controller: ViewDraggingViewController.self),
             TOKRow(title: "Drawing", controller: nil),
             TOKRow(title: "Animating Constraints", controller: nil),
-            TOKRow(title: "Door Menu", controller: DoorMenuViewController.self),
-            TOKRow(title: "Curtain View", controller: CurtainViewController.self)
+            TOKRow(title: "Door Menu", controller: DoorMenuViewController.self)
             ]
         ),
         TOKSection(hader: "Core Graphics", rows: [
@@ -83,7 +82,9 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             TOKRow(title: "Geocoding", controller: GeocodingViewController.self)
             ]),
         TOKSection(hader: "Core Motion", rows: []),
-        TOKSection(hader: "AV Foundation", rows: []),
+        TOKSection(hader: "AVFoundation, GPUImage", rows: [
+            TOKRow(title: "GPUImage swipable video filters", controller: SwipableVideoFilterViewController.self)
+            ]),
         TOKSection(hader: "SpriteKit", rows: [
             ]
         )
@@ -158,7 +159,7 @@ extension TOKViewController: UITableViewDataSource, UITableViewDelegate {
         
         let row = self.tableViewModel[indexPath.section].rows[indexPath.row]
         
-        let controller = row.controller!.instantiateFromStoryboard() ?? UnimplementedViewController.instantiateFromStoryboard()
+        let controller = row.controller?.instantiateFromStoryboard() ?? UnimplementedViewController.instantiateFromStoryboard()
         
         self.navigationController?.pushViewController(controller, animated: true)
         
