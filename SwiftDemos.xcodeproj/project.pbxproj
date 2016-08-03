@@ -70,6 +70,8 @@
 		55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8C171CBFBD47005F57B8 /* NibInstantiable.swift */; };
 		55BC8C1D1CBFCD16005F57B8 /* Unimplemented.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BC8C1C1CBFCD16005F57B8 /* Unimplemented.storyboard */; };
 		55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */; };
+		55C0B2431D528320003846CE /* FaceRecognitionDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C0B2421D528320003846CE /* FaceRecognitionDemo.storyboard */; };
+		55C0B2451D528330003846CE /* FaceRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0B2441D528330003846CE /* FaceRecognitionViewController.swift */; };
 		55E050181CC010AF00484C27 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55E050171CC010AF00484C27 /* Readme.md */; };
 		55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */; };
 		55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */; };
@@ -173,6 +175,8 @@
 		55BC8C171CBFBD47005F57B8 /* NibInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstantiable.swift; sourceTree = "<group>"; };
 		55BC8C1C1CBFCD16005F57B8 /* Unimplemented.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unimplemented.storyboard; sourceTree = "<group>"; };
 		55BC8C1E1CBFCD28005F57B8 /* UnimplementedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnimplementedViewController.swift; sourceTree = "<group>"; };
+		55C0B2421D528320003846CE /* FaceRecognitionDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FaceRecognitionDemo.storyboard; sourceTree = "<group>"; };
+		55C0B2441D528330003846CE /* FaceRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionViewController.swift; sourceTree = "<group>"; };
 		55E050171CC010AF00484C27 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocalNotifications.storyboard; sourceTree = "<group>"; };
 		55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsViewController.swift; sourceTree = "<group>"; };
@@ -525,6 +529,15 @@
 			name = Unimplemented;
 			sourceTree = "<group>";
 		};
+		55C0B2411D5282FD003846CE /* FaceRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				55C0B2441D528330003846CE /* FaceRecognitionViewController.swift */,
+				55C0B2421D528320003846CE /* FaceRecognitionDemo.storyboard */,
+			);
+			name = FaceRecognition;
+			sourceTree = "<group>";
+		};
 		55E050191CC0112000484C27 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +591,7 @@
 			children = (
 				55FAC4701D43BC7D000BE58B /* QRCodeDemo */,
 				55FAC46F1D43BC6E000BE58B /* SwipableVideoFilters */,
+				55C0B2411D5282FD003846CE /* FaceRecognition */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -730,6 +744,7 @@
 				2A98D4981D33E52D007C7CE9 /* ManipulableViewDemo.storyboard in Resources */,
 				5571C99C1CEA56AD001EA3EB /* TransformNavigationController.storyboard in Resources */,
 				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
+				55C0B2431D528320003846CE /* FaceRecognitionDemo.storyboard in Resources */,
 				2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */,
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
 				556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */,
@@ -880,6 +895,7 @@
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
 				2AC701761CDB61F00007FF7E /* MasterTransitionViewController.swift in Sources */,
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
+				55C0B2451D528330003846CE /* FaceRecognitionViewController.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
 				2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,

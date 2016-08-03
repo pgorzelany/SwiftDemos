@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Face Recognition View Controller-->
+        <scene sceneID="Yuj-UF-Dj4">
+            <objects>
+                <viewController storyboardIdentifier="FaceRecognitionViewController" id="hT4-VD-ozB" customClass="FaceRecognitionViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FzQ-GR-mQh"/>
+                        <viewControllerLayoutGuide type="bottom" id="PYb-UK-lhG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SG7-9M-far">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLg-ep-ei3">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8s4-9Y-WFf">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8s4-9Y-WFf" secondAttribute="bottom" id="04R-0J-IMc"/>
+                                    <constraint firstItem="8s4-9Y-WFf" firstAttribute="top" secondItem="TLg-ep-ei3" secondAttribute="top" id="XY7-Xf-sF0"/>
+                                    <constraint firstAttribute="trailing" secondItem="8s4-9Y-WFf" secondAttribute="trailing" id="rHI-Fb-hJJ"/>
+                                    <constraint firstItem="8s4-9Y-WFf" firstAttribute="leading" secondItem="TLg-ep-ei3" secondAttribute="leading" id="wdj-IB-N0s"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TLg-ep-ei3" firstAttribute="top" secondItem="FzQ-GR-mQh" secondAttribute="bottom" id="6M3-fF-SMG"/>
+                            <constraint firstItem="TLg-ep-ei3" firstAttribute="leading" secondItem="SG7-9M-far" secondAttribute="leading" id="JKQ-3R-IgY"/>
+                            <constraint firstAttribute="trailing" secondItem="TLg-ep-ei3" secondAttribute="trailing" id="Jz8-UP-bdz"/>
+                            <constraint firstItem="TLg-ep-ei3" firstAttribute="top" secondItem="SG7-9M-far" secondAttribute="top" id="ZGr-Ux-8e4"/>
+                            <constraint firstItem="PYb-UK-lhG" firstAttribute="top" secondItem="TLg-ep-ei3" secondAttribute="bottom" id="kTA-zF-Gij"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZGr-Ux-8e4"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="cameraContainerView" destination="8s4-9Y-WFf" id="0vi-0t-TyA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ykW-Wx-iVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="611" y="437"/>
+        </scene>
+    </scenes>
+</document>
