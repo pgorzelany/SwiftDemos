@@ -66,7 +66,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         ),
         TOKSection(hader: "Core Graphics", rows: [
             TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.self),
-            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self)
+            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self),
+            TOKRow(title: "Context drawing", controller: nil)
             ]),
         TOKSection(hader: "Core Animation", rows: [
             TOKRow(title: "Position", controller: nil),

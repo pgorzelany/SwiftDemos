@@ -77,6 +77,8 @@ class ManipulableView: UIView {
     func pinchGestureRecognized(recognizer: UIPinchGestureRecognizer) {
         print(#function)
         
+        print(self.frame)
+        
         switch recognizer.state {
             
         case .Began:

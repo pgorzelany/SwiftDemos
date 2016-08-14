@@ -57,6 +57,8 @@
 		5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */; };
 		5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */; };
 		558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */; };
+		55846BF21D60D09D0019114C /* ContextDrawingDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55846BF11D60D09D0019114C /* ContextDrawingDemo.storyboard */; };
+		55846BF41D60D0AF0019114C /* ContextDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846BF31D60D0AF0019114C /* ContextDrawingViewController.swift */; };
 		558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EC6881CF79A2400B6FD1C /* Angle.swift */; };
 		55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A5C1191CD00AD800297406 /* BasicMap.storyboard */; };
 		55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */; };
@@ -158,6 +160,8 @@
 		5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		5583367C1CE4FC67000AAC80 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		5583367F1CE4FC8A000AAC80 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		55846BF11D60D09D0019114C /* ContextDrawingDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContextDrawingDemo.storyboard; sourceTree = "<group>"; };
+		55846BF31D60D0AF0019114C /* ContextDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextDrawingViewController.swift; sourceTree = "<group>"; };
 		558EC6881CF79A2400B6FD1C /* Angle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		55A5C1191CD00AD800297406 /* BasicMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicMap.storyboard; sourceTree = "<group>"; };
 		55A5C11C1CD00AF600297406 /* BasicMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMapViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 			children = (
 				2A9092581CD3A54A0037A0B8 /* AffineTransform */,
 				5571C99A1CEA5671001EA3EB /* NavigationController */,
+				55846BF01D60D0780019114C /* ContextDrawing */,
 			);
 			name = CoreGraphics;
 			sourceTree = "<group>";
@@ -417,6 +422,15 @@
 				5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */,
 			);
 			name = CustomLayout;
+			sourceTree = "<group>";
+		};
+		55846BF01D60D0780019114C /* ContextDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				55846BF11D60D09D0019114C /* ContextDrawingDemo.storyboard */,
+				55846BF31D60D0AF0019114C /* ContextDrawingViewController.swift */,
+			);
+			name = ContextDrawing;
 			sourceTree = "<group>";
 		};
 		55A5C1181CD00A8B00297406 /* MapKit */ = {
@@ -763,6 +777,7 @@
 				2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */,
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
 				556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */,
+				55846BF21D60D09D0019114C /* ContextDrawingDemo.storyboard in Resources */,
 				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
 				2A73907A1D2E866700474554 /* sample-video.mov in Resources */,
 				2A77F6851CDA44F9006BECF6 /* Podfile in Resources */,
@@ -894,6 +909,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
+				55846BF41D60D0AF0019114C /* ContextDrawingViewController.swift in Sources */,
 				2A98D4A51D3641A8007C7CE9 /* StickerView.swift in Sources */,
 				2A98D4871D339856007C7CE9 /* ColorSliderViewController.swift in Sources */,
 				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
