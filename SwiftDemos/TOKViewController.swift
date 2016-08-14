@@ -85,7 +85,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         TOKSection(hader: "AVFoundation, GPUImage", rows: [
             TOKRow(title: "GPUImage swipable video filters", controller: SwipableVideoFilterViewController.self),
             TOKRow(title: "QRCode scanner", controller: QRCodeViewController.self),
-            TOKRow(title: "Face Recognition", controller: FaceRecognitionViewController.self)
+            TOKRow(title: "Face Recognition", controller: FaceRecognitionViewController.self),
+            TOKRow(title: "HTTP Live Streaming", controller: HLSViewController.self)
             ]),
         TOKSection(hader: "SpriteKit", rows: [
             ]

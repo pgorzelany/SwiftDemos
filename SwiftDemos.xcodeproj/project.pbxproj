@@ -33,6 +33,8 @@
 		377719298CE0E2B1374CEF26 /* Pods_SwiftDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18524E9F15CAB140F086ED76 /* Pods_SwiftDemosTests.framework */; };
 		3B05C4DAFC8B4A2BED5CC4B6 /* Pods_SwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DD3A04837C6AA0FDCB497A /* Pods_SwiftDemos.framework */; };
 		5501813C1D357DA200F5C18C /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5501813B1D357DA200F5C18C /* CGPoint+Extensions.swift */; };
+		55040F901D608D7E00795A5E /* HLSDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55040F8F1D608D7E00795A5E /* HLSDemo.storyboard */; };
+		55040F921D608D8900795A5E /* HLSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55040F911D608D8900795A5E /* HLSViewController.swift */; };
 		5511733A1D4111F60032C75E /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551173391D4111F60032C75E /* FadeInAnimator.swift */; };
 		551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */; };
 		551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */; };
@@ -131,6 +133,8 @@
 		37CD6B2155721542F07132C0 /* Pods-SwiftDemosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemosTests/Pods-SwiftDemosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D33E7F8FCAE4301BEC3BED2 /* Pods-SwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		5501813B1D357DA200F5C18C /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		55040F8F1D608D7E00795A5E /* HLSDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HLSDemo.storyboard; sourceTree = "<group>"; };
+		55040F911D608D8900795A5E /* HLSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLSViewController.swift; sourceTree = "<group>"; };
 		551173391D4111F60032C75E /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLocalNotificationHandler.swift; sourceTree = "<group>"; };
@@ -294,6 +298,15 @@
 				551173391D4111F60032C75E /* FadeInAnimator.swift */,
 			);
 			name = CustomTransitions;
+			sourceTree = "<group>";
+		};
+		55040F8E1D608D6900795A5E /* HLS */ = {
+			isa = PBXGroup;
+			children = (
+				55040F8F1D608D7E00795A5E /* HLSDemo.storyboard */,
+				55040F911D608D8900795A5E /* HLSViewController.swift */,
+			);
+			name = HLS;
 			sourceTree = "<group>";
 		};
 		551A05A01CC4106600AB0E22 /* Utils */ = {
@@ -592,6 +605,7 @@
 				55FAC4701D43BC7D000BE58B /* QRCodeDemo */,
 				55FAC46F1D43BC6E000BE58B /* SwipableVideoFilters */,
 				55C0B2411D5282FD003846CE /* FaceRecognition */,
+				55040F8E1D608D6900795A5E /* HLS */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -739,6 +753,7 @@
 				2A90925C1CD3A5710037A0B8 /* AffineTransform.storyboard in Resources */,
 				2A77F67D1CDA4217006BECF6 /* Geocoding.storyboard in Resources */,
 				55EA21CF1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard in Resources */,
+				55040F901D608D7E00795A5E /* HLSDemo.storyboard in Resources */,
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
 				2A98D4981D33E52D007C7CE9 /* ManipulableViewDemo.storyboard in Resources */,
@@ -897,6 +912,7 @@
 				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
 				55C0B2451D528330003846CE /* FaceRecognitionViewController.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
+				55040F921D608D8900795A5E /* HLSViewController.swift in Sources */,
 				2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */,
