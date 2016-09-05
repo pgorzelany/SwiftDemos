@@ -45,9 +45,18 @@ class ContextDrawingViewController: UIViewController, StoryboardInstantiable {
     
     private func configureController() {
         
-        for _ in 0..<3 {
+        let words = ["rotate me", "resize me", "move me"]
+        
+        for word in words {
             
-            let manipulableView = ManipulableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            let label = UILabel()
+            label.font = UIFont.boldSystemFontOfSize(32)
+            label.textAlignment = .Center
+            label.text = word
+            label.sizeToFit()
+            label.bounds = label.bounds.insetBy(dx: -20, dy: -20)
+            let manipulableView = ManipulableView(frame: label.bounds)
+            manipulableView.addSubviewFullscreen(label)
             manipulableView.center = canvasView.center
             manipulableView.backgroundColor = UIColor.redColor()
             self.canvasView.addSubview(manipulableView)
