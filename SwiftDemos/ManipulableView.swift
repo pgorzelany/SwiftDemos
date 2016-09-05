@@ -9,10 +9,6 @@
 import UIKit
 
 class ManipulableView: UIView {
-
-    // Outlets
-    
-    
     
     // MARK: Properties
     
@@ -24,15 +20,15 @@ class ManipulableView: UIView {
     /** The initial transform value when initiating view panning */
     var initialTranslationTransform = CGAffineTransformIdentity
     
-    /** The initial transform value when initiating view scaling */
-    var initialScaleTransform = CGAffineTransformIdentity
-    
-    /** The initial transform value when initiating view rotation */
-    var initialRotationTransform = CGAffineTransformIdentity
-    
     var minScaleFactor: CGFloat = 0.5
     
     var maxScaleFactor: CGFloat = 2.0
+    
+    /** The view center after apllying translation transform */
+    var translatedCenter: CGPoint {
+        let translation = CGPoint(x: self.transform.tx, y: self.transform.ty)
+        return self.center + translation
+    }
     
     // MARK: Lifecycle
     
@@ -51,23 +47,21 @@ class ManipulableView: UIView {
     // MARK: Actions
     
     func tapGestureRecognized(recognizer: UITapGestureRecognizer) {
-        print(#function)
         
     }
     
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
-        print(#function)
-
+        
         let translation = recognizer.translationInView(self)
         
         switch recognizer.state {
             
         case .Began:
-
+            
             self.initialTranslationTransform = self.transform
             
         case .Changed:
-
+            
             self.transform = CGAffineTransformTranslate(self.initialTranslationTransform, translation.x, translation.y)
             
         default: break
@@ -75,41 +69,35 @@ class ManipulableView: UIView {
     }
     
     func pinchGestureRecognized(recognizer: UIPinchGestureRecognizer) {
-        print(#function)
-        
-        print(self.frame)
         
         switch recognizer.state {
             
-        case .Began:
-            self.initialScaleTransform = self.transform
-            
         case .Changed:
             
-            let newScaleTransform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+            let newScaleTransform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale)
             let newScale = self.scaleFromTransform(newScaleTransform)
             if newScale >= self.minScaleFactor && newScale <= self.maxScaleFactor {
-                self.transform = CGAffineTransformScale(self.initialScaleTransform, recognizer.scale, recognizer.scale)
+                self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale)
             }
             
         default: break
         }
+        
+        recognizer.scale = 1
     }
     
     func rotationGestureRecognized(recognizer: UIRotationGestureRecognizer) {
-        print(#function)
-        
         
         switch recognizer.state {
             
-        case .Began:
-            self.initialRotationTransform = self.transform
-            
         case .Changed:
-            self.transform = CGAffineTransformRotate(self.initialRotationTransform, recognizer.rotation)
+            self.transform = CGAffineTransformRotate(self.transform, recognizer.rotation)
             
         default: break
         }
+        
+        recognizer.rotation = 0
+        
     }
     
     // MARK: Helpers
@@ -126,8 +114,8 @@ class ManipulableView: UIView {
         self.panRecognizer.maximumNumberOfTouches = 1
         self.pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchGestureRecognized))
         self.rotationRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureRecognized))
-//        self.rotationRecognizer.delegate = self
-//        self.pinchRecognizer.delegate = self
+        self.rotationRecognizer.delegate = self
+        self.pinchRecognizer.delegate = self
         
         self.addGestureRecognizer(tapRecognizer)
         self.addGestureRecognizer(panRecognizer)
@@ -135,14 +123,14 @@ class ManipulableView: UIView {
         self.addGestureRecognizer(rotationRecognizer)
     }
     
-    private func scaleFromTransform(transform: CGAffineTransform) -> CGFloat {
+    func scaleFromTransform(transform: CGAffineTransform) -> CGFloat {
         
         return CGFloat(sqrt(Double(transform.a * transform.a + transform.c * transform.c)))
     }
     
     // MARK: Appearance
     
-
+    
 }
 
 extension ManipulableView: UIGestureRecognizerDelegate {

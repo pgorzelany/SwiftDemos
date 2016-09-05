@@ -16,6 +16,7 @@ class ContextDrawingViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Outlets
     
+    @IBOutlet weak var canvasView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: Properties
@@ -29,35 +30,44 @@ class ContextDrawingViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.configureController()
     }
     
     // MARK: Actions
     
-    @IBAction func redrawButtonTouched(sender: UIButton) {
-        
-        self.draw()
-    }
     
+    @IBAction func captureSceneButtonTouched(sender: UIButton) {
+        
+        self.captureScene()
+    }
     
     // MARK: Support
     
-    private func draw() {
+    private func configureController() {
         
-        let drawingRect = self.imageView.bounds
+        for _ in 0..<3 {
+            
+            let manipulableView = ManipulableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            manipulableView.center = canvasView.center
+            manipulableView.backgroundColor = UIColor.redColor()
+            self.canvasView.addSubview(manipulableView)
+        }
+    }
+    
+    private func captureScene() {
+        
+        let drawingRect = CGRect(origin: CGPoint(x: 0, y:0), size: self.exampleImage.size)
         UIGraphicsBeginImageContextWithOptions(drawingRect.size, false, 0)
         if let context = UIGraphicsGetCurrentContext() {
-            CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
-            CGContextFillRect(context, drawingRect)
-            CGContextSaveGState(context)
-            CGContextRotateCTM(context, Angle.degreesToRadians(degrees: 180))
-            self.exampleImage.drawInRect(CGRect(x: -100, y: -100, width: 100, height: 100))
-            CGContextRestoreGState(context)
+            let yScale = self.exampleImage.size.height / drawingRect.size.height
+            let xScale = self.exampleImage.size.width / drawingRect.size.width
+            CGContextScaleCTM(context, xScale, yScale)
+            self.canvasView.layer.renderInContext(context)
         }
         let image = UIGraphicsGetImageFromCurrentImageContext()
-        self.imageView.image = image
-//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         UIGraphicsEndImageContext()
+        AlertUtils.showAlert(title: "Scene saved to photo album", body: nil)
     }
     
     // MARK: Data
