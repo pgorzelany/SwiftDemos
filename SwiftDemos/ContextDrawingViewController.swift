@@ -59,9 +59,10 @@ class ContextDrawingViewController: UIViewController, StoryboardInstantiable {
         let drawingRect = CGRect(origin: CGPoint(x: 0, y:0), size: self.exampleImage.size)
         UIGraphicsBeginImageContextWithOptions(drawingRect.size, false, 0)
         if let context = UIGraphicsGetCurrentContext() {
-            let yScale = self.exampleImage.size.height / drawingRect.size.height
-            let xScale = self.exampleImage.size.width / drawingRect.size.width
+            let yScale =  drawingRect.size.height / self.canvasView.bounds.size.height
+            let xScale = drawingRect.size.width / self.canvasView.bounds.size.width
             CGContextScaleCTM(context, xScale, yScale)
+            print("Drawing rect size: \(drawingRect.size)")
             self.canvasView.layer.renderInContext(context)
         }
         let image = UIGraphicsGetImageFromCurrentImageContext()
