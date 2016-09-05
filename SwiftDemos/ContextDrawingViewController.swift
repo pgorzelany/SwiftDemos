@@ -8,28 +8,60 @@
 
 import UIKit
 
-class ContextDrawingViewController: UIViewController {
+class ContextDrawingViewController: UIViewController, StoryboardInstantiable {
 
+    // MARK: StoryboardInstantiable
+    
+    static let storyboardId = "ContextDrawingDemo"
+    
+    // MARK: Outlets
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    // MARK: Properties
+    
+    let exampleImage = UIImage(named: "example-image")!
+    
+    // MARK: Initializers
+    
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: Actions
+    
+    @IBAction func redrawButtonTouched(sender: UIButton) {
+        
+        self.draw()
     }
-    */
+    
+    
+    // MARK: Support
+    
+    private func draw() {
+        
+        let drawingRect = self.imageView.bounds
+        UIGraphicsBeginImageContextWithOptions(drawingRect.size, false, 0)
+        if let context = UIGraphicsGetCurrentContext() {
+            CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
+            CGContextFillRect(context, drawingRect)
+            CGContextSaveGState(context)
+            CGContextRotateCTM(context, Angle.degreesToRadians(degrees: 180))
+            self.exampleImage.drawInRect(CGRect(x: -100, y: -100, width: 100, height: 100))
+            CGContextRestoreGState(context)
+        }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        self.imageView.image = image
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        UIGraphicsEndImageContext()
+    }
+    
+    // MARK: Data
+    
+    // MARK: Appearance
 
 }

@@ -36,6 +36,11 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     // MARK: Properties
     
     let tableViewModel = [
+        TOKSection(hader: "Core Graphics", rows: [
+            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.self),
+            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self),
+            TOKRow(title: "Context drawing", controller: ContextDrawingViewController.self)
+            ]),
         TOKSection(hader: "UIViews", rows: [
             TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.self)
             ]),
@@ -64,11 +69,6 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             TOKRow(title: "Door Menu", controller: DoorMenuViewController.self)
             ]
         ),
-        TOKSection(hader: "Core Graphics", rows: [
-            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.self),
-            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self),
-            TOKRow(title: "Context drawing", controller: nil)
-            ]),
         TOKSection(hader: "Core Animation", rows: [
             TOKRow(title: "Position", controller: nil),
             TOKRow(title: "Path", controller: nil),
