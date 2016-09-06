@@ -45,6 +45,9 @@
 		5541E58D1D2AAF4700447C6F /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541E58C1D2AAF4700447C6F /* SubmitButton.swift */; };
 		5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */; };
 		5548BD141CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */; };
+		5548E07F1D7EC07400C14E5C /* CanvasDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548E07E1D7EC07400C14E5C /* CanvasDemo.storyboard */; };
+		5548E0811D7EC08100C14E5C /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0801D7EC08100C14E5C /* CanvasViewController.swift */; };
+		5548E0831D7EC0E700C14E5C /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0821D7EC0E700C14E5C /* CanvasView.swift */; };
 		556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 556B22421CF2467200C54FAF /* DoorMenu.storyboard */; };
 		556B22451CF2469200C54FAF /* DoorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B22441CF2469200C54FAF /* DoorMenuViewController.swift */; };
 		5571C99C1CEA56AD001EA3EB /* TransformNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571C99B1CEA56AD001EA3EB /* TransformNavigationController.storyboard */; };
@@ -147,6 +150,9 @@
 		5541E58C1D2AAF4700447C6F /* SubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		5548BD111CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomCollectionViewLayout.storyboard; sourceTree = "<group>"; };
 		5548BD131CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayoutViewController.swift; sourceTree = "<group>"; };
+		5548E07E1D7EC07400C14E5C /* CanvasDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CanvasDemo.storyboard; sourceTree = "<group>"; };
+		5548E0801D7EC08100C14E5C /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		5548E0821D7EC0E700C14E5C /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		555CAFCB119A126CAB76A15C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		556B22421CF2467200C54FAF /* DoorMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DoorMenu.storyboard; sourceTree = "<group>"; };
 		556B22441CF2469200C54FAF /* DoorMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorMenuViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 				2A9092581CD3A54A0037A0B8 /* AffineTransform */,
 				5571C99A1CEA5671001EA3EB /* NavigationController */,
 				55846BF01D60D0780019114C /* ContextDrawing */,
+				5548E07D1D7EC04200C14E5C /* CanvasDemo */,
 			);
 			name = CoreGraphics;
 			sourceTree = "<group>";
@@ -332,6 +339,7 @@
 				2A73906D1D2D1CF900474554 /* GPUImageSwipableFilterView.swift */,
 				2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */,
 				2A98D49B1D33E54C007C7CE9 /* ManipulableView.swift */,
+				5548E0821D7EC0E700C14E5C /* CanvasView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -355,6 +363,15 @@
 				5583367E1CE4FC6D000AAC80 /* CustomCollectionViewCell */,
 			);
 			name = CustomCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		5548E07D1D7EC04200C14E5C /* CanvasDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5548E07E1D7EC07400C14E5C /* CanvasDemo.storyboard */,
+				5548E0801D7EC08100C14E5C /* CanvasViewController.swift */,
+			);
+			name = CanvasDemo;
 			sourceTree = "<group>";
 		};
 		556B22411CF2465D00C54FAF /* DoorMenuController */ = {
@@ -773,6 +790,7 @@
 				2A98D4981D33E52D007C7CE9 /* ManipulableViewDemo.storyboard in Resources */,
 				5571C99C1CEA56AD001EA3EB /* TransformNavigationController.storyboard in Resources */,
 				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
+				5548E07F1D7EC07400C14E5C /* CanvasDemo.storyboard in Resources */,
 				55C0B2431D528320003846CE /* FaceRecognitionDemo.storyboard in Resources */,
 				2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */,
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
@@ -910,6 +928,7 @@
 			files = (
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
 				55846BF41D60D0AF0019114C /* ContextDrawingViewController.swift in Sources */,
+				5548E0831D7EC0E700C14E5C /* CanvasView.swift in Sources */,
 				2A98D4A51D3641A8007C7CE9 /* StickerView.swift in Sources */,
 				2A98D4871D339856007C7CE9 /* ColorSliderViewController.swift in Sources */,
 				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
@@ -941,6 +960,7 @@
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,
 				55BC8C161CBFBC00005F57B8 /* StoryboardInstantiable.swift in Sources */,
+				5548E0811D7EC08100C14E5C /* CanvasViewController.swift in Sources */,
 				55BC8C131CBFBBB6005F57B8 /* TOKViewController.swift in Sources */,
 				5501813C1D357DA200F5C18C /* CGPoint+Extensions.swift in Sources */,
 				55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */,

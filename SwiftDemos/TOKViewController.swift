@@ -39,7 +39,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         TOKSection(hader: "Core Graphics", rows: [
             TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.self),
             TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self),
-            TOKRow(title: "Context drawing", controller: ContextDrawingViewController.self)
+            TOKRow(title: "Image Overlay Drawing", controller: ContextDrawingViewController.self),
+            TOKRow(title: "Canvas Drawing", controller: CanvasViewController.self)
             ]),
         TOKSection(hader: "UIViews", rows: [
             TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.self)
