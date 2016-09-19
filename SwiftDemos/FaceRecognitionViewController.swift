@@ -23,9 +23,9 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
-    private var captureSession = AVCaptureSession()
-    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    private var faceDetector: CIDetector!
+    fileprivate var captureSession = AVCaptureSession()
+    fileprivate var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    fileprivate var faceDetector: CIDetector!
     
     // MARK: Initializers
     
@@ -37,13 +37,13 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
         self.configureController()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.captureSession.startRunning()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.captureSession.stopRunning()
@@ -60,37 +60,37 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Support
     
-    private func configureController() {
+    fileprivate func configureController() {
         
         self.configureCameraSession()
         self.configureFaceDetector()
     }
     
-    private func configureCameraSession() {
+    fileprivate func configureCameraSession() {
         
         do {
             
             // capture session configuration
-            let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+            let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
             let input = try AVCaptureDeviceInput(device: device)
             self.captureSession.addInput(input)
 
             // preview layer
             self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
             self.videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            self.videoPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            self.videoPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
             self.videoPreviewLayer?.frame = self.cameraContainerView.bounds
-            self.cameraContainerView.layer.insertSublayer(self.videoPreviewLayer!, atIndex: 0)
+            self.cameraContainerView.layer.insertSublayer(self.videoPreviewLayer!, at: 0)
             
             // data output
             let videoDataOutput = AVCaptureVideoDataOutput()
-            let rgbOutputSettings: NSDictionary = [String(kCVPixelBufferPixelFormatTypeKey): NSNumber(unsignedInt: kCMPixelFormat_32BGRA)]
-            videoDataOutput.videoSettings = rgbOutputSettings as [NSObject : AnyObject]
+            let rgbOutputSettings: NSDictionary = [String(kCVPixelBufferPixelFormatTypeKey): NSNumber(value: kCMPixelFormat_32BGRA as UInt32)]
+            videoDataOutput.videoSettings = rgbOutputSettings as! [AnyHashable: Any]
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
-            let videoDataOutputQueue = dispatch_queue_create("VideoDataOutputQue", DISPATCH_QUEUE_SERIAL)
+            let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutputQue", attributes: [])
             videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
             self.captureSession.addOutput(videoDataOutput)
-            videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = true
+            videoDataOutput.connection(withMediaType: AVMediaTypeVideo).isEnabled = true
             
         } catch {
             
@@ -101,10 +101,10 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
         }
     }
     
-    private func configureFaceDetector() {
+    fileprivate func configureFaceDetector() {
         
         let detectorOptions: [String: AnyObject] = [
-            CIDetectorAccuracy: CIDetectorAccuracyHigh
+            CIDetectorAccuracy: CIDetectorAccuracyHigh as AnyObject
         ]
         self.faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: detectorOptions)
     }
@@ -117,16 +117,16 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
 
 extension FaceRecognitionViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         
-        if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer), attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate) {
+        if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer), let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate) {
 
-            let image = CIImage(CVPixelBuffer: pixelBuffer, options: attachments as? [String: AnyObject])
+            let image = CIImage(cvPixelBuffer: pixelBuffer, options: attachments as? [String: AnyObject])
             
-            let deviceOrientation = UIDevice.currentDevice().orientation
+            let deviceOrientation = UIDevice.current.orientation
             
-            let imageOptions: [String: AnyObject] = [CIDetectorImageOrientation: 1]
-            let features = self.faceDetector.featuresInImage(image, options: imageOptions)
+            let imageOptions: [String: AnyObject] = [CIDetectorImageOrientation: 1 as AnyObject]
+            let features = self.faceDetector.features(in: image, options: imageOptions)
             
             for feature in features {
                 print("Feacure type: \(feature.type), with bounds: \(feature.bounds)")

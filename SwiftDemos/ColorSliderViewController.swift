@@ -33,7 +33,7 @@ class ColorSliderViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.colorSliderView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.colorSliderView.layer.borderColor = UIColor.white.cgColor
         self.colorSliderView.layer.borderWidth = 2.0
         self.colorSliderView.layer.cornerRadius = self.colorSliderView.bounds.size.height / 2.0
         self.colorSliderView.clipsToBounds = true
@@ -44,7 +44,7 @@ class ColorSliderViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Helpers
     
-    private func configureController() {
+    fileprivate func configureController() {
         
         self.colorSliderView.delegate = self
     }
@@ -56,7 +56,7 @@ class ColorSliderViewController: UIViewController, StoryboardInstantiable {
 
 extension ColorSliderViewController: ColorSliderViewDelegate {
     
-    func colorSliderView(view: ColorSliderView, didSelectColor color: UIColor, atLocation location: CGPoint) {
+    func colorSliderView(_ view: ColorSliderView, didSelectColor color: UIColor, atLocation location: CGPoint) {
         
         self.view.backgroundColor = color
         self.colorPointerViewHorizontalConstraints.constant = location.x

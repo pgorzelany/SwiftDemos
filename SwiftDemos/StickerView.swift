@@ -12,7 +12,7 @@ class StickerView: ManipulableView {
     
     // MARK: Properties
     
-    var removeButton = UIButton(type: UIButtonType.Custom)
+    var removeButton = UIButton(type: UIButtonType.custom)
     
     // MARK: Lifecycle
     
@@ -37,29 +37,29 @@ class StickerView: ManipulableView {
     
     // MARK: Methods
     
-    private func configureView() {
+    fileprivate func configureView() {
         
         self.addRemoveButton()
     }
     
-    private func addRemoveButton() {
+    fileprivate func addRemoveButton() {
         
         let buttonImage = UIImage(named: "icon-close-red")!
-        self.removeButton.setImage(buttonImage, forState: UIControlState.Normal)
-        self.removeButton.addTarget(self, action: #selector(removeButtonTouched), forControlEvents: UIControlEvents.TouchUpInside)
+        self.removeButton.setImage(buttonImage, for: UIControlState())
+        self.removeButton.addTarget(self, action: #selector(removeButtonTouched), for: UIControlEvents.touchUpInside)
 //        self.removeButton.hidden = true
         
         self.removeButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.removeButton)
         let views = ["subview": self.removeButton]
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[subview]", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[subview]-(0)-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[subview]", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[subview]-(0)-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
         
     }
     
-    func setRemoveButtonHidden(hidden: Bool) {
+    func setRemoveButtonHidden(_ hidden: Bool) {
         
-        self.removeButton.hidden = hidden
+        self.removeButton.isHidden = hidden
     }
     
 }

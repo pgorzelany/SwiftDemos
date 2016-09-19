@@ -12,9 +12,9 @@ class CanvasView: UIView {
     
     // MARK: Properties
     
-    private var paths: [CGMutablePath] = []
+    fileprivate var paths: [CGMutablePath] = []
     
-    private var currentPath: CGMutablePath?
+    fileprivate var currentPath: CGMutablePath?
     
     // MARK: Lifecycle
     
@@ -30,30 +30,30 @@ class CanvasView: UIView {
         self.configureView()
     }
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         let context = UIGraphicsGetCurrentContext()
         for path in self.paths + [self.currentPath].flatMap({$0}) {
-            CGContextAddPath(context, path)
-            CGContextSetLineWidth(context, 2.0)
-            CGContextStrokePath(context)
+            context?.addPath(path)
+            context?.setLineWidth(2.0)
+            context?.strokePath()
         }
     }
     
     // MARK: Actions
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        let location = recognizer.locationInView(self)
+        let location = recognizer.location(in: self)
         
         switch recognizer.state {
             
-        case .Began:
-            self.currentPath = CGPathCreateMutable()
-            CGPathMoveToPoint(self.currentPath, nil, location.x, location.y)
+        case .began:
+            self.currentPath = CGMutablePath()
+            self.currentPath?.move(to: location)
             
-        case .Changed:
-            CGPathAddLineToPoint(self.currentPath, nil, location.x, location.y)
+        case .changed:
+            self.currentPath?.addLine(to: location)
             self.setNeedsDisplay()
             
         default: self.closeCurrentPath()
@@ -62,18 +62,18 @@ class CanvasView: UIView {
     
     // MARK: Methods
     
-    private func configureView() {
+    fileprivate func configureView() {
         
         self.addGestureRecognizers()
     }
     
-    private func addGestureRecognizers() {
+    fileprivate func addGestureRecognizers() {
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.addGestureRecognizer(panRecognizer)
     }
     
-    private func closeCurrentPath() {
+    fileprivate func closeCurrentPath() {
         
         if let currentPath = self.currentPath {
             self.paths.append(currentPath)

@@ -22,7 +22,7 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     var filters = [GPUImageFilter]()
     var currentFilterIndex: Int {
-        return self.filters.indexOf(self.currentFilter)!
+        return self.filters.index(of: self.currentFilter)!
     }
     var currentFilter = GPUImageFilter()
     var bottomFilter = GPUImageFilter()
@@ -37,7 +37,7 @@ class GPUImageSwipableFilterView: GPUImageView {
     }
     
     convenience init(filters: [GPUImageFilter]) {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
         
         self.filters = filters
         if let firstFilter = filters.first {
@@ -60,9 +60,9 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     // MARK: Actions
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        let xTranslation = recognizer.translationInView(self).x
+        let xTranslation = recognizer.translation(in: self).x
         print(xTranslation)
         
         let topRightCorner = CGPoint(x: self.bounds.width - abs(xTranslation), y: 0)
@@ -71,7 +71,7 @@ class GPUImageSwipableFilterView: GPUImageView {
         
         switch recognizer.state {
             
-        case .Began:
+        case .began:
             
             print("Gesture Begin")
             
@@ -95,13 +95,13 @@ class GPUImageSwipableFilterView: GPUImageView {
             
             self.updateFilterTargets()
             
-        case .Changed:
+        case .changed:
             
             print("Gesture changed")
             
             self.topGPUImageView.cutTransparentHoleWithRect(holeRect)
             
-        case .Ended:
+        case .ended:
             
             print("Gesture ended")
             
@@ -121,7 +121,7 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     // MARK: Methods
     
-    private func configureView() {
+    fileprivate func configureView() {
         
         self.addSubviewFullscreen(GPUImageView())
         self.addSubviewFullscreen(GPUImageView())
@@ -132,17 +132,17 @@ class GPUImageSwipableFilterView: GPUImageView {
         self.configureCamera()
     }
     
-    private func configureCamera() {
+    fileprivate func configureCamera() {
         
-        self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.Back)
-        self.videoCamera.outputImageOrientation = UIInterfaceOrientation.Portrait
+        self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.back)
+        self.videoCamera.outputImageOrientation = UIInterfaceOrientation.portrait
         
         self.updateFilterTargets()
         
-        self.videoCamera.startCameraCapture()
+        self.videoCamera.startCapture()
     }
     
-    private func updateFilterTargets() {
+    fileprivate func updateFilterTargets() {
         
         self.videoCamera.removeAllTargets()
         self.currentFilter.removeAllTargets()
@@ -156,21 +156,21 @@ class GPUImageSwipableFilterView: GPUImageView {
         self.bottomFilter.addTarget(bottomGPUImageView)
     }
     
-    private func commitFilterChange() {
+    fileprivate func commitFilterChange() {
         
-        self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
+        self.topGPUImageView.cutTransparentHoleWithRect(CGRect.zero)
         self.currentFilter = self.bottomFilter
         self.switchViews()
     }
     
-    private func rollbackFilterChange() {
+    fileprivate func rollbackFilterChange() {
         
-        self.topGPUImageView.cutTransparentHoleWithRect(CGRectZero)
+        self.topGPUImageView.cutTransparentHoleWithRect(CGRect.zero)
     }
     
-    private func switchViews() {
+    fileprivate func switchViews() {
 
-        self.exchangeSubviewAtIndex(1, withSubviewAtIndex: 0)
+        self.exchangeSubview(at: 1, withSubviewAt: 0)
     }
 
 }

@@ -32,7 +32,7 @@ class CanvasViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func clearButtonTouched(sender: UIButton) {
+    @IBAction func clearButtonTouched(_ sender: UIButton) {
         
         self.canvasView.clear()
     }

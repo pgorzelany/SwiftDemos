@@ -31,9 +31,9 @@ class DetailTransitionViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func dismissButtonTouched(sender: UIButton) {
+    @IBAction func dismissButtonTouched(_ sender: UIButton) {
         
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Helpers

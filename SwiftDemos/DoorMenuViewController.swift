@@ -10,16 +10,16 @@ import UIKit
 
 private enum Side {
     
-    case Left, Right
+    case left, right
     
 }
     
 protocol DoorMenuDelegate {
     
-    func doorMenuDelegateWillShowLeftMenu(menu: DoorMenuViewController)
-    func doorMenuDelegateWillShowRightMenu(menu: DoorMenuViewController)
-    func doorMenuDelegateWillHideLeftMenu(menu: DoorMenuViewController)
-    func doorMenuDelegateWillHideRightMenu(menu: DoorMenuViewController)
+    func doorMenuDelegateWillShowLeftMenu(_ menu: DoorMenuViewController)
+    func doorMenuDelegateWillShowRightMenu(_ menu: DoorMenuViewController)
+    func doorMenuDelegateWillHideLeftMenu(_ menu: DoorMenuViewController)
+    func doorMenuDelegateWillHideRightMenu(_ menu: DoorMenuViewController)
     
 }
 
@@ -44,27 +44,27 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     /** The width of the menu container as a percentage of the screen */
     var menuWidth: CGFloat = 0.75
     
-    private var maxAbsoluteContentTranslation: CGFloat {
-        return UIScreen.mainScreen().bounds.width * self.menuWidth
+    fileprivate var maxAbsoluteContentTranslation: CGFloat {
+        return UIScreen.main.bounds.width * self.menuWidth
     }
     
     /** The maximum angle (in degrees) the door menu can open */
-    private let menuTilt: CGFloat = 45
+    fileprivate let menuTilt: CGFloat = 45
     
     /** Content translation at the beggining of the pan gesture */
-    private var initialContentTranslation: CGFloat = 0
+    fileprivate var initialContentTranslation: CGFloat = 0
     
-    private var animating = false
+    fileprivate var animating = false
     
-    private let animationDuration: NSTimeInterval = 0.5
+    fileprivate let animationDuration: TimeInterval = 0.5
     
-    private var isLeftMenuShown: Bool {
+    fileprivate var isLeftMenuShown: Bool {
         
         return self.contentViewCenterConstraint.constant == self.maxAbsoluteContentTranslation
         
     }
     
-    private var isRightMenuShown: Bool {
+    fileprivate var isRightMenuShown: Bool {
         
         return self.contentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
         
@@ -87,13 +87,13 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func leftButtonTouched(sender: UIButton) {
+    @IBAction func leftButtonTouched(_ sender: UIButton) {
         
         self.toggleLeftMenu()
         
     }
     
-    @IBAction func rightButtonTouched(sender: UIButton) {
+    @IBAction func rightButtonTouched(_ sender: UIButton) {
         
         self.toggleRightMenu()
         
@@ -101,7 +101,7 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Support
     
-    private func configureController(){
+    fileprivate func configureController(){
         
         self.leftMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
         self.rightMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
@@ -110,21 +110,21 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
         
     }
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        let translation = recognizer.translationInView(self.view)
+        let translation = recognizer.translation(in: self.view)
         
         switch recognizer.state {
             
-        case .Began:
+        case .began:
             
             self.initialContentTranslation = self.contentViewCenterConstraint.constant
             
-        case .Changed:
+        case .changed:
             
             self.translateContentView(inXDimension: translation.x + self.initialContentTranslation)
             
-        case .Ended:
+        case .ended:
             
             self.handlePanGestureEnd()
             
@@ -137,7 +137,7 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     }
     
     /** The absolute translation to make on the content view */
-    private func translateContentView(inXDimension x: CGFloat, animated: Bool = false) {
+    fileprivate func translateContentView(inXDimension x: CGFloat, animated: Bool = false) {
         
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
         
@@ -164,7 +164,7 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
         
         if animated {
             
-            UIView.animateWithDuration(self.animationDuration, animations: { 
+            UIView.animate(withDuration: self.animationDuration, animations: { 
                 
                 self.contentContainerView.layer.transform = transform;
                 self.view.layoutSubviews()
@@ -179,13 +179,13 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
 
     }
     
-    private func handlePanGestureEnd() {
+    fileprivate func handlePanGestureEnd() {
         
         if abs(self.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 3.0 {
             
             // Almost opened
             
-            self.contentViewCenterConstraint.constant > 0 ? self.showMenu(.Left) : self.showMenu(.Right)
+            self.contentViewCenterConstraint.constant > 0 ? self.showMenu(.left) : self.showMenu(.right)
             
             
         } else {
@@ -196,28 +196,28 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
         
     }
     
-    private func showMenu(side: Side) {
+    fileprivate func showMenu(_ side: Side) {
         
-        let translation = side == .Left ? self.maxAbsoluteContentTranslation : -self.maxAbsoluteContentTranslation
+        let translation = side == .left ? self.maxAbsoluteContentTranslation : -self.maxAbsoluteContentTranslation
         
         self.translateContentView(inXDimension: translation, animated: true)
         
     }
     
-    private func hideMenu() {
+    fileprivate func hideMenu() {
         
         self.contentViewCenterConstraint.constant = 0
         
-        UIView.animateWithDuration(self.animationDuration) { 
+        UIView.animate(withDuration: self.animationDuration, animations: { 
             
             self.contentContainerView.layer.transform = CATransform3DIdentity
             self.view.layoutSubviews()
             
-        }
+        }) 
         
     }
     
-    private func toggleMenu(side: Side) {
+    fileprivate func toggleMenu(_ side: Side) {
         
         if self.isLeftMenuShown || self.isRightMenuShown {
             
@@ -232,20 +232,20 @@ class DoorMenuViewController: UIViewController, StoryboardInstantiable {
     
     func toggleLeftMenu() {
         
-        self.toggleMenu(.Left)
+        self.toggleMenu(.left)
         
     }
     
     func toggleRightMenu() {
         
-        self.toggleMenu(.Right)
+        self.toggleMenu(.right)
     }
     
     // MARK: Appearance
     
-    private func addShadowToContentView() {
+    fileprivate func addShadowToContentView() {
 
-        self.contentContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+        self.contentContainerView.layer.shadowColor = UIColor.black.cgColor
         self.contentContainerView.layer.shadowOffset = CGSize(width: 0, height: 3)
         self.contentContainerView.layer.shadowOpacity = 0.8
         self.contentContainerView.layer.masksToBounds = false

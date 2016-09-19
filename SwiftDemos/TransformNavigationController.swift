@@ -42,39 +42,39 @@ class TransformNavigationController: UIViewController, StoryboardInstantiable {
     
     // MARK: Support
     
-    private func addGestureRecognizers() {
+    fileprivate func addGestureRecognizers() {
         
         self.addPanGestureRecognizer()
         self.addTapGestureRecognizer()
         
     }
     
-    private func addPanGestureRecognizer() {
+    fileprivate func addPanGestureRecognizer() {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.view.addGestureRecognizer(panGestureRecognizer)
         
     }
     
-    private func addTapGestureRecognizer() {
+    fileprivate func addTapGestureRecognizer() {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
         self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        print("Gesture translation in view: \(recognizer.translationInView(self.view))")
-        let translationX = recognizer.translationInView(self.view).x
+        print("Gesture translation in view: \(recognizer.translation(in: self.view))")
+        let translationX = recognizer.translation(in: self.view).x
         
-        let transform = CGAffineTransformMakeTranslation(translationX, 0)
+        let transform = CGAffineTransform(translationX: translationX, y: 0)
         self.contantContainerView.transform = transform
         
     }
     
-    func tapGestureRecognized(recognizer: UITapGestureRecognizer) {
+    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         
-        self.contantContainerView.transform = CGAffineTransformIdentity
+        self.contantContainerView.transform = CGAffineTransform.identity
         
     }
     

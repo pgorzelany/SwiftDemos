@@ -10,32 +10,32 @@ import UIKit
 
 class CustomCollectionViewLayout: UICollectionViewLayout {
     
-    private var smallCellSize: CGSize!
-    private var avatarCellSize: CGSize!
+    fileprivate var smallCellSize: CGSize!
+    fileprivate var avatarCellSize: CGSize!
     
-    private var attributesCache = [UICollectionViewLayoutAttributes]()
+    fileprivate var attributesCache = [UICollectionViewLayoutAttributes]()
     
-    override func prepareLayout() {
-        super.prepareLayout()
+    override func prepare() {
+        super.prepare()
         print(#function)
         
         self.avatarCellSize = CGSize(width: 200, height: 200)
         self.smallCellSize = CGSize(width: 40, height: 40)
         
-        let numberOfItems = self.collectionView!.numberOfItemsInSection(0)
+        let numberOfItems = self.collectionView!.numberOfItems(inSection: 0)
         
         for i in 0..<numberOfItems {
             
-            let indexPath = NSIndexPath(forItem: i, inSection: 0)
-            let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+            let indexPath = IndexPath(item: i, section: 0)
+            let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 
                 attribute.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: avatarCellSize)
                 
             } else {
                 
-                attribute.frame = CGRect(origin: CGPoint(x: avatarCellSize.width + 10, y: (smallCellSize.height  + 10) * CGFloat((indexPath.row - 1))), size: smallCellSize)
+                attribute.frame = CGRect(origin: CGPoint(x: avatarCellSize.width + 10, y: (smallCellSize.height  + 10) * CGFloat(((indexPath as NSIndexPath).row - 1))), size: smallCellSize)
                 
             }
             
@@ -44,23 +44,23 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         }
     }
     
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         print(#function)
         
 //        let width = CGRectGetWidth(collectionView!.frame)
 //        let height: CGFloat = 150
         
-        return CGSize(width: collectionView!.frame.size.width, height: CGFloat(collectionView!.numberOfItemsInSection(0)) * smallCellSize.height)
+        return CGSize(width: collectionView!.frame.size.width, height: CGFloat(collectionView!.numberOfItems(inSection: 0)) * smallCellSize.height)
         
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         print(#function)
         
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         
         for attributes in self.attributesCache {
-            if CGRectIntersectsRect(attributes.frame, rect) {
+            if attributes.frame.intersects(rect) {
                 layoutAttributes.append(attributes)
             }
         }
@@ -68,10 +68,10 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         print(#function)
         
-        return attributesCache[indexPath.row]
+        return attributesCache[(indexPath as NSIndexPath).row]
         
     }
     

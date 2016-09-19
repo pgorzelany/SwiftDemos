@@ -13,7 +13,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     
-    @IBAction func buttonTouched(sender: UIButton) {
+    @IBAction func buttonTouched(_ sender: UIButton) {
         
         print("Cell button touched")
     }

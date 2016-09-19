@@ -22,10 +22,10 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
     
     // MARK: Properties
     
-    let timePickerOption: [NSTimeInterval] = [5, 10, 20, 30, 40, 50, 60]
+    let timePickerOption: [TimeInterval] = [5, 10, 20, 30, 40, 50, 60]
     
     /** The time ins seconds when the notification will fire */
-    lazy var notificationTime: NSTimeInterval = {
+    lazy var notificationTime: TimeInterval = {
         return self.timePickerOption[0]
     }()
     
@@ -45,51 +45,51 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
     
     // MARK: Actions
     
-    @IBAction func scheduleButtonTouched(sender: UIButton) {
+    @IBAction func scheduleButtonTouched(_ sender: UIButton) {
         
         
         let notification = UILocalNotification()
-        notification.fireDate = NSDate().dateByAddingTimeInterval(self.notificationTime)
+        notification.fireDate = Date().addingTimeInterval(self.notificationTime)
         notification.alertBody = self.notificationTitleTextField.text
         notification.alertTitle = "This is the alert title"
         notification.category = "like" // Must be the same as the registered category
-        if let badgeText = notificationBadgeNumberTextField.text,  badgeNumber = Int(badgeText) {
+        if let badgeText = notificationBadgeNumberTextField.text,  let badgeNumber = Int(badgeText) {
             notification.applicationIconBadgeNumber = badgeNumber
         }
         notification.soundName = UILocalNotificationDefaultSoundName
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     
     // MARK: Support
     
-    private func registerForLocalNotifications() {
+    fileprivate func registerForLocalNotifications() {
         
         let action1 = UIMutableUserNotificationAction()
         action1.identifier = "yes"
         action1.title = "yes"
-        action1.authenticationRequired = false
-        action1.activationMode = .Foreground
-        action1.destructive = false
+        action1.isAuthenticationRequired = false
+        action1.activationMode = .foreground
+        action1.isDestructive = false
         
         let action2 = UIMutableUserNotificationAction()
         action2.identifier = "no"
         action2.title = "no"
-        action2.authenticationRequired = false
-        action2.activationMode = .Foreground
-        action2.destructive = true
+        action2.isAuthenticationRequired = false
+        action2.activationMode = .foreground
+        action2.isDestructive = true
         
         let category = UIMutableUserNotificationCategory()
         category.identifier = "like"
-        category.setActions([action1, action2], forContext: UIUserNotificationActionContext.Default)
+        category.setActions([action1, action2], for: UIUserNotificationActionContext.default)
         
         var categories = Set<UIMutableUserNotificationCategory>()
         categories.insert(category)
         
-        let notificationsSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: categories)
+        let notificationsSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: categories)
         
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationsSettings)
+        UIApplication.shared.registerUserNotificationSettings(notificationsSettings)
         
     }
     
@@ -101,19 +101,19 @@ class LocalNotificationsViewController: UIViewController, StoryboardInstantiable
 
 extension LocalNotificationsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.timePickerOption.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "in \(Int(self.timePickerOption[row])) seconds"
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.notificationTime = self.timePickerOption[row]
     }
     

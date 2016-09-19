@@ -37,7 +37,7 @@ class SwipableVideoFilterViewController: UIViewController, StoryboardInstantiabl
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
 //        self.swipableFilterView.
@@ -49,7 +49,7 @@ class SwipableVideoFilterViewController: UIViewController, StoryboardInstantiabl
     
     // MARK: Helpers
     
-    private func configureController() {
+    fileprivate func configureController() {
         
          self.swipableFilterView = GPUImageSwipableFilterView(filters: self.filters)
 //        let videoUrl = NSBundle.mainBundle().URLForResource("sample-video", withExtension: "mov")!

@@ -10,6 +10,6 @@ import UIKit
 
 protocol LocalNotificationHandler {
     
-    func handleLocalNotification(notification: UILocalNotification) -> Bool
+    func handleLocalNotification(_ notification: UILocalNotification) -> Bool
     
 }

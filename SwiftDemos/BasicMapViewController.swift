@@ -14,11 +14,11 @@ extension MKMapType: CustomStringConvertible {
     public var description: String {
         
         switch self {
-        case .Hybrid: return "Hybrid"
-        case .HybridFlyover: return "HybridFlyover"
-        case .Satellite: return "Satellite"
-        case .SatelliteFlyover: return "SatelliteFlyover"
-        case .Standard: return "Standard"
+        case .hybrid: return "Hybrid"
+        case .hybridFlyover: return "HybridFlyover"
+        case .satellite: return "Satellite"
+        case .satelliteFlyover: return "SatelliteFlyover"
+        case .standard: return "Standard"
         }
     }
 }
@@ -36,7 +36,7 @@ class BasicMapViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
-    let mapTypes: [MKMapType] = [.Standard, .Satellite, .Hybrid]
+    let mapTypes: [MKMapType] = [.standard, .satellite, .hybrid]
     
     // MARK: Initializers
     
@@ -53,31 +53,31 @@ class BasicMapViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func segmentControlValueChanged(sender: UISegmentedControl) {
+    @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
         
         self.mapView.mapType = mapTypes[sender.selectedSegmentIndex]
     }
     
     // MARK: Support
     
-    private func configureMapView() {
+    fileprivate func configureMapView() {
         
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
-        self.mapView.mapType = .Standard
+        self.mapView.mapType = .standard
     }
     
     // MARK: Data
     
     // MARK: Appearance
     
-    private func configureSegmentControl() {
+    fileprivate func configureSegmentControl() {
         
         self.segmentControl.removeAllSegments()
         
-        for (index, type) in mapTypes.enumerate() {
+        for (index, type) in mapTypes.enumerated() {
             
-            self.segmentControl.insertSegmentWithTitle(type.description, atIndex: index, animated: false)
+            self.segmentControl.insertSegment(withTitle: type.description, at: index, animated: false)
         }
         
         self.segmentControl.selectedSegmentIndex = 0
@@ -87,18 +87,18 @@ class BasicMapViewController: UIViewController, StoryboardInstantiable {
 
 extension BasicMapViewController: MKMapViewDelegate {
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         
         print("User location is: \(userLocation)")
         
     }
     
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         
         print("Changed drag state of annotated view from \(oldState) to \(newState)")
     }
     
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         print("Region was changed")
         print("Center coordinates are now: \(self.mapView.centerCoordinate)")

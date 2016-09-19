@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 import RxSwift
-import RxCocoa
+//import RxCocoa
 
 /**
  * Helper class for getting the current location and adress of the phone.
@@ -20,16 +20,16 @@ class LocationManager: NSObject {
     
     enum State {
         
-        case Initial
+        case initial
         
         /** Location manager is trying to update location */
-        case FetchingLocation
+        case fetchingLocation
         
         /** Location manager cannot obtain current location */
-        case Error(NSError)
+        case error(NSError)
         
         /** Location manager has obtained at least one current location */
-        case Success
+        case success
         
     }
     
@@ -39,24 +39,24 @@ class LocationManager: NSObject {
     
     // MARK: Properties
     
-    private let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
-    lazy private var locationManager: CLLocationManager = {
+    lazy fileprivate var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest //If batery life becomes an issue we can play with this parameter
-        manager.activityType = CLActivityType.Fitness
+        manager.activityType = CLActivityType.fitness
         manager.pausesLocationUpdatesAutomatically = true
         manager.distanceFilter = 10.0
         manager.delegate = self
         return manager
     }()
     
-    let state = Variable<LocationManager.State>(.Initial)
+    let state = Variable<LocationManager.State>(.initial)
     
     /** User last known location or nil if location could not be obtained. */
     let currentLocation = Variable<CLLocation?>(nil)
     
-    private let authorizationStatus = Variable<CLAuthorizationStatus>(CLLocationManager.authorizationStatus())
+    fileprivate let authorizationStatus = Variable<CLAuthorizationStatus>(CLLocationManager.authorizationStatus())
     
     // MARK: Initializers
     
@@ -69,38 +69,35 @@ class LocationManager: NSObject {
     
     // MARK: Methods
     
-    private func setupBindings() {
+    fileprivate func setupBindings() {
         
         authorizationStatus.asObservable()
-            .bindNext { [unowned self](authorizationStatus) -> Void in
-                
+            .subscribe(onNext: { [unowned self](status) in
                 guard CLLocationManager.locationServicesEnabled() else {
-                    //                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
                     return
                 }
                 
-                switch authorizationStatus {
-                case .AuthorizedWhenInUse, .AuthorizedAlways:
+                switch status {
+                case .authorizedWhenInUse, .authorizedAlways:
                     self.fetchCurrentLocation()
-                case .NotDetermined:
+                case .notDetermined:
                     self.locationManager.requestWhenInUseAuthorization()
-                case .Restricted:
-//                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
+                case .restricted:
                     break
-                case .Denied:
-//                    self.state.value = .Error(ElGrocerError.locationServicesAuthorizationError())
+                case .denied:
                     break
                 }
-                
-            }.addDisposableTo(disposeBag)
+
+            }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+        
         
     }
     
-    private func fetchCurrentLocation() {
+    fileprivate func fetchCurrentLocation() {
         
-        guard authorizationStatus.value == .AuthorizedWhenInUse && CLLocationManager.locationServicesEnabled() == true else { return }
+        guard authorizationStatus.value == .authorizedWhenInUse && CLLocationManager.locationServicesEnabled() == true else { return }
         
-        state.value = .FetchingLocation
+        state.value = .fetchingLocation
         self.locationManager.startUpdatingLocation()
         
     }
@@ -109,18 +106,18 @@ class LocationManager: NSObject {
 
 extension LocationManager: CLLocationManagerDelegate {
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         authorizationStatus.value = status
         
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let currentLocation = locations.last {
             
             self.currentLocation.value = currentLocation
-            self.state.value = .Success
+            self.state.value = .success
             
         }
         

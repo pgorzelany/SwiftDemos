@@ -8,33 +8,33 @@
 
 import UIKit
 
-public class FadeInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+open class FadeInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var transitionDuration: NSTimeInterval = 0.2
+    var transitionDuration: TimeInterval = 0.2
     var startingAlpha: CGFloat = 0.0
     
-    public convenience init(transitionDuration: NSTimeInterval, startingAlpha: CGFloat){
+    public convenience init(transitionDuration: TimeInterval, startingAlpha: CGFloat){
         self.init()
         self.transitionDuration = transitionDuration
         self.startingAlpha = startingAlpha
     }
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return transitionDuration
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView()
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
         
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
         
         toView.alpha = startingAlpha
         fromView.alpha = 0.8
         
-        containerView!.addSubview(toView)
+        containerView.addSubview(toView)
         
-        UIView.animateWithDuration(self.transitionDuration(transitionContext), animations: { () -> Void in
+        UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: { () -> Void in
             
             toView.alpha = 1.0
             fromView.alpha = 0.0
@@ -49,12 +49,12 @@ public class FadeInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 extension FadeInAnimator: UIViewControllerTransitioningDelegate {
     
-    public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return self
     }
     
-    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return self
     }

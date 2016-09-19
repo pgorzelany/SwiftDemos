@@ -21,8 +21,8 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
-    private var captureSession = AVCaptureSession()
-    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    fileprivate var captureSession = AVCaptureSession()
+    fileprivate var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     
     // MARK: Initializers
@@ -35,14 +35,14 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
         self.configureController()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.videoPreviewLayer?.frame = self.cameraContainerView.bounds
         self.captureSession.startRunning()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.captureSession.stopRunning()
@@ -52,17 +52,17 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Support
     
-    private func configureController() {
+    fileprivate func configureController() {
         
         self.configureCameraSession()
     }
     
-    private func configureCameraSession() {
+    fileprivate func configureCameraSession() {
         
         do {
             
             // capture session configuration
-            let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+            let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
             let input = try AVCaptureDeviceInput(device: device)
             let output = AVCaptureMetadataOutput()
             self.captureSession.addInput(input)
@@ -70,15 +70,15 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
             
             // qrcode metadata configuraton
             
-            output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
             
             // preview layer
             self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
             self.videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             self.videoPreviewLayer?.frame = self.cameraContainerView.bounds
-            self.videoPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-            self.cameraContainerView.layer.insertSublayer(self.videoPreviewLayer!, atIndex: 0)
+            self.videoPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+            self.cameraContainerView.layer.insertSublayer(self.videoPreviewLayer!, at: 0)
             
         } catch {
             
@@ -89,16 +89,16 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
         }
     }
     
-    private func showQRCodeAlertWithCodeString(codeString: String) {
+    fileprivate func showQRCodeAlertWithCodeString(_ codeString: String) {
         
         self.captureSession.stopRunning()
-        let alert = UIAlertController(title: "Wow!!!!", message: "You have just scanned a QRCode and its value is: \(codeString)", preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Such Win!", style: UIAlertActionStyle.Default) { (action) in
+        let alert = UIAlertController(title: "Wow!!!!", message: "You have just scanned a QRCode and its value is: \(codeString)", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Such Win!", style: UIAlertActionStyle.default) { (action) in
             
             self.captureSession.startRunning()
         }
         alert.addAction(okAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: Data
@@ -109,14 +109,14 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
 
 extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         for metadataObject in metadataObjects {
             
             if let codeObject = metadataObject as? AVMetadataMachineReadableCodeObject {
                 
                 let codeString = codeObject.stringValue
-                self.showQRCodeAlertWithCodeString(codeString)
+                self.showQRCodeAlertWithCodeString(codeString!)
             }
         }
     }

@@ -34,37 +34,37 @@ class GestureRecognizersViewController: UIViewController, StoryboardInstantiable
     
     // MARK: Actions
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         print(#function)
         
     }
     
-    func tapGestureRecognized(sender: UITapGestureRecognizer) {
+    func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
         
         resultLabel.text = "\(#function)!"
         
     }
     
-    func doubleTapGestureRecognized(sender: UITapGestureRecognizer) {
+    func doubleTapGestureRecognized(_ sender: UITapGestureRecognizer) {
         
         resultLabel.text = #function
         
     }
     
-    func rotationGestureRecognized(sender: UIRotationGestureRecognizer) {
+    func rotationGestureRecognized(_ sender: UIRotationGestureRecognizer) {
         
         resultLabel.text = #function
         
     }
     
-    func panGestureRecognized(sender: UIRotationGestureRecognizer) {
+    func panGestureRecognized(_ sender: UIRotationGestureRecognizer) {
         
         resultLabel.text = #function
         
     }
     
-    func swipeGestureRecognized(sender: UIRotationGestureRecognizer) {
+    func swipeGestureRecognized(_ sender: UIRotationGestureRecognizer) {
         
         resultLabel.text = #function
         
@@ -72,7 +72,7 @@ class GestureRecognizersViewController: UIViewController, StoryboardInstantiable
     
     // MARK: Support
     
-    private func addGestureRecognizers() {
+    fileprivate func addGestureRecognizers() {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized(_:)))
         
@@ -80,7 +80,7 @@ class GestureRecognizersViewController: UIViewController, StoryboardInstantiable
         doubleTapGestureRecognizer.numberOfTapsRequired = 2
         
         // To make the double tap recognizer to work, we must make the normal tap gesture to wait for the double tap to fail
-        tapGestureRecognizer.requireGestureRecognizerToFail(doubleTapGestureRecognizer)
+        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
         
         let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureRecognized(_:)))
         
@@ -88,7 +88,7 @@ class GestureRecognizersViewController: UIViewController, StoryboardInstantiable
         
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureRecognized(_:)))
         
-        panGestureRecognizer.requireGestureRecognizerToFail(swipeGestureRecognizer)
+        panGestureRecognizer.require(toFail: swipeGestureRecognizer)
         
         self.recognizerView.addGestureRecognizer(tapGestureRecognizer)
         self.recognizerView.addGestureRecognizer(doubleTapGestureRecognizer)

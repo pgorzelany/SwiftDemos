@@ -18,7 +18,7 @@ class ManipulableView: UIView {
     var rotationRecognizer: UIRotationGestureRecognizer!
     
     /** The initial transform value when initiating view panning */
-    var initialTranslationTransform = CGAffineTransformIdentity
+    var initialTranslationTransform = CGAffineTransform.identity
     
     var minScaleFactor: CGFloat = 0.5
     
@@ -46,38 +46,38 @@ class ManipulableView: UIView {
     
     // MARK: Actions
     
-    func tapGestureRecognized(recognizer: UITapGestureRecognizer) {
+    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         
     }
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        let translation = recognizer.translationInView(self)
+        let translation = recognizer.translation(in: self)
         
         switch recognizer.state {
             
-        case .Began:
+        case .began:
             
             self.initialTranslationTransform = self.transform
             
-        case .Changed:
+        case .changed:
             
-            self.transform = CGAffineTransformTranslate(self.initialTranslationTransform, translation.x, translation.y)
+            self.transform = self.initialTranslationTransform.translatedBy(x: translation.x, y: translation.y)
             
         default: break
         }
     }
     
-    func pinchGestureRecognized(recognizer: UIPinchGestureRecognizer) {
+    func pinchGestureRecognized(_ recognizer: UIPinchGestureRecognizer) {
         
         switch recognizer.state {
             
-        case .Changed:
+        case .changed:
             
-            let newScaleTransform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale)
+            let newScaleTransform = self.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)
             let newScale = self.scaleFromTransform(newScaleTransform)
             if newScale >= self.minScaleFactor && newScale <= self.maxScaleFactor {
-                self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale)
+                self.transform = self.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)
             }
             
         default: break
@@ -86,12 +86,12 @@ class ManipulableView: UIView {
         recognizer.scale = 1
     }
     
-    func rotationGestureRecognized(recognizer: UIRotationGestureRecognizer) {
+    func rotationGestureRecognized(_ recognizer: UIRotationGestureRecognizer) {
         
         switch recognizer.state {
             
-        case .Changed:
-            self.transform = CGAffineTransformRotate(self.transform, recognizer.rotation)
+        case .changed:
+            self.transform = self.transform.rotated(by: recognizer.rotation)
             
         default: break
         }
@@ -102,12 +102,12 @@ class ManipulableView: UIView {
     
     // MARK: Helpers
     
-    private func configureView() {
+    fileprivate func configureView() {
         
         self.configureGestureRecognizers()
     }
     
-    private func configureGestureRecognizers() {
+    fileprivate func configureGestureRecognizers() {
         
         self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
         self.panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
@@ -123,7 +123,7 @@ class ManipulableView: UIView {
         self.addGestureRecognizer(rotationRecognizer)
     }
     
-    func scaleFromTransform(transform: CGAffineTransform) -> CGFloat {
+    func scaleFromTransform(_ transform: CGAffineTransform) -> CGFloat {
         
         return CGFloat(sqrt(Double(transform.a * transform.a + transform.c * transform.c)))
     }
@@ -135,7 +135,7 @@ class ManipulableView: UIView {
 
 extension ManipulableView: UIGestureRecognizerDelegate {
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         
         if (gestureRecognizer is UIRotationGestureRecognizer || otherGestureRecognizer is UIRotationGestureRecognizer) && (gestureRecognizer is UIPinchGestureRecognizer || otherGestureRecognizer is UIPinchGestureRecognizer) {
             return true

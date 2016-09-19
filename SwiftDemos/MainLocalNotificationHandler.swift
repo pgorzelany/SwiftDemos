@@ -12,7 +12,7 @@ class MainLocalNotificationHandler: LocalNotificationHandler {
     
     static let sharedInstance = MainLocalNotificationHandler()
     
-    func handleLocalNotification(notification: UILocalNotification) -> Bool {
+    func handleLocalNotification(_ notification: UILocalNotification) -> Bool {
         
         AlertUtils.showAlert(title: "Received local notification", body: notification.alertBody)
         

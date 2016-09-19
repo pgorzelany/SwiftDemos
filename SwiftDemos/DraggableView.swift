@@ -10,23 +10,23 @@ import UIKit
 
 class DraggableView: UIView {
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
-        if let window = UIApplication.sharedApplication().keyWindow, touch = touches.first {
+        if let window = UIApplication.shared.keyWindow, let touch = touches.first {
             
-            let target = touch.locationInView(window)
+            let target = touch.location(in: window)
             self.center = target
             
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         
-        if let window = UIApplication.sharedApplication().keyWindow, touch = touches.first {
+        if let window = UIApplication.shared.keyWindow, let touch = touches.first {
             
-            let target = touch.locationInView(window)
+            let target = touch.location(in: window)
             self.center = target
             
         }

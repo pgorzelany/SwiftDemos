@@ -20,16 +20,16 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
     
     // MARK: Properties
     
-    private let collectionViewCellReuseIdentifier = "customCell"
+    fileprivate let collectionViewCellReuseIdentifier = "customCell"
     
     /** This cell is being set, when the user starts to move one of the cells by a long press gesture */
-    private var movedCell: CustomCollectionViewCell? {
+    fileprivate var movedCell: CustomCollectionViewCell? {
         didSet {
-            self.movedCellSnapshotView = movedCell?.snapshotViewAfterScreenUpdates(true)
+            self.movedCellSnapshotView = movedCell?.snapshotView(afterScreenUpdates: true)
         }
     }
     
-    private var movedCellSnapshotView: UIView? {
+    fileprivate var movedCellSnapshotView: UIView? {
         willSet {
             if newValue == nil {
                 movedCellSnapshotView?.removeFromSuperview()
@@ -48,7 +48,7 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
         self.configureCollectionView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.collectionView.reloadData()
@@ -56,21 +56,21 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
     
     // MARK: Actions
     
-    @IBAction func moveCellButtonTouched(sender: UIButton) {
+    @IBAction func moveCellButtonTouched(_ sender: UIButton) {
         
-        let fromIndexPath = NSIndexPath(forItem: 4, inSection: 0)
-        let toIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+        let fromIndexPath = IndexPath(item: 4, section: 0)
+        let toIndexPath = IndexPath(item: 0, section: 0)
         
-        self.collectionView.moveItemAtIndexPath(fromIndexPath, toIndexPath: toIndexPath)
+        self.collectionView.moveItem(at: fromIndexPath, to: toIndexPath)
         
     }
     
     // MARK: Support
     
-    private func configureCollectionView() {
+    fileprivate func configureCollectionView() {
         
         let cellNib = UINib(nibName: "CustomCollectionViewCell", bundle: nil)
-        self.collectionView.registerNib(cellNib, forCellWithReuseIdentifier: self.collectionViewCellReuseIdentifier)
+        self.collectionView.register(cellNib, forCellWithReuseIdentifier: self.collectionViewCellReuseIdentifier)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
@@ -79,44 +79,44 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
         
     }
     
-    func longPressGestureRecognized(gesture: UILongPressGestureRecognizer) {
+    func longPressGestureRecognized(_ gesture: UILongPressGestureRecognizer) {
         print(#function)
         
         
         switch gesture.state {
             
-        case .Began:
+        case .began:
             print("Longpress begin")
             
             self.movedCell = self.getCellForLongPressGesture(gesture)
             if let snapshot =  self.movedCellSnapshotView {
-                snapshot.center = gesture.locationInView(self.view)
+                snapshot.center = gesture.location(in: self.view)
                 self.view.addSubview(snapshot)
             }
             
-        case .Changed:
+        case .changed:
             print("Longpress changed")
             
-            guard let movedCell = self.movedCell, snapshot = self.movedCellSnapshotView else {return}
+            guard let movedCell = self.movedCell, let snapshot = self.movedCellSnapshotView else {return}
             
-            snapshot.center = gesture.locationInView(self.view)
+            snapshot.center = gesture.location(in: self.view)
             
-            if let moveToIndexPath = self.collectionView.indexPathForItemAtPoint(gesture.locationInView(self.collectionView)) {
+            if let moveToIndexPath = self.collectionView.indexPathForItem(at: gesture.location(in: self.collectionView)) {
                 
-                if let originalIndexPath = self.collectionView.indexPathForCell(movedCell) where moveToIndexPath != originalIndexPath {
+                if let originalIndexPath = self.collectionView.indexPath(for: movedCell) , moveToIndexPath != originalIndexPath {
                     
-                    self.collectionView.moveItemAtIndexPath(originalIndexPath, toIndexPath: moveToIndexPath)
+                    self.collectionView.moveItem(at: originalIndexPath, to: moveToIndexPath)
                     
                 }
                 
             }
             
-        case .Ended:
+        case .ended:
             print("Longpress ended")
             
             self.movedCell = nil
             
-        case .Cancelled:
+        case .cancelled:
             print("Longpress canceled")
             
             self.movedCell = nil
@@ -127,12 +127,12 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
         
     }
     
-    private func getCellForLongPressGesture(gesture: UILongPressGestureRecognizer) -> CustomCollectionViewCell? {
+    fileprivate func getCellForLongPressGesture(_ gesture: UILongPressGestureRecognizer) -> CustomCollectionViewCell? {
         
-        if let indexPath = self.collectionView.indexPathForItemAtPoint(gesture.locationInView(self.collectionView)) {
+        if let indexPath = self.collectionView.indexPathForItem(at: gesture.location(in: self.collectionView)) {
             
-            if let cell = self.collectionView.cellForItemAtIndexPath(indexPath) as? CustomCollectionViewCell {
-                print("Got cell at row \(indexPath.row)")
+            if let cell = self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell {
+                print("Got cell at row \((indexPath as NSIndexPath).row)")
                 return cell
             }
             
@@ -145,7 +145,7 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
     
     // MARK: Appearance
     
-    private func resizeCell(cell: CustomCollectionViewCell) {
+    fileprivate func resizeCell(_ cell: CustomCollectionViewCell) {
         
         
         
@@ -155,20 +155,20 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
 
 extension CustomCollectionViewLayoutViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return 5
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.collectionViewCellReuseIdentifier, forIndexPath: indexPath) as! CustomCollectionViewCell
-        cell.titleLabel.text = "\(indexPath.row)"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.collectionViewCellReuseIdentifier, for: indexPath) as! CustomCollectionViewCell
+        cell.titleLabel.text = "\((indexPath as NSIndexPath).row)"
         return cell
         
     }

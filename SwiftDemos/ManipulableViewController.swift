@@ -19,7 +19,7 @@ class ManipulableViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
-    let colors = [UIColor.blackColor(), UIColor.greenColor(), UIColor.greenColor(), UIColor.blueColor()]
+    let colors = [UIColor.black, UIColor.green, UIColor.green, UIColor.blue]
     var currentColorIndex = 0
     
     // MARK: Lifecycle
@@ -33,7 +33,7 @@ class ManipulableViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func addShapeButtonTouched(sender: UIButton) {
+    @IBAction func addShapeButtonTouched(_ sender: UIButton) {
         
         self.addManipulableView()
     }
@@ -44,7 +44,7 @@ class ManipulableViewController: UIViewController, StoryboardInstantiable {
         
     }
     
-    private func addManipulableView() {
+    fileprivate func addManipulableView() {
         
         let manipulableView = StickerView(frame: CGRect(origin: self.view.center, size: CGSize(width: 200, height: 200)))
         let color = colors[currentColorIndex % colors.count]

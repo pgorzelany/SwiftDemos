@@ -17,12 +17,12 @@ protocol NibInstantiable {
 extension NibInstantiable where Self: UIView {
     
     static var nibId: String {
-        return String(Self)
+        return String(describing: Self.self)
     }
     
     static func instantiateFromNib() -> Self {
         
-        return NSBundle.mainBundle().loadNibNamed(Self.nibId, owner: self, options: nil).first as! Self
+        return Bundle.main.loadNibNamed(Self.nibId, owner: self, options: nil)!.first as! Self
         
     }
     

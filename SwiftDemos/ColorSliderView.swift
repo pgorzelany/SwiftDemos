@@ -11,7 +11,7 @@ import UIKit
 protocol ColorSliderViewDelegate: class {
     
     
-    func colorSliderView(view: ColorSliderView, didSelectColor color: UIColor, atLocation location: CGPoint)
+    func colorSliderView(_ view: ColorSliderView, didSelectColor color: UIColor, atLocation location: CGPoint)
 }
 
 class ColorSliderView: UIView {
@@ -25,7 +25,7 @@ class ColorSliderView: UIView {
     }
     
     var sliderWidth: CGFloat = 5
-    var sliderColor = UIColor.whiteColor()
+    var sliderColor = UIColor.white
     
     // MARK: Delegate
     
@@ -33,8 +33,8 @@ class ColorSliderView: UIView {
     
     // MARK: Lifecycle
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         let chunkWidth: CGFloat = 1
         var currentPostition = CGPoint(x: 0, y: 0)
@@ -71,18 +71,18 @@ class ColorSliderView: UIView {
     
     // MARK: Actions 
     
-    func tapGestureRecognized(recognizer: UITapGestureRecognizer) {
+    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         
-        let location = recognizer.locationInView(self)
+        let location = recognizer.location(in: self)
         if let color = self.colorForLocation(location) {
             self.sliderLocation = location
             delegate?.colorSliderView(self, didSelectColor: color, atLocation: location)
         }
     }
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        let location = recognizer.locationInView(self)
+        let location = recognizer.location(in: self)
         if let color = self.colorForLocation(location) {
             self.sliderLocation = location
             delegate?.colorSliderView(self, didSelectColor: color, atLocation: location)
@@ -91,13 +91,13 @@ class ColorSliderView: UIView {
     
     // MARK: Configuration
     
-    private func configureView() {
+    fileprivate func configureView() {
         
         self.configureGestureRecognizers()
         self.setSliderInitialLocation()
     }
     
-    private func configureGestureRecognizers() {
+    fileprivate func configureGestureRecognizers() {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
@@ -106,7 +106,7 @@ class ColorSliderView: UIView {
         self.addGestureRecognizer(panRecognizer)
     }
     
-    private func setSliderInitialLocation() {
+    fileprivate func setSliderInitialLocation() {
         
         self.sliderLocation = CGPoint(x: self.bounds.size.width / 2.0, y: 0)
     }
@@ -114,7 +114,7 @@ class ColorSliderView: UIView {
     // MARK: Methods
     
     /** Get the color associated with the position of touch in view */
-    private func colorForLocation(location: CGPoint) -> UIColor? {
+    fileprivate func colorForLocation(_ location: CGPoint) -> UIColor? {
         
         guard location.x >= 0 && location.x <= self.bounds.size.width else {return nil}
         

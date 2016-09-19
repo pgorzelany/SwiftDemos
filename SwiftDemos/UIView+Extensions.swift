@@ -10,22 +10,22 @@ import UIKit
 
 extension UIView {
     
-    func addSubviewFullscreen(subview: UIView) {
+    func addSubviewFullscreen(_ subview: UIView) {
         
         subview.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(subview)
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[subview]-(0)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["subview": subview]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(0)-[subview]-(0)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["subview": subview]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[subview]-(0)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["subview": subview]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[subview]-(0)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["subview": subview]))
         
     }
     
-    func addSubview(subview: UIView, centerInView: UIView) {
+    func addSubview(_ subview: UIView, centerInView: UIView) {
         
         self.addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addConstraint(NSLayoutConstraint(item: centerInView, attribute: .CenterX, relatedBy: .Equal, toItem: subview, attribute: .CenterX, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: centerInView, attribute: .CenterY, relatedBy: .Equal, toItem: subview, attribute: .CenterY, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: centerInView, attribute: .centerX, relatedBy: .equal, toItem: subview, attribute: .centerX, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: centerInView, attribute: .centerY, relatedBy: .equal, toItem: subview, attribute: .centerY, multiplier: 1, constant: 0))
         
     }
     
@@ -36,13 +36,13 @@ extension UIView {
     }
     
     /** Makes a transparent hole in the view */
-    func cutTransparentHoleWithRect(rect: CGRect) {
+    func cutTransparentHoleWithRect(_ rect: CGRect) {
         
         let maskLayer = CAShapeLayer()
         let path = UIBezierPath(rect: self.bounds)
-        path.appendPath(UIBezierPath(rect: rect))
-        maskLayer.path = path.CGPath
-        maskLayer.fillColor = UIColor.blackColor().CGColor
+        path.append(UIBezierPath(rect: rect))
+        maskLayer.path = path.cgPath
+        maskLayer.fillColor = UIColor.black.cgColor
         maskLayer.fillRule = kCAFillRuleEvenOdd
         self.layer.mask = maskLayer
     }

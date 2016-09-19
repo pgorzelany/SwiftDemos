@@ -33,38 +33,38 @@ class AffineTransformViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         print(#function)
-        print(recognizer.translationInView(self.view))
+        print(recognizer.translation(in: self.view))
         
     }
     
-    func rotationGestureRecognized(recognizer: UIRotationGestureRecognizer) {
+    func rotationGestureRecognized(_ recognizer: UIRotationGestureRecognizer) {
         
         print(#function)
         
         let rotation = recognizer.rotation
         
-        self.rectangeView.transform = CGAffineTransformMakeRotation(rotation)
+        self.rectangeView.transform = CGAffineTransform(rotationAngle: rotation)
         
     }
     
-    func tapGestureRecognized(recognizer: UITapGestureRecognizer) {
+    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         
         print(#function)
-        let touchPoint = recognizer.locationInView(self.rectangeView)
+        let touchPoint = recognizer.location(in: self.rectangeView)
         
-        UIView.animateWithDuration(0.3) { 
+        UIView.animate(withDuration: 0.3, animations: { 
             
-            self.rectangeView.transform = CGAffineTransformTranslate(self.rectangeView.transform, touchPoint.x - self.rectangeView.center.x, touchPoint.y - self.rectangeView.center.y)
-        }
+            self.rectangeView.transform = self.rectangeView.transform.translatedBy(x: touchPoint.x - self.rectangeView.center.x, y: touchPoint.y - self.rectangeView.center.y)
+        }) 
         
     }
     
     // MARK: Helpers
     
-    private func addGestureRecognizers() {
+    fileprivate func addGestureRecognizers() {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
@@ -78,9 +78,9 @@ class AffineTransformViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Appearance
     
-    private func setInitialControllerAppearance() {
+    fileprivate func setInitialControllerAppearance() {
         
-        rectangeView.backgroundColor = UIColor.redColor()
+        rectangeView.backgroundColor = UIColor.red
         rectangeView.center = self.view.center
         self.view.addSubview(rectangeView)
         

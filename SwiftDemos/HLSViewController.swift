@@ -23,7 +23,7 @@ class HLSViewController: UIViewController, StoryboardInstantiable {
     
     var moviePlayerController = MPMoviePlayerController()
     
-    let movieUrl = NSURL(string: "http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8")!
+    let movieUrl = URL(string: "http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8")!
     
     // MARK: Initializers
     
@@ -42,18 +42,18 @@ class HLSViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func startStopButtonTouched(sender: UIButton) {
+    @IBAction func startStopButtonTouched(_ sender: UIButton) {
         
         self.moviePlayerController.play()
     }
     
     // MARK: Support
     
-    private func configureController() {
+    fileprivate func configureController() {
         
         self.moviePlayerController.contentURL = self.movieUrl
-        self.moviePlayerController.movieSourceType = MPMovieSourceType.File
-        self.moviePlayerController.controlStyle = .Fullscreen
+        self.moviePlayerController.movieSourceType = MPMovieSourceType.file
+        self.moviePlayerController.controlStyle = .fullscreen
         self.mainContainer.addSubviewFullscreen(self.moviePlayerController.view)
         self.moviePlayerController.prepareToPlay()
     }

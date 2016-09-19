@@ -10,7 +10,7 @@ import Foundation
 
 struct AlertUtils {
     
-    static func showAlert(title title: String, body: String?) {
+    static func showAlert(title: String, body: String?) {
         
         DemoAlertView.showAlert(title: title, body: body)
         

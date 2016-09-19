@@ -38,7 +38,7 @@ class ViewDraggingViewController: UIViewController, StoryboardInstantiable {
         
         draggableView = DraggableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         draggableView.center = self.view.center
-        draggableView.backgroundColor = UIColor.redColor()
+        draggableView.backgroundColor = UIColor.red
         self.view.addSubview(draggableView)
         
     }

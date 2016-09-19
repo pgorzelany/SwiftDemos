@@ -12,42 +12,42 @@ import UIKit
 
 class SlideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let animationDuration = 0.5
+    fileprivate let animationDuration = 0.5
     
     var presenting = true
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
         return self.animationDuration
         
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()!
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
-        let detailView = self.presenting ? toView : transitionContext.viewForKey(UITransitionContextFromViewKey)!
+        let containerView = transitionContext.containerView
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        let detailView = self.presenting ? toView : transitionContext.view(forKey: UITransitionContextViewKey.from)!
         containerView.addSubview(toView)
-        containerView.bringSubviewToFront(detailView)
+        containerView.bringSubview(toFront: detailView)
         
         if presenting {
             
             detailView.center = containerView.center
-            detailView.transform = CGAffineTransformMakeTranslation(containerView.frame.size.width, 0)
-            UIView.animateWithDuration(self.animationDuration, animations: {
+            detailView.transform = CGAffineTransform(translationX: containerView.frame.size.width, y: 0)
+            UIView.animate(withDuration: self.animationDuration, animations: {
                 
-                detailView.transform = CGAffineTransformIdentity
+                detailView.transform = CGAffineTransform.identity
                 
-            }) { (finished) in
+            }, completion: { (finished) in
                 
                 transitionContext.completeTransition(true)
                 
-            }
+            }) 
         } else {
             
-            UIView.animateWithDuration(self.animationDuration, animations: { 
+            UIView.animate(withDuration: self.animationDuration, animations: { 
                 
-                detailView.transform = CGAffineTransformMakeTranslation(containerView.frame.size.width, 0)
+                detailView.transform = CGAffineTransform(translationX: containerView.frame.size.width, y: 0)
                 
             }, completion: { (finished) in
                 
@@ -62,13 +62,13 @@ class SlideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 extension SlideAnimator: UIViewControllerTransitioningDelegate {
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         self.presenting = true
         return self
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
         self.presenting = false
         return self

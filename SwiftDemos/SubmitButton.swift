@@ -12,7 +12,7 @@ import Foundation
 class SubmitButton: UIButton {
     
     enum State {
-        case Normal, Active
+        case normal, active
     }
     
     // MARK: Properties
@@ -35,13 +35,13 @@ class SubmitButton: UIButton {
     
     // MARK: Methods
     
-    func animateToState(state: State, completion: (() -> Void)?) {
+    func animateToState(_ state: State, completion: (() -> Void)?) {
         
         switch state {
-        case .Active:
+        case .active:
             
             self.originalTitleColor = self.currentTitleColor
-            self.setTitleColor(UIColor.clearColor(), forState: UIControlState.Normal)
+            self.setTitleColor(UIColor.clear, for: UIControlState())
             
             CATransaction.begin()
             
@@ -50,7 +50,7 @@ class SubmitButton: UIButton {
             animation.toValue = self.bounds.size.height
             animation.duration = self.animationDuration
             animation.fillMode = kCAFillModeForwards
-            animation.removedOnCompletion = false
+            animation.isRemovedOnCompletion = false
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             
             CATransaction.setCompletionBlock({ 
@@ -60,24 +60,24 @@ class SubmitButton: UIButton {
                 completion?()
             })
             
-            self.layer.addAnimation(animation, forKey: "shrink")
+            self.layer.add(animation, forKey: "shrink")
             
             CATransaction.commit()
             
-        case .Normal:
+        case .normal:
 
             self.layer.removeAllAnimations()
             self.activityIndicator.removeFromSuperview()
-            self.setTitleColor(self.originalTitleColor, forState: .Normal)
+            self.setTitleColor(self.originalTitleColor, for: UIControlState())
             completion?()
         }
         
         
     }
 
-    func animateFillScreen(completion: (() -> Void)?) {
+    func animateFillScreen(_ completion: (() -> Void)?) {
 
-        let scale = (UIScreen.mainScreen().bounds.size.height / self.bounds.size.height) * 2
+        let scale = (UIScreen.main.bounds.size.height / self.bounds.size.height) * 2
         
         CATransaction.begin()
         
@@ -91,13 +91,13 @@ class SubmitButton: UIButton {
             completion?()
         }
         
-        self.layer.addAnimation(animation, forKey: "fill")
+        self.layer.add(animation, forKey: "fill")
         
         CATransaction.commit()
     }
     
     func resetToInitialState() {
         
-        self.animateToState(.Normal, completion: nil)
+        self.animateToState(.normal, completion: nil)
     }
 }

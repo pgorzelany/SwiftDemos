@@ -19,28 +19,28 @@ class DemoAlertView: UIView, NibInstantiable {
     
     // MARK: Actions
     
-    @IBAction func okButtonTouched(sender: UIButton) {
+    @IBAction func okButtonTouched(_ sender: UIButton) {
         
-        UIView.animateWithDuration(0.3, animations: { 
+        UIView.animate(withDuration: 0.3, animations: { 
             
             self.alpha = 0.3
             
-        }) { (finished) in
+        }, completion: { (finished) in
             
             self.removeFromSuperview()
             
-        }
+        }) 
         
     }
     
     // MARK: Helpers
     
-    static func showAlert(title title: String, body: String?) {
+    static func showAlert(title: String, body: String?) {
         
         let alert = DemoAlertView.instantiateFromNib()
         alert.titleLabel.text = title
         alert.bodyLabel.text = body
-        let window = UIApplication.sharedApplication().keyWindow!
+        let window = UIApplication.shared.keyWindow!
         window.addSubviewFullscreen(alert)
         
     }

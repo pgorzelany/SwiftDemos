@@ -115,7 +115,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Appearance
     
-    private func addSearchBar() {
+    fileprivate func addSearchBar() {
         
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 1, height: 35))
         searchBar.placeholder = "Search for demo"
@@ -130,39 +130,39 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
 
 extension TOKViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         return self.tableViewModel.count
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.tableViewModel[section].rows.count
         
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return self.tableViewModel[section].hader
     }
     
-    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
         return self.tableViewModel[section].footer
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("tokCell")!
-        cell.textLabel?.text = "\(self.tableViewModel[indexPath.section].rows[indexPath.row].title)"
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "tokCell")!
+        cell.textLabel?.text = "\(self.tableViewModel[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row].title)"
         return cell
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let row = self.tableViewModel[indexPath.section].rows[indexPath.row]
+        let row = self.tableViewModel[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         
         let controller = row.controller?.instantiateFromStoryboard() ?? UnimplementedViewController.instantiateFromStoryboard()
         
@@ -176,7 +176,7 @@ extension TOKViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension TOKViewController: UISearchBarDelegate {
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         print("Searched text is: \(searchText)")
         

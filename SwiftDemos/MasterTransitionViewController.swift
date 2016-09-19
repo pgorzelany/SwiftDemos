@@ -21,7 +21,7 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Properties
     
-    var fillButtonState = SubmitButton.State.Normal
+    var fillButtonState = SubmitButton.State.normal
     
     let slideAnimator = SlideAnimator()
     let fadeAnimator = FadeInAnimator()
@@ -43,29 +43,29 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
     
     // MARK: Actions
     
-    @IBAction func presentButtonTouched(sender: UIButton) {
+    @IBAction func presentButtonTouched(_ sender: UIButton) {
         
         let detailController = DetailTransitionViewController.instantiateFromStoryboard()
         detailController.transitioningDelegate = self.slideAnimator
-        self.presentViewController(detailController, animated: true, completion: nil)
+        self.present(detailController, animated: true, completion: nil)
     }
 
-    @IBAction func fillTransitionButtonTouched(sender: SubmitButton) {
+    @IBAction func fillTransitionButtonTouched(_ sender: SubmitButton) {
         
         let currentState = self.fillButtonState
         
         switch currentState {
             
-        case .Active:
-            self.fillButtonState = .Normal
-            sender.animateToState(.Normal, completion: { 
+        case .active:
+            self.fillButtonState = .normal
+            sender.animateToState(.normal, completion: { 
                 
                 print("Animated to state normal")
             })
             
-        case .Normal:
-            self.fillButtonState = .Active
-            sender.animateToState(.Active, completion: { 
+        case .normal:
+            self.fillButtonState = .active
+            sender.animateToState(.active, completion: { 
                 
                 print("Animated to active state")
                 sender.animateFillScreen({ 
@@ -73,7 +73,7 @@ class MasterTransitionViewController: UIViewController, StoryboardInstantiable {
                     print("Animated fill screen")
                     let detailController = DetailTransitionViewController.instantiateFromStoryboard()
 //                    detailController.transitioningDelegate = self.fadeAnimator
-                    self.presentViewController(detailController, animated: false, completion: nil)
+                    self.present(detailController, animated: false, completion: nil)
                 })
                 
             })
