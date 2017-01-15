@@ -36,6 +36,7 @@ class PagingCollectionViewController: UIViewController, StoryboardInstantiable {
         self.collectionView.register(nib, forCellWithReuseIdentifier: "PagingCollectionViewCell")
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.contentSize = CGSize(width: 400, height: 100)
     }
     
     // MARK: Actions
@@ -64,5 +65,12 @@ extension PagingCollectionViewController: UICollectionViewDataSource, UICollecti
         let width = collectionView.frame.size.width
         let height = collectionView.frame.size.height
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("cell has superview: \(cell.superview != nil)")
+        print("cell superview is collectionView \(cell.superview! is UICollectionView)")
+        cell.isHidden = false
+        cell.contentView.isHidden = false
     }
 }
