@@ -81,6 +81,11 @@
 		55BD16B31E2C051B00610723 /* PagingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD16B21E2C051B00610723 /* PagingCollectionViewController.swift */; };
 		55BD16B61E2C064500610723 /* PagingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD16B41E2C064500610723 /* PagingCollectionViewCell.swift */; };
 		55BD16B71E2C064500610723 /* PagingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BD16B51E2C064500610723 /* PagingCollectionViewCell.xib */; };
+		55BD16BA1E2C1CAE00610723 /* LEDDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BD16B91E2C1CAE00610723 /* LEDDemo.storyboard */; };
+		55BD16BC1E2C1CBF00610723 /* LedDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD16BB1E2C1CBF00610723 /* LedDemoViewController.swift */; };
+		55BD16BE1E2C1D2A00610723 /* LightEmittingDiode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD16BD1E2C1D2A00610723 /* LightEmittingDiode.swift */; };
+		55BD16C11E2C234100610723 /* LEDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD16C01E2C234100610723 /* LEDView.swift */; };
+		55BD16C31E2C234D00610723 /* LEDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BD16C21E2C234D00610723 /* LEDView.xib */; };
 		55C0B2431D528320003846CE /* FaceRecognitionDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C0B2421D528320003846CE /* FaceRecognitionDemo.storyboard */; };
 		55C0B2451D528330003846CE /* FaceRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0B2441D528330003846CE /* FaceRecognitionViewController.swift */; };
 		55E050181CC010AF00484C27 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55E050171CC010AF00484C27 /* Readme.md */; };
@@ -197,6 +202,11 @@
 		55BD16B21E2C051B00610723 /* PagingCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewController.swift; sourceTree = "<group>"; };
 		55BD16B41E2C064500610723 /* PagingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewCell.swift; sourceTree = "<group>"; };
 		55BD16B51E2C064500610723 /* PagingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagingCollectionViewCell.xib; sourceTree = "<group>"; };
+		55BD16B91E2C1CAE00610723 /* LEDDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LEDDemo.storyboard; sourceTree = "<group>"; };
+		55BD16BB1E2C1CBF00610723 /* LedDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedDemoViewController.swift; sourceTree = "<group>"; };
+		55BD16BD1E2C1D2A00610723 /* LightEmittingDiode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightEmittingDiode.swift; sourceTree = "<group>"; };
+		55BD16C01E2C234100610723 /* LEDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEDView.swift; sourceTree = "<group>"; };
+		55BD16C21E2C234D00610723 /* LEDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LEDView.xib; sourceTree = "<group>"; };
 		55C0B2421D528320003846CE /* FaceRecognitionDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FaceRecognitionDemo.storyboard; sourceTree = "<group>"; };
 		55C0B2441D528330003846CE /* FaceRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionViewController.swift; sourceTree = "<group>"; };
 		55E050171CC010AF00484C27 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
@@ -586,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				55BD16AF1E2C04EC00610723 /* PagingCollectionView */,
+				55BD16B81E2C1C9400610723 /* LED */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -599,6 +610,26 @@
 				55BD16B41E2C064500610723 /* PagingCollectionViewCell.swift */,
 			);
 			name = PagingCollectionView;
+			sourceTree = "<group>";
+		};
+		55BD16B81E2C1C9400610723 /* LED */ = {
+			isa = PBXGroup;
+			children = (
+				55BD16BF1E2C1D2D00610723 /* Protocols */,
+				55BD16B91E2C1CAE00610723 /* LEDDemo.storyboard */,
+				55BD16BB1E2C1CBF00610723 /* LedDemoViewController.swift */,
+				55BD16C01E2C234100610723 /* LEDView.swift */,
+				55BD16C21E2C234D00610723 /* LEDView.xib */,
+			);
+			name = LED;
+			sourceTree = "<group>";
+		};
+		55BD16BF1E2C1D2D00610723 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				55BD16BD1E2C1D2A00610723 /* LightEmittingDiode.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		55C0B2411D5282FD003846CE /* FaceRecognition */ = {
@@ -824,6 +855,7 @@
 				55A5C11A1CD00AD800297406 /* BasicMap.storyboard in Resources */,
 				5548E07F1D7EC07400C14E5C /* CanvasDemo.storyboard in Resources */,
 				55C0B2431D528320003846CE /* FaceRecognitionDemo.storyboard in Resources */,
+				55BD16C31E2C234D00610723 /* LEDView.xib in Resources */,
 				2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */,
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
 				556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */,
@@ -835,6 +867,7 @@
 				55FAC4741D43BC9B000BE58B /* QRCodeDemo.storyboard in Resources */,
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
 				55BD16B11E2C050900610723 /* PagingCollectionViewDemo.storyboard in Resources */,
+				55BD16BA1E2C1CAE00610723 /* LEDDemo.storyboard in Resources */,
 				557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */,
 				5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */,
 				557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */,
@@ -962,6 +995,7 @@
 				2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */,
 				55846BF41D60D0AF0019114C /* ContextDrawingViewController.swift in Sources */,
 				5548E0831D7EC0E700C14E5C /* CanvasView.swift in Sources */,
+				55BD16BE1E2C1D2A00610723 /* LightEmittingDiode.swift in Sources */,
 				2A98D4A51D3641A8007C7CE9 /* StickerView.swift in Sources */,
 				2A98D4871D339856007C7CE9 /* ColorSliderViewController.swift in Sources */,
 				55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */,
@@ -982,6 +1016,7 @@
 				55C0B2451D528330003846CE /* FaceRecognitionViewController.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
 				55040F921D608D8900795A5E /* HLSViewController.swift in Sources */,
+				55BD16C11E2C234100610723 /* LEDView.swift in Sources */,
 				2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */,
@@ -989,6 +1024,7 @@
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
 				55FAC4721D43BC90000BE58B /* QRCodeViewController.swift in Sources */,
+				55BD16BC1E2C1CBF00610723 /* LedDemoViewController.swift in Sources */,
 				2A7390671D2BEFB100474554 /* SwipableVideoFiltersViewController.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,

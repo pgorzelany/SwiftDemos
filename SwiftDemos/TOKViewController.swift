@@ -94,7 +94,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]
         ),
         TOKSection(hader: "Private", rows: [
-            TOKRow(title: "Paging collection view", controller: PagingCollectionViewController.self)
+            TOKRow(title: "Paging collection view", controller: PagingCollectionViewController.self),
+            TOKRow(title: "LED demo", controller: LedDemoViewController.self)
             ])
     ]
     

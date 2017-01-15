@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Led Demo View Controller-->
+        <scene sceneID="eO3-oC-HhL">
+            <objects>
+                <viewController storyboardIdentifier="LedDemoViewController" id="hmR-o7-snk" customClass="LedDemoViewController" customModule="SwiftDemos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z2g-hu-838"/>
+                        <viewControllerLayoutGuide type="bottom" id="p3B-9T-qW8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cEy-xW-oWA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cle-lQ-wWg" userLabel="ledView" customClass="LEDView" customModule="SwiftDemos" customModuleProvider="target">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="P8l-Ey-nz3"/>
+                                    <constraint firstAttribute="width" constant="100" id="Wxn-AR-l6n"/>
+                                </constraints>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3wL-gs-30q">
+                                <rect key="frame" x="163" y="391" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="hmR-o7-snk" eventType="valueChanged" id="7ta-U1-1PX"/>
+                                </connections>
+                            </switch>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="73K-2M-1ce">
+                                <rect key="frame" x="129.5" y="430" width="116" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAD-Di-7oG">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                        <state key="normal" title="Blink"/>
+                                        <connections>
+                                            <action selector="blinkTouched:" destination="hmR-o7-snk" eventType="touchUpInside" id="ISU-OF-ljA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yj9-Ix-IUW">
+                                        <rect key="frame" x="50" y="0.0" width="66" height="30"/>
+                                        <state key="normal" title="StopBlink"/>
+                                        <connections>
+                                            <action selector="stopBlinkTouched:" destination="hmR-o7-snk" eventType="touchUpInside" id="FD0-F5-fmr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3wL-gs-30q" firstAttribute="centerX" secondItem="cEy-xW-oWA" secondAttribute="centerX" id="AR3-Yw-D8f"/>
+                            <constraint firstItem="73K-2M-1ce" firstAttribute="top" secondItem="3wL-gs-30q" secondAttribute="bottom" constant="8" id="JZD-zt-ZsV"/>
+                            <constraint firstItem="Cle-lQ-wWg" firstAttribute="centerY" secondItem="cEy-xW-oWA" secondAttribute="centerY" id="SCo-kO-5T4"/>
+                            <constraint firstItem="3wL-gs-30q" firstAttribute="top" secondItem="Cle-lQ-wWg" secondAttribute="bottom" constant="8" id="cSm-wk-6N2"/>
+                            <constraint firstItem="Cle-lQ-wWg" firstAttribute="centerX" secondItem="cEy-xW-oWA" secondAttribute="centerX" id="rvX-c2-ItR"/>
+                            <constraint firstItem="73K-2M-1ce" firstAttribute="centerX" secondItem="cEy-xW-oWA" secondAttribute="centerX" id="sAa-7L-AGs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ledContainer" destination="Cle-lQ-wWg" id="0YY-ni-lNb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tYZ-rX-HrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130" y="134"/>
+        </scene>
+    </scenes>
+</document>
