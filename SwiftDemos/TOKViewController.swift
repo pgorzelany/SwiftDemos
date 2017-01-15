@@ -92,7 +92,10 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             ]),
         TOKSection(hader: "SpriteKit", rows: [
             ]
-        )
+        ),
+        TOKSection(hader: "Private", rows: [
+            TOKRow(title: "Paging collection view", controller: PagingCollectionViewController.self)
+            ])
     ]
     
     // MARK: Initializers
