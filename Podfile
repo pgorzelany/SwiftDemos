@@ -6,8 +6,6 @@ use_frameworks!
 
 inhibit_all_warnings!
 
-pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '3.0.0-beta.1'
-pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '3.0.0-beta.1'
 pod 'GPUImage','~>0.1.7'
 
 target 'SwiftDemos' do

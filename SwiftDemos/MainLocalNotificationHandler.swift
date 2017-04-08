@@ -8,15 +8,24 @@
 
 import UIKit
 
-class MainLocalNotificationHandler: LocalNotificationHandler {
+class MainLocalNotificationHandler {
     
     static let sharedInstance = MainLocalNotificationHandler()
     
-    func handleLocalNotification(_ notification: UILocalNotification) -> Bool {
-        
+    func handleLocalNotification(_ notification: UILocalNotification) {
         AlertUtils.showAlert(title: "Received local notification", body: notification.alertBody)
-        
-        return false
     }
     
+    func handleAction(with identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void) {
+        if let category = notification.category, let identifier = identifier {
+            if category == "like" {
+                if identifier == "yes" {
+                    AlertUtils.showAlert(title: "NotificationButtonTouched", body: "The yes button was touched")
+                } else if identifier == "no" {
+                    AlertUtils.showAlert(title: "NotificationButtonTouched", body: "The no button was touched")
+                }
+            }
+        }
+        completionHandler()
+    }
 }

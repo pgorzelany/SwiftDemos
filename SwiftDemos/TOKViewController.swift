@@ -67,7 +67,6 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             TOKRow(title: "View Dragging", controller: ViewDraggingViewController.self),
             TOKRow(title: "Drawing", controller: nil),
             TOKRow(title: "Animating Constraints", controller: nil),
-            TOKRow(title: "Door Menu", controller: DoorMenuViewController.self)
             ]
         ),
         TOKSection(hader: "Core Animation", rows: [

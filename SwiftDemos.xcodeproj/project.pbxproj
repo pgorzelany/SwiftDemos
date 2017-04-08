@@ -15,7 +15,6 @@
 		2A73907A1D2E866700474554 /* sample-video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2A7390791D2E866700474554 /* sample-video.mov */; };
 		2A77F67D1CDA4217006BECF6 /* Geocoding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A77F67C1CDA4217006BECF6 /* Geocoding.storyboard */; };
 		2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F67E1CDA4224006BECF6 /* GeocodingViewController.swift */; };
-		2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */; };
 		2A77F6851CDA44F9006BECF6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2A77F6841CDA44F9006BECF6 /* Podfile */; };
 		2A90925A1CD3A5660037A0B8 /* AffineTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */; };
 		2A90925C1CD3A5710037A0B8 /* AffineTransform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */; };
@@ -36,7 +35,6 @@
 		55040F901D608D7E00795A5E /* HLSDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55040F8F1D608D7E00795A5E /* HLSDemo.storyboard */; };
 		55040F921D608D8900795A5E /* HLSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55040F911D608D8900795A5E /* HLSViewController.swift */; };
 		5511733A1D4111F60032C75E /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551173391D4111F60032C75E /* FadeInAnimator.swift */; };
-		551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */; };
 		551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */; };
 		551A05A21CC4107800AB0E22 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A05A11CC4107800AB0E22 /* AlertUtils.swift */; };
 		551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */; };
@@ -48,8 +46,6 @@
 		5548E07F1D7EC07400C14E5C /* CanvasDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548E07E1D7EC07400C14E5C /* CanvasDemo.storyboard */; };
 		5548E0811D7EC08100C14E5C /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0801D7EC08100C14E5C /* CanvasViewController.swift */; };
 		5548E0831D7EC0E700C14E5C /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0821D7EC0E700C14E5C /* CanvasView.swift */; };
-		556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 556B22421CF2467200C54FAF /* DoorMenu.storyboard */; };
-		556B22451CF2469200C54FAF /* DoorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B22441CF2469200C54FAF /* DoorMenuViewController.swift */; };
 		5571C99C1CEA56AD001EA3EB /* TransformNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571C99B1CEA56AD001EA3EB /* TransformNavigationController.storyboard */; };
 		5571C99E1CEA56C3001EA3EB /* TransformNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571C99D1CEA56C3001EA3EB /* TransformNavigationController.swift */; };
 		557E17C31CC6A7B200A25E98 /* ViewDragging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */; };
@@ -119,7 +115,6 @@
 		2A7390791D2E866700474554 /* sample-video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "sample-video.mov"; sourceTree = "<group>"; };
 		2A77F67C1CDA4217006BECF6 /* Geocoding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geocoding.storyboard; sourceTree = "<group>"; };
 		2A77F67E1CDA4224006BECF6 /* GeocodingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingViewController.swift; sourceTree = "<group>"; };
-		2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
 		2A77F6841CDA44F9006BECF6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2A9092591CD3A5660037A0B8 /* AffineTransformViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffineTransformViewController.swift; sourceTree = "<group>"; };
 		2A90925B1CD3A5710037A0B8 /* AffineTransform.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AffineTransform.storyboard; sourceTree = "<group>"; };
@@ -141,7 +136,6 @@
 		55040F8F1D608D7E00795A5E /* HLSDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HLSDemo.storyboard; sourceTree = "<group>"; };
 		55040F911D608D8900795A5E /* HLSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLSViewController.swift; sourceTree = "<group>"; };
 		551173391D4111F60032C75E /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
-		551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLocalNotificationHandler.swift; sourceTree = "<group>"; };
 		551A05A11CC4107800AB0E22 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		551A05A41CC4109B00AB0E22 /* DemoAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoAlertView.xib; sourceTree = "<group>"; };
@@ -154,8 +148,6 @@
 		5548E0801D7EC08100C14E5C /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		5548E0821D7EC0E700C14E5C /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		555CAFCB119A126CAB76A15C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		556B22421CF2467200C54FAF /* DoorMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DoorMenu.storyboard; sourceTree = "<group>"; };
-		556B22441CF2469200C54FAF /* DoorMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorMenuViewController.swift; sourceTree = "<group>"; };
 		5571C99B1CEA56AD001EA3EB /* TransformNavigationController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TransformNavigationController.storyboard; sourceTree = "<group>"; };
 		5571C99D1CEA56C3001EA3EB /* TransformNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformNavigationController.swift; sourceTree = "<group>"; };
 		557E17C21CC6A7B200A25E98 /* ViewDragging.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewDragging.storyboard; sourceTree = "<group>"; };
@@ -325,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				551A05A11CC4107800AB0E22 /* AlertUtils.swift */,
-				2A77F6801CDA44A7006BECF6 /* LocationUtils.swift */,
+				558EC6881CF79A2400B6FD1C /* Angle.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -374,16 +366,6 @@
 			name = CanvasDemo;
 			sourceTree = "<group>";
 		};
-		556B22411CF2465D00C54FAF /* DoorMenuController */ = {
-			isa = PBXGroup;
-			children = (
-				556B22421CF2467200C54FAF /* DoorMenu.storyboard */,
-				556B22441CF2469200C54FAF /* DoorMenuViewController.swift */,
-				558EC6881CF79A2400B6FD1C /* Angle.swift */,
-			);
-			name = DoorMenuController;
-			sourceTree = "<group>";
-		};
 		5571C99A1CEA5671001EA3EB /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				2A7390651D2BEF9F00474554 /* CurtainView */,
-				556B22411CF2465D00C54FAF /* DoorMenuController */,
 				2AC701721CDB61B10007FF7E /* CustomTransitions */,
 				557E17C61CC6ABAF00A25E98 /* ViewDragging */,
 			);
@@ -595,7 +576,6 @@
 			children = (
 				55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */,
 				55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */,
-				551A059C1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift */,
 				551A059E1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift */,
 			);
 			name = LocalNotifications;
@@ -677,12 +657,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55BC8C051CBFBB2C005F57B8 /* Build configuration list for PBXNativeTarget "SwiftDemos" */;
 			buildPhases = (
-				922011D40698F94E3045D1A5 /* 📦 Check Pods Manifest.lock */,
+				922011D40698F94E3045D1A5 /* [CP] Check Pods Manifest.lock */,
 				55BC8BD91CBFBB2B005F57B8 /* Sources */,
 				55BC8BDA1CBFBB2B005F57B8 /* Frameworks */,
 				55BC8BDB1CBFBB2B005F57B8 /* Resources */,
-				BCA5FC171EA0FBCFA9A048E9 /* 📦 Embed Pods Frameworks */,
-				70EF39A2FE259CB482B87BE7 /* 📦 Copy Pods Resources */,
+				BCA5FC171EA0FBCFA9A048E9 /* [CP] Embed Pods Frameworks */,
+				70EF39A2FE259CB482B87BE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -697,12 +677,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55BC8C081CBFBB2C005F57B8 /* Build configuration list for PBXNativeTarget "SwiftDemosTests" */;
 			buildPhases = (
-				5454E61DCCFC7B70E59740A3 /* 📦 Check Pods Manifest.lock */,
+				5454E61DCCFC7B70E59740A3 /* [CP] Check Pods Manifest.lock */,
 				55BC8BED1CBFBB2C005F57B8 /* Sources */,
 				55BC8BEE1CBFBB2C005F57B8 /* Frameworks */,
 				55BC8BEF1CBFBB2C005F57B8 /* Resources */,
-				AE2E7D73C5CC1CDCB998241D /* 📦 Embed Pods Frameworks */,
-				C2C4713F57B47DCB6739FB0A /* 📦 Copy Pods Resources */,
+				AE2E7D73C5CC1CDCB998241D /* [CP] Embed Pods Frameworks */,
+				C2C4713F57B47DCB6739FB0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -797,7 +777,6 @@
 				55C0B2431D528320003846CE /* FaceRecognitionDemo.storyboard in Resources */,
 				2AC701741CDB61CA0007FF7E /* ControllerTransitions.storyboard in Resources */,
 				55F6428C1CEC8132004B49DC /* ProgrammaticScrollView.storyboard in Resources */,
-				556B22431CF2467200C54FAF /* DoorMenu.storyboard in Resources */,
 				55846BF21D60D09D0019114C /* ContextDrawingDemo.storyboard in Resources */,
 				551A05A51CC4109B00AB0E22 /* DemoAlertView.xib in Resources */,
 				2A73907A1D2E866700474554 /* sample-video.mov in Resources */,
@@ -832,29 +811,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5454E61DCCFC7B70E59740A3 /* 📦 Check Pods Manifest.lock */ = {
+		5454E61DCCFC7B70E59740A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		70EF39A2FE259CB482B87BE7 /* 📦 Copy Pods Resources */ = {
+		70EF39A2FE259CB482B87BE7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,29 +841,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		922011D40698F94E3045D1A5 /* 📦 Check Pods Manifest.lock */ = {
+		922011D40698F94E3045D1A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		AE2E7D73C5CC1CDCB998241D /* 📦 Embed Pods Frameworks */ = {
+		AE2E7D73C5CC1CDCB998241D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -892,14 +871,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDemosTests/Pods-SwiftDemosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BCA5FC171EA0FBCFA9A048E9 /* 📦 Embed Pods Frameworks */ = {
+		BCA5FC171EA0FBCFA9A048E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,14 +886,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDemos/Pods-SwiftDemos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2C4713F57B47DCB6739FB0A /* 📦 Copy Pods Resources */ = {
+		C2C4713F57B47DCB6739FB0A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -947,14 +926,12 @@
 				5511733A1D4111F60032C75E /* FadeInAnimator.swift in Sources */,
 				55BC8BE11CBFBB2B005F57B8 /* AppDelegate.swift in Sources */,
 				2AC701761CDB61F00007FF7E /* MasterTransitionViewController.swift in Sources */,
-				551A059D1CC3EB7E00AB0E22 /* LocalNotificationHandler.swift in Sources */,
 				55C0B2451D528330003846CE /* FaceRecognitionViewController.swift in Sources */,
 				551A05A71CC410AD00AB0E22 /* DemoAlertView.swift in Sources */,
 				55040F921D608D8900795A5E /* HLSViewController.swift in Sources */,
 				2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */,
-				2A77F6811CDA44A7006BECF6 /* LocationUtils.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
 				55FAC4721D43BC90000BE58B /* QRCodeViewController.swift in Sources */,
@@ -976,7 +953,6 @@
 				5541E58D1D2AAF4700447C6F /* SubmitButton.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
 				2AC7017A1CDB63670007FF7E /* SlideAnimator.swift in Sources */,
-				556B22451CF2469200C54FAF /* DoorMenuViewController.swift in Sources */,
 				551A059F1CC3EBD800AB0E22 /* MainLocalNotificationHandler.swift in Sources */,
 				5571C99E1CEA56C3001EA3EB /* TransformNavigationController.swift in Sources */,
 			);

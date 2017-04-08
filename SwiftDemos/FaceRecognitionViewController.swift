@@ -123,7 +123,6 @@ extension FaceRecognitionViewController: AVCaptureVideoDataOutputSampleBufferDel
 
             let image = CIImage(cvPixelBuffer: pixelBuffer, options: attachments as? [String: AnyObject])
             
-            let deviceOrientation = UIDevice.current.orientation
             
             let imageOptions: [String: AnyObject] = [CIDetectorImageOrientation: 1 as AnyObject]
             let features = self.faceDetector.features(in: image, options: imageOptions)
