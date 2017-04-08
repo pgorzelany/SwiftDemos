@@ -29,7 +29,11 @@ class ColorSliderView: UIView {
     
     // MARK: Delegate
     
-    weak var delegate: ColorSliderViewDelegate?
+    weak var delegate: ColorSliderViewDelegate? {
+        didSet {
+            delegate?.colorSliderView(self, didSelectColor: colorForLocation(sliderLocation) ?? UIColor.white, atLocation: sliderLocation)
+        }
+    }
     
     // MARK: Lifecycle
     

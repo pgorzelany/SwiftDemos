@@ -37,8 +37,6 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     
     let tableViewModel = [
         TOKSection(hader: "Core Graphics", rows: [
-            TOKRow(title: "Affine Transforms", controller: AffineTransformViewController.self),
-            TOKRow(title: "Affine Transform Navigation Controller", controller: TransformNavigationController.self),
             TOKRow(title: "Image Overlay Drawing", controller: ContextDrawingViewController.self),
             TOKRow(title: "Canvas Drawing", controller: CanvasViewController.self)
             ]),
@@ -53,8 +51,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             TOKRow(title: "Custom CollectionView Layout", controller: CustomCollectionViewLayoutViewController.self)
             ]),
         TOKSection(hader: "Notifications", rows: [
-            TOKRow(title: "Local Notifications", controller: LocalNotificationsViewController.self),
-            TOKRow(title: "Remote Notifications", controller: nil)
+            TOKRow(title: "Local Notifications", controller: LocalNotificationsViewController.self)
             ]
         ),
         TOKSection(hader: "Gesture Recognizers", rows: [
@@ -64,8 +61,6 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         ),
         TOKSection(hader: "View Animations", rows: [
             TOKRow(title: "View Controller Custom Transitions", controller: MasterTransitionViewController.self),
-            TOKRow(title: "View Dragging", controller: ViewDraggingViewController.self),
-            TOKRow(title: "Drawing", controller: nil),
             TOKRow(title: "Animating Constraints", controller: nil),
             ]
         ),
