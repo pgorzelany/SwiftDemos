@@ -38,7 +38,8 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
     let tableViewModel = [
         TOKSection(hader: "Core Graphics", rows: [
             TOKRow(title: "Image Overlay Drawing", controller: ContextDrawingViewController.self),
-            TOKRow(title: "Canvas Drawing", controller: CanvasViewController.self)
+            TOKRow(title: "Canvas Drawing", controller: CanvasViewController.self),
+            TOKRow(title: "Scratch Card View", controller: ScratchCardDemoViewController.self)
             ]),
         TOKSection(hader: "UIViews", rows: [
             TOKRow(title: "ScrollView", controller: ProgrammaticScrollViewController.self)

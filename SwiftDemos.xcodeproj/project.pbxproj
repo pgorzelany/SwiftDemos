@@ -71,6 +71,9 @@
 		55E050181CC010AF00484C27 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55E050171CC010AF00484C27 /* Readme.md */; };
 		55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */; };
 		55E0501E1CC0116600484C27 /* LocalNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */; };
+		55E7AB5B1E99474E00600199 /* ScratchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AB5A1E99474E00600199 /* ScratchCardView.swift */; };
+		55E7AB5E1E994A4F00600199 /* ScratchCardDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E7AB5D1E994A4F00600199 /* ScratchCardDemo.storyboard */; };
+		55E7AB601E994A6300600199 /* ScratchCardDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7AB5F1E994A6300600199 /* ScratchCardDemoViewController.swift */; };
 		55EA21CF1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55EA21CE1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard */; };
 		55EA21D11CDFCB56004A0AD0 /* BasicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA21D01CDFCB56004A0AD0 /* BasicCollectionViewController.swift */; };
 		55EA21D41CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA21D31CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift */; };
@@ -172,6 +175,9 @@
 		55E050171CC010AF00484C27 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		55E0501B1CC0115800484C27 /* LocalNotifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocalNotifications.storyboard; sourceTree = "<group>"; };
 		55E0501D1CC0116600484C27 /* LocalNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsViewController.swift; sourceTree = "<group>"; };
+		55E7AB5A1E99474E00600199 /* ScratchCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchCardView.swift; sourceTree = "<group>"; };
+		55E7AB5D1E994A4F00600199 /* ScratchCardDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScratchCardDemo.storyboard; sourceTree = "<group>"; };
+		55E7AB5F1E994A6300600199 /* ScratchCardDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchCardDemoViewController.swift; sourceTree = "<group>"; };
 		55EA21CE1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicCollectionViewController.storyboard; sourceTree = "<group>"; };
 		55EA21D01CDFCB56004A0AD0 /* BasicCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewController.swift; sourceTree = "<group>"; };
 		55EA21D31CDFCCBC004A0AD0 /* BasicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +249,7 @@
 			children = (
 				55846BF01D60D0780019114C /* ContextDrawing */,
 				5548E07D1D7EC04200C14E5C /* CanvasDemo */,
+				55E7AB5C1E994A3800600199 /* ScratchCardDemo */,
 			);
 			name = CoreGraphics;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 				2A7390771D2E847300474554 /* GPUImageSwipableVideoFilterView.swift */,
 				2A98D49B1D33E54C007C7CE9 /* ManipulableView.swift */,
 				5548E0821D7EC0E700C14E5C /* CanvasView.swift */,
+				55E7AB5A1E99474E00600199 /* ScratchCardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -536,6 +544,15 @@
 			name = LocalNotifications;
 			sourceTree = "<group>";
 		};
+		55E7AB5C1E994A3800600199 /* ScratchCardDemo */ = {
+			isa = PBXGroup;
+			children = (
+				55E7AB5D1E994A4F00600199 /* ScratchCardDemo.storyboard */,
+				55E7AB5F1E994A6300600199 /* ScratchCardDemoViewController.swift */,
+			);
+			name = ScratchCardDemo;
+			sourceTree = "<group>";
+		};
 		55EA21CD1CDFCB1C004A0AD0 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +738,7 @@
 			files = (
 				2A77F67D1CDA4217006BECF6 /* Geocoding.storyboard in Resources */,
 				55EA21CF1CDFCB40004A0AD0 /* BasicCollectionViewController.storyboard in Resources */,
+				55E7AB5E1E994A4F00600199 /* ScratchCardDemo.storyboard in Resources */,
 				55040F901D608D7E00795A5E /* HLSDemo.storyboard in Resources */,
 				55BC8BEB1CBFBB2C005F57B8 /* LaunchScreen.storyboard in Resources */,
 				55BC8BE81CBFBB2C005F57B8 /* Assets.xcassets in Resources */,
@@ -868,6 +886,7 @@
 				2A98D49A1D33E53E007C7CE9 /* ManipulableViewController.swift in Sources */,
 				5548BD141CE4811E00F4EA89 /* CustomCollectionViewLayoutViewController.swift in Sources */,
 				2A98D48D1D339EB8007C7CE9 /* ColorSliderView.swift in Sources */,
+				55E7AB601E994A6300600199 /* ScratchCardDemoViewController.swift in Sources */,
 				5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */,
 				2AC701781CDB62100007FF7E /* DetailTransitionViewController.swift in Sources */,
 				2A98D49C1D33E54C007C7CE9 /* ManipulableView.swift in Sources */,
@@ -885,6 +904,7 @@
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
 				55FAC4721D43BC90000BE58B /* QRCodeViewController.swift in Sources */,
 				2A7390671D2BEFB100474554 /* SwipableVideoFiltersViewController.swift in Sources */,
+				55E7AB5B1E99474E00600199 /* ScratchCardView.swift in Sources */,
 				55BC8C1F1CBFCD28005F57B8 /* UnimplementedViewController.swift in Sources */,
 				55E050181CC010AF00484C27 /* Readme.md in Sources */,
 				551A05AA1CC4144700AB0E22 /* UIView+Extensions.swift in Sources */,
