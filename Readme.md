@@ -2,26 +2,26 @@
 
 ## Table of content
 
-# Core Graphics
+### Core Graphics
 * Context Drawing
 * Canvas Drawing
 * Scratch Card
 
-# UIViews
+### UIViews
 * UIScrollView
 * UICollectionView
 * UITableView
 
-# Custom UIViews
+### Custom UIViews
 * Color Slider
 
-# Notifications
+### Notifications
 * Local Notifications
 
-# Gesture Recognizers
+### Gesture Recognizers
 * Recognizer showcase
 * Manipulable view
 
-# View Animations
+### View Animations
 * UIViewController Custom Transitions
 
