@@ -29,13 +29,19 @@ class CanvasView: UIView {
         
         self.configureView()
     }
+    
+    init(strokePaths paths: [CGMutablePath]) {
+        self.init()
+        
+        self.paths = paths
+    }
 
     override func draw(_ rect: CGRect) {
         
         let context = UIGraphicsGetCurrentContext()
         for path in self.paths + [self.currentPath].flatMap({$0}) {
             context?.addPath(path)
-            context?.setLineWidth(2.0)
+            context?.setLineWidth(5.0)
             context?.strokePath()
         }
     }
@@ -47,17 +53,33 @@ class CanvasView: UIView {
         let location = recognizer.location(in: self)
         
         switch recognizer.state {
-            
         case .began:
-            self.currentPath = CGMutablePath()
-            self.currentPath?.move(to: location)
-            
+            self.beginPath(at: location)
         case .changed:
-            self.currentPath?.addLine(to: location)
-            self.setNeedsDisplay()
-            
-        default: self.closeCurrentPath()
+            self.addLine(to: location)
+        default:
+            self.closeCurrentPath()
         }
+    }
+    
+    // MARK: Public methods
+    
+    func beginPath(at point: CGPoint) {
+        self.currentPath = CGMutablePath()
+        self.currentPath?.move(to: point)
+    }
+    
+    func addLine(to point: CGPoint) {
+        self.currentPath?.addLine(to: point)
+        self.setNeedsDisplay()
+    }
+    
+    func closeCurrentPath() {
+        if let currentPath = self.currentPath {
+            self.paths.append(currentPath)
+        }
+        self.currentPath = nil
+        self.setNeedsDisplay()
     }
     
     // MARK: Methods
@@ -71,15 +93,6 @@ class CanvasView: UIView {
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.addGestureRecognizer(panRecognizer)
-    }
-    
-    fileprivate func closeCurrentPath() {
-        
-        if let currentPath = self.currentPath {
-            self.paths.append(currentPath)
-        }
-        self.currentPath = nil
-        self.setNeedsDisplay()
     }
     
     // MARK: Public methods

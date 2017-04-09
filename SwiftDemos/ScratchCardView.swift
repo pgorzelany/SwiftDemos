@@ -15,8 +15,7 @@ class ScratchCardView: UIView {
     var topView = UIView()
     var bottomView = UIView()
     
-    private var scratchPaths = [CGMutablePath]()
-    private var currentPath: CGMutablePath?
+    private var canvasView = CanvasView()
     
     // MARK: Delegate
     
@@ -36,52 +35,40 @@ class ScratchCardView: UIView {
         configureView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        canvasView.frame = topView.bounds
+    }
+    
     // MARK: Configuration
     
     private func configureView() {
+        self.addGestureRecognizers()
         bottomView.backgroundColor = UIColor.red
         topView.backgroundColor = UIColor.blue
+        let testPath = CGMutablePath()
+        testPath.move(to: CGPoint(x: 0, y: 0))
+        testPath.addLine(to: CGPoint(x: 50, y: 50))
+        canvasView = CanvasView(strokePaths: [testPath])
+        canvasView.backgroundColor = UIColor.clear
+//        addSubviewFullscreen(canvasView)
         addSubviewFullscreen(bottomView)
         addSubviewFullscreen(topView)
-        addGestureRecognizers()
+//        canvasView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        canvasView.frame = topView.bounds
+        topView.mask = canvasView
+        canvasView.beginPath(at: CGPoint(x: 50, y: 0))
+        canvasView.addLine(to: CGPoint(x: 0, y: 50))
+        canvasView.closeCurrentPath()
     }
     
-    private func addGestureRecognizers() {
+    fileprivate func addGestureRecognizers() {
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
-        addGestureRecognizer(panRecognizer)
+        self.addGestureRecognizer(panRecognizer)
     }
     
-    // MARK: Actions
-    
-    @objc private func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
-        let location = recognizer.location(in: self)
-        
-        switch recognizer.state {
-            
-        case .began:
-            currentPath = CGMutablePath()
-            currentPath?.move(to: location)
-            
-        case .changed:
-            currentPath?.addLine(to: location)
-            
-        default: closeCurrentPath()
-        }
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+        canvasView.panGestureRecognized(recognizer)
     }
-    
-    // MARK: Helpers
-    
-    fileprivate func closeCurrentPath() {
-        if let currentPath = currentPath {
-            scratchPaths.append(currentPath)
-        }
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = currentPath
-        maskLayer.lineWidth = 20
-        maskLayer.strokeColor = UIColor.white.cgColor
-        topView.layer.mask = maskLayer
-        currentPath = nil
-        
-    }
-
 }
