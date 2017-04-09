@@ -12,8 +12,10 @@ class CanvasView: UIView {
     
     // MARK: Properties
     
-    fileprivate var paths: [CGMutablePath] = []
+    @IBInspectable var lineWidht: CGFloat = 1
+    @IBInspectable var strokeColor = UIColor.black
     
+    fileprivate var paths: [CGMutablePath] = []
     fileprivate var currentPath: CGMutablePath?
     
     // MARK: Lifecycle
@@ -37,11 +39,10 @@ class CanvasView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        
         let context = UIGraphicsGetCurrentContext()
         for path in self.paths + [self.currentPath].flatMap({$0}) {
             context?.addPath(path)
-            context?.setLineWidth(40.0)
+            context?.setLineWidth(lineWidht)
             context?.strokePath()
         }
     }
@@ -49,7 +50,6 @@ class CanvasView: UIView {
     // MARK: Actions
     
     func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
-        
         let location = recognizer.location(in: self)
         
         switch recognizer.state {
@@ -58,7 +58,7 @@ class CanvasView: UIView {
         case .changed:
             self.addLine(to: location)
         default:
-            self.closeCurrentPath()
+            self.closePath()
         }
     }
     
@@ -74,7 +74,7 @@ class CanvasView: UIView {
         self.setNeedsDisplay()
     }
     
-    func closeCurrentPath() {
+    func closePath() {
         if let currentPath = self.currentPath {
             self.paths.append(currentPath)
         }
@@ -82,25 +82,19 @@ class CanvasView: UIView {
         self.setNeedsDisplay()
     }
     
-    // MARK: Methods
+    func clear() {
+        self.paths = []
+        self.setNeedsDisplay()
+    }
+    
+    // MARK: Private Methods
     
     fileprivate func configureView() {
-        
         self.addGestureRecognizers()
     }
     
     fileprivate func addGestureRecognizers() {
-        
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.addGestureRecognizer(panRecognizer)
     }
-    
-    // MARK: Public methods
-    
-    func clear() {
-        
-        self.paths = []
-        self.setNeedsDisplay()
-    }
-
 }
