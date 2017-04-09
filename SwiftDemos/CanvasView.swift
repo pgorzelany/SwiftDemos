@@ -41,7 +41,7 @@ class CanvasView: UIView {
         let context = UIGraphicsGetCurrentContext()
         for path in self.paths + [self.currentPath].flatMap({$0}) {
             context?.addPath(path)
-            context?.setLineWidth(5.0)
+            context?.setLineWidth(40.0)
             context?.strokePath()
         }
     }

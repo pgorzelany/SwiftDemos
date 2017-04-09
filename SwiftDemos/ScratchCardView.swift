@@ -12,8 +12,8 @@ class ScratchCardView: UIView {
 
     // MARK: Properties
     
-    var topView = UIView()
-    var bottomView = UIView()
+    var coverView = UIView()
+    var contentView = UIView()
     
     private var canvasView = CanvasView()
     
@@ -38,29 +38,21 @@ class ScratchCardView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        canvasView.frame = topView.bounds
+        canvasView.frame = contentView.bounds
     }
     
     // MARK: Configuration
     
     private func configureView() {
         self.addGestureRecognizers()
-        bottomView.backgroundColor = UIColor.red
-        topView.backgroundColor = UIColor.blue
-        let testPath = CGMutablePath()
-        testPath.move(to: CGPoint(x: 0, y: 0))
-        testPath.addLine(to: CGPoint(x: 50, y: 50))
-        canvasView = CanvasView(strokePaths: [testPath])
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "example-image"))
+        contentView.addSubviewFullscreen(imageView)
+        contentView.backgroundColor = UIColor.red
+        coverView.backgroundColor = UIColor.blue
         canvasView.backgroundColor = UIColor.clear
-//        addSubviewFullscreen(canvasView)
-        addSubviewFullscreen(bottomView)
-        addSubviewFullscreen(topView)
-//        canvasView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        canvasView.frame = topView.bounds
-        topView.mask = canvasView
-        canvasView.beginPath(at: CGPoint(x: 50, y: 0))
-        canvasView.addLine(to: CGPoint(x: 0, y: 50))
-        canvasView.closeCurrentPath()
+        addSubviewFullscreen(coverView)
+        addSubviewFullscreen(contentView)
+        contentView.mask = canvasView
     }
     
     fileprivate func addGestureRecognizers() {
