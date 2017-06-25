@@ -68,6 +68,11 @@ class MotionViewController: UIViewController, StoryboardInstantiable {
         }
         
         print(data.gravity)
-        gravityLabel.text = "x: \(data.gravity.x), y: \(data.gravity.y), z: \(data.gravity.z)"
+        DispatchQueue.main.async {
+            let x = (data.gravity.x * 100).rounded()
+            let y = (data.gravity.y * 100).rounded()
+            let z = (data.gravity.z * 100).rounded()
+            self.gravityLabel.text = "x: \(x), y: \(y), z: \(z)"
+        }
     }
 }
