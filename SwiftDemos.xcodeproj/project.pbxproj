@@ -44,6 +44,8 @@
 		5548E07F1D7EC07400C14E5C /* CanvasDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548E07E1D7EC07400C14E5C /* CanvasDemo.storyboard */; };
 		5548E0811D7EC08100C14E5C /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0801D7EC08100C14E5C /* CanvasViewController.swift */; };
 		5548E0831D7EC0E700C14E5C /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0821D7EC0E700C14E5C /* CanvasView.swift */; };
+		55753E791F005A530087C828 /* CoreMotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55753E781F005A530087C828 /* CoreMotion.storyboard */; };
+		55753E7B1F005A610087C828 /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55753E7A1F005A610087C828 /* MotionViewController.swift */; };
 		557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */; };
 		557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */; };
 		5583367B1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */; };
@@ -142,6 +144,8 @@
 		5548E0801D7EC08100C14E5C /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		5548E0821D7EC0E700C14E5C /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		555CAFCB119A126CAB76A15C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55753E781F005A530087C828 /* CoreMotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoreMotion.storyboard; sourceTree = "<group>"; };
+		55753E7A1F005A610087C828 /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
 		557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizersViewController.swift; sourceTree = "<group>"; };
 		557E17CC1CC6B7F700A25E98 /* GestureRecognizers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GestureRecognizers.storyboard; sourceTree = "<group>"; };
 		5583367A1CE4DD2F000AAC80 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -349,6 +353,15 @@
 			name = CanvasDemo;
 			sourceTree = "<group>";
 		};
+		55753E771F005A2C0087C828 /* CoreMotion */ = {
+			isa = PBXGroup;
+			children = (
+				55753E781F005A530087C828 /* CoreMotion.storyboard */,
+				55753E7A1F005A610087C828 /* MotionViewController.swift */,
+			);
+			name = CoreMotion;
+			sourceTree = "<group>";
+		};
 		557E17C11CC6A74600A25E98 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +506,7 @@
 				557E17C11CC6A74600A25E98 /* Animations */,
 				55A5C1181CD00A8B00297406 /* MapKit */,
 				2A9092561CD3A52D0037A0B8 /* CoreGraphics */,
+				55753E771F005A2C0087C828 /* CoreMotion */,
 				55FAC46E1D43B9D5000BE58B /* Camera */,
 				55BC8C1B1CBFCCFB005F57B8 /* Unimplemented */,
 			);
@@ -757,6 +771,7 @@
 				55E0501C1CC0115800484C27 /* LocalNotifications.storyboard in Resources */,
 				5548BD121CE480FA00F4EA89 /* CustomCollectionViewLayout.storyboard in Resources */,
 				557E17CD1CC6B7F700A25E98 /* GestureRecognizers.storyboard in Resources */,
+				55753E791F005A530087C828 /* CoreMotion.storyboard in Resources */,
 				2A98D4851D339849007C7CE9 /* ColorSliderDemo.storyboard in Resources */,
 				55BC8C111CBFBBA8005F57B8 /* TOK.storyboard in Resources */,
 				558336801CE4FC8A000AAC80 /* CustomCollectionViewCell.xib in Resources */,
@@ -919,6 +934,7 @@
 				2A7390701D2D497900474554 /* UIGestureRecgonizer+Extensions.swift in Sources */,
 				557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */,
 				55EA21D11CDFCB56004A0AD0 /* BasicCollectionViewController.swift in Sources */,
+				55753E7B1F005A610087C828 /* MotionViewController.swift in Sources */,
 				5541E58D1D2AAF4700447C6F /* SubmitButton.swift in Sources */,
 				55BC8C181CBFBD47005F57B8 /* NibInstantiable.swift in Sources */,
 				2AC7017A1CDB63670007FF7E /* SlideAnimator.swift in Sources */,

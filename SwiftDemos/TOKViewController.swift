@@ -78,7 +78,9 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
             TOKRow(title: "Basic Map", controller: BasicMapViewController.self),
             TOKRow(title: "Geocoding", controller: GeocodingViewController.self)
             ]),
-        TOKSection(hader: "Core Motion", rows: []),
+        TOKSection(hader: "Core Motion", rows: [
+            TOKRow(title: "Motion", controller: MotionViewController.self)
+            ]),
         TOKSection(hader: "AVFoundation, GPUImage", rows: [
             TOKRow(title: "GPUImage swipable video filters", controller: SwipableVideoFilterViewController.self),
             TOKRow(title: "QRCode scanner", controller: QRCodeViewController.self),

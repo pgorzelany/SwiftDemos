@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMotionUsageDescription</key>
+	<string>Need access to your motion data</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need access to your photo library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Need access to your photo library</string>
 	<key>NSMicrophoneUsageDescription</key>
