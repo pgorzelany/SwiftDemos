@@ -75,7 +75,7 @@ class ColorSliderView: UIView {
     
     // MARK: Actions 
     
-    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
+    @objc func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         
         let location = recognizer.location(in: self)
         if let color = self.colorForLocation(location) {
@@ -84,7 +84,7 @@ class ColorSliderView: UIView {
         }
     }
     
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         let location = recognizer.location(in: self)
         if let color = self.colorForLocation(location) {

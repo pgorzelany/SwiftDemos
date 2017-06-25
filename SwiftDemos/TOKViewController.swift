@@ -90,8 +90,6 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         )
     ]
     
-    // MARK: Initializers
-    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -100,25 +98,7 @@ class TOKViewController: UIViewController, StoryboardInstantiable {
         self.navigationItem.title = "TOC"
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        self.addSearchBar()
     }
-    
-    // MARK: Actions
-    
-    // MARK: Data
-    
-    // MARK: Appearance
-    
-    fileprivate func addSearchBar() {
-        
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 1, height: 35))
-        searchBar.placeholder = "Search for demo"
-        searchBar.delegate = self
-        self.tableView.tableHeaderView = searchBar
-        
-    }
-
 }
 
 // MARK: Tableview deletage and data source
@@ -162,18 +142,6 @@ extension TOKViewController: UITableViewDataSource, UITableViewDelegate {
         let controller = row.controller?.instantiateFromStoryboard() ?? UnimplementedViewController.instantiateFromStoryboard()
         
         self.navigationController?.pushViewController(controller, animated: true)
-        
-    }
-    
-}
-
-// MARK: Searchbar delegate
-
-extension TOKViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print("Searched text is: \(searchText)")
         
     }
     

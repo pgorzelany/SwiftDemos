@@ -49,7 +49,7 @@ class CanvasView: UIView {
     
     // MARK: Actions
     
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         let location = recognizer.location(in: self)
         
         switch recognizer.state {

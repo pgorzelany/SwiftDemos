@@ -30,7 +30,7 @@ class StickerView: ManipulableView {
     
     // MARK: Actions
     
-    func removeButtonTouched() {
+    @objc func removeButtonTouched() {
         
         self.removeFromSuperview()
     }

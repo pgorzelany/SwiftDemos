@@ -40,31 +40,31 @@ class GestureRecognizersViewController: UIViewController, StoryboardInstantiable
         
     }
     
-    func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+    @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
         
         resultLabel.text = "\(#function)!"
         
     }
     
-    func doubleTapGestureRecognized(_ sender: UITapGestureRecognizer) {
+    @objc func doubleTapGestureRecognized(_ sender: UITapGestureRecognizer) {
         
         resultLabel.text = #function
         
     }
     
-    func rotationGestureRecognized(_ sender: UIRotationGestureRecognizer) {
+    @objc func rotationGestureRecognized(_ sender: UIRotationGestureRecognizer) {
         
         resultLabel.text = #function
         
     }
     
-    func panGestureRecognized(_ sender: UIRotationGestureRecognizer) {
+    @objc func panGestureRecognized(_ sender: UIRotationGestureRecognizer) {
         
         resultLabel.text = #function
         
     }
     
-    func swipeGestureRecognized(_ sender: UIRotationGestureRecognizer) {
+    @objc func swipeGestureRecognized(_ sender: UIRotationGestureRecognizer) {
         
         resultLabel.text = #function
         

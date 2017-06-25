@@ -19,6 +19,7 @@ extension MKMapType: CustomStringConvertible {
         case .satellite: return "Satellite"
         case .satelliteFlyover: return "SatelliteFlyover"
         case .standard: return "Standard"
+        case .mutedStandard: return "Muted Standard"
         }
     }
 }

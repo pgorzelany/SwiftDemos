@@ -79,7 +79,7 @@ class CustomCollectionViewLayoutViewController: UIViewController, StoryboardInst
         
     }
     
-    func longPressGestureRecognized(_ gesture: UILongPressGestureRecognizer) {
+    @objc func longPressGestureRecognized(_ gesture: UILongPressGestureRecognizer) {
         print(#function)
         
         

@@ -62,7 +62,7 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
         do {
             
             // capture session configuration
-            let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+            let device = AVCaptureDevice.default(for: .video)!
             let input = try AVCaptureDeviceInput(device: device)
             let output = AVCaptureMetadataOutput()
             self.captureSession.addInput(input)
@@ -71,13 +71,13 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
             // qrcode metadata configuraton
             
             output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+            output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
             
             // preview layer
             self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-            self.videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            self.videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             self.videoPreviewLayer?.frame = self.cameraContainerView.bounds
-            self.videoPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+            self.videoPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
             self.cameraContainerView.layer.insertSublayer(self.videoPreviewLayer!, at: 0)
             
         } catch {
@@ -109,7 +109,7 @@ class QRCodeViewController: UIViewController, StoryboardInstantiable {
 
 extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    func metadataOutput(_ captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         for metadataObject in metadataObjects {
             

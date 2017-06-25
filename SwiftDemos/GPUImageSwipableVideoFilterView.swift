@@ -67,7 +67,7 @@ class GPUImageSwipableVideoFilterView: GPUImageView {
     
     // MARK: Actions
     
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         let xTranslation = recognizer.translation(in: self).x
         

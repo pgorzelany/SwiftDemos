@@ -60,7 +60,7 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     // MARK: Actions
     
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         let xTranslation = recognizer.translation(in: self).x
         print(xTranslation)
@@ -134,7 +134,7 @@ class GPUImageSwipableFilterView: GPUImageView {
     
     fileprivate func configureCamera() {
         
-        self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: AVCaptureDevicePosition.back)
+        self.videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSession.Preset.vga640x480.rawValue, cameraPosition: AVCaptureDevice.Position.back)
         self.videoCamera.outputImageOrientation = UIInterfaceOrientation.portrait
         
         self.updateFilterTargets()

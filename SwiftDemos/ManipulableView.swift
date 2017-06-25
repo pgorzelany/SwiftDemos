@@ -46,11 +46,11 @@ class ManipulableView: UIView {
     
     // MARK: Actions
     
-    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
+    @objc func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         
     }
     
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         let translation = recognizer.translation(in: self)
         
@@ -68,7 +68,7 @@ class ManipulableView: UIView {
         }
     }
     
-    func pinchGestureRecognized(_ recognizer: UIPinchGestureRecognizer) {
+    @objc func pinchGestureRecognized(_ recognizer: UIPinchGestureRecognizer) {
         
         switch recognizer.state {
             
@@ -86,7 +86,7 @@ class ManipulableView: UIView {
         recognizer.scale = 1
     }
     
-    func rotationGestureRecognized(_ recognizer: UIRotationGestureRecognizer) {
+    @objc func rotationGestureRecognized(_ recognizer: UIRotationGestureRecognizer) {
         
         switch recognizer.state {
             

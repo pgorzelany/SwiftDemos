@@ -71,26 +71,26 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
         do {
             
             // capture session configuration
-            let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+            let device = AVCaptureDevice.default(for: .video)!
             let input = try AVCaptureDeviceInput(device: device)
             self.captureSession.addInput(input)
 
             // preview layer
             self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-            self.videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            self.videoPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+            self.videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            self.videoPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
             self.videoPreviewLayer?.frame = self.cameraContainerView.bounds
             self.cameraContainerView.layer.insertSublayer(self.videoPreviewLayer!, at: 0)
             
             // data output
             let videoDataOutput = AVCaptureVideoDataOutput()
             let rgbOutputSettings: NSDictionary = [String(kCVPixelBufferPixelFormatTypeKey): NSNumber(value: kCMPixelFormat_32BGRA as UInt32)]
-            videoDataOutput.videoSettings = rgbOutputSettings as! [AnyHashable: Any]
+            videoDataOutput.videoSettings = rgbOutputSettings as! [AnyHashable: Any] as! [String : Any]
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
             let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutputQue", attributes: [])
             videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
             self.captureSession.addOutput(videoDataOutput)
-            videoDataOutput.connection(withMediaType: AVMediaTypeVideo).isEnabled = true
+            videoDataOutput.connection(with: AVMediaType.video)?.isEnabled = true
             
         } catch {
             
@@ -117,7 +117,7 @@ class FaceRecognitionViewController: UIViewController, StoryboardInstantiable {
 
 extension FaceRecognitionViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer), let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate) {
 
