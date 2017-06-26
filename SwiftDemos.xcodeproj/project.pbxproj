@@ -44,6 +44,7 @@
 		5548E07F1D7EC07400C14E5C /* CanvasDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5548E07E1D7EC07400C14E5C /* CanvasDemo.storyboard */; };
 		5548E0811D7EC08100C14E5C /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0801D7EC08100C14E5C /* CanvasViewController.swift */; };
 		5548E0831D7EC0E700C14E5C /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548E0821D7EC0E700C14E5C /* CanvasView.swift */; };
+		5566610F1F01940C00819BD1 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5566610E1F01940C00819BD1 /* Double+Extensions.swift */; };
 		55753E791F005A530087C828 /* CoreMotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55753E781F005A530087C828 /* CoreMotion.storyboard */; };
 		55753E7B1F005A610087C828 /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55753E7A1F005A610087C828 /* MotionViewController.swift */; };
 		557E17CB1CC6B7E800A25E98 /* GestureRecognizersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */; };
@@ -144,6 +145,7 @@
 		5548E0801D7EC08100C14E5C /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		5548E0821D7EC0E700C14E5C /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		555CAFCB119A126CAB76A15C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5566610E1F01940C00819BD1 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		55753E781F005A530087C828 /* CoreMotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoreMotion.storyboard; sourceTree = "<group>"; };
 		55753E7A1F005A610087C828 /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
 		557E17CA1CC6B7E800A25E98 /* GestureRecognizersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizersViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				551A05A91CC4144700AB0E22 /* UIView+Extensions.swift */,
 				2A73906F1D2D497900474554 /* UIGestureRecgonizer+Extensions.swift */,
 				5501813B1D357DA200F5C18C /* CGPoint+Extensions.swift */,
+				5566610E1F01940C00819BD1 /* Double+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -915,6 +918,7 @@
 				2A73906E1D2D1CF900474554 /* GPUImageSwipableFilterView.swift in Sources */,
 				55A5C11D1CD00AF600297406 /* BasicMapViewController.swift in Sources */,
 				558EC6891CF79A2400B6FD1C /* Angle.swift in Sources */,
+				5566610F1F01940C00819BD1 /* Double+Extensions.swift in Sources */,
 				2A77F67F1CDA4224006BECF6 /* GeocodingViewController.swift in Sources */,
 				5583367D1CE4FC67000AAC80 /* CustomCollectionViewCell.swift in Sources */,
 				55FAC4721D43BC90000BE58B /* QRCodeViewController.swift in Sources */,
@@ -1082,6 +1086,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pgorzelany.SwiftDemos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1100,6 +1105,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pgorzelany.SwiftDemos;
 				PRODUCT_NAME = "$(TARGET_NAME)";

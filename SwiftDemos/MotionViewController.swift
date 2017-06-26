@@ -18,11 +18,15 @@ class MotionViewController: UIViewController, StoryboardInstantiable {
     // MARK: Outlets
     
     @IBOutlet weak var gravityLabel: UILabel!
+    @IBOutlet weak var userAccelerationLabel: UILabel!
+    @IBOutlet weak var attitudeLabel: UILabel!
+    @IBOutlet weak var rotationRateLabel: UILabel!
+    @IBOutlet weak var magneticFieldLabel: UILabel!
     
     // MARK: Properties
     
     private let motionManager = CMMotionManager()
-    private var motionQueue: OperationQueue!
+    private let motionQueue = OperationQueue()
     
     // MARK: Lifecycle
     
@@ -30,6 +34,18 @@ class MotionViewController: UIViewController, StoryboardInstantiable {
         super.viewDidLoad()
         
         configureController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startMotionManager()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopMotionManager()
     }
     
     // MARK: Configuration
@@ -40,7 +56,6 @@ class MotionViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func configureOperationQueue() {
-        motionQueue = OperationQueue()
         motionQueue.maxConcurrentOperationCount = 1
         motionQueue.qualityOfService = .userInteractive
         
@@ -50,15 +65,15 @@ class MotionViewController: UIViewController, StoryboardInstantiable {
         motionManager.deviceMotionUpdateInterval = 0.5
     }
     
-    // MARK: Actions
+    // MARK: Methods
     
-    @IBAction private func startMotionManager() {
+    private func startMotionManager() {
         if motionManager.isDeviceMotionAvailable {
             motionManager.startDeviceMotionUpdates(to: motionQueue, withHandler: handleDeviceMotionUpdate)
         }
     }
     
-    @IBAction private func stopMotionManager() {
+    private func stopMotionManager() {
         motionManager.stopDeviceMotionUpdates()
     }
     
@@ -67,12 +82,31 @@ class MotionViewController: UIViewController, StoryboardInstantiable {
             return
         }
         
-        print(data.gravity)
         DispatchQueue.main.async {
-            let x = (data.gravity.x * 100).rounded()
-            let y = (data.gravity.y * 100).rounded()
-            let z = (data.gravity.z * 100).rounded()
+            let x = data.gravity.x.round(precision: 2)
+            let y = data.gravity.y.round(precision: 2)
+            let z = data.gravity.y.round(precision: 2)
             self.gravityLabel.text = "x: \(x), y: \(y), z: \(z)"
+            
+            let accX = data.userAcceleration.x.round(precision: 2)
+            let accY = data.userAcceleration.y.round(precision: 2)
+            let accZ = data.userAcceleration.z.round(precision: 2)
+            self.userAccelerationLabel.text = "x: \(accX), y: \(accY), z: \(accZ)"
+            
+            let rotationX = data.rotationRate.x.round(precision: 2)
+            let rotationY = data.rotationRate.y.round(precision: 2)
+            let rotationZ = data.rotationRate.z.round(precision: 2)
+            self.rotationRateLabel.text = "x: \(rotationX), y: \(rotationY), z: \(rotationZ)"
+            
+            let pitch = data.attitude.pitch.round(precision: 2)
+            let roll = data.attitude.roll.round(precision: 2)
+            let yaw = data.attitude.yaw.round(precision: 2)
+            self.attitudeLabel.text = "Pitch: \(pitch), roll: \(roll), yaw: \(yaw)"
+            
+            let magneticX = data.magneticField.field.x
+            let magneticY = data.magneticField.field.y
+            let magneticZ = data.magneticField.field.z
+            self.magneticFieldLabel.text = "x: \(magneticX), y: \(magneticY), z: \(magneticZ)"
         }
     }
 }
